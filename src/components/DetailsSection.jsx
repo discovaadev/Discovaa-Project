@@ -7,8 +7,8 @@ import DateAvailability from "./DateAvailability";
 import RatingsAndReviews from "./RatingsAndReview";
 const DetailsSection = ({className = ''}) => {
   return (
-    <section className={`bg-blue-50 w-full max-w-[1405px] h-[1550px] rounded-t-lg ${className}`}>
-      <div className="flex items-center justify-between ">
+    <section className={`bg-blue-50 w-full max-w-[1405px] h-[1690px] rounded-t-lg ${className}`}>
+      <div className="flex  justify-between ">
         <div className="block pl-14 pt-3">
         <div className="flex ">
           <h1 className="font-bold text-2xl">   

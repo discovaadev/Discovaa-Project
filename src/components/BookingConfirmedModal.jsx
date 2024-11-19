@@ -1,3 +1,5 @@
+import SucccessImg from "../assets/SuccessImg.png";
+import DocImg from "../assets/DocImg.png";
 const BookingConfirmedModal = ({ onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -22,28 +24,18 @@ const BookingConfirmedModal = ({ onClose }) => {
           </svg>
         </button>
 
-        <div className="flex justify-center mb-6">
-          <div className="bg-gray-100 p-4 rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-12 w-12 text-blue-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12l2 2l4-4m6 2a9 9 0 11-18 0a9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
+        <div className="relative flex justify-center">
+          <img src={SucccessImg} alt="Upload Successful" className="w-28 mt-8" />
+          <img
+            src={DocImg}
+            alt="Upload Successful"
+            className="absolute right-2 left-[170px] w-12 mt-16 text-white"
+          />
         </div>
         <h2 className="text-xl font-semibold text-center">
           Booking Confirmed!
         </h2>
-        <p className="text-center text-gray-600 mt-2">
+        <p className="text-center text-gray-600 mt-2 text-xs">
           Your booking with **Plum Plumbing Services** has been confirmed.
           Details below:
         </p>
@@ -57,7 +49,7 @@ const BookingConfirmedModal = ({ onClose }) => {
         </div>
         <button
           onClick={onClose}
-          className="mt-6 w-full bg-black text-white py-2 px-4 rounded-lg font-medium hover:bg-gray-800"
+          className="mt-6 w-full bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-800"
         >
           Back to Home Page
         </button>

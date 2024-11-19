@@ -60,7 +60,7 @@ function App() {
           <Route path="/userseemorepage" element={<UserSeeMorePage />} />
           <Route path="/favouritepage" element={<FavouritePage />} />
           <Route
-            path="/"
+            path="/userprofilepersonalinfopage"
             element={
               <UserProfilePersonalinfoPage
                 profilePic={profilePic}
@@ -71,7 +71,7 @@ function App() {
             }
           />
           <Route
-            path="/isvprofilepage"
+            path="/"
             element={
               <IsvProfilePage
                 showModal={showModal}

@@ -59,15 +59,15 @@ function RatingsAndReviews() {
   ];
 
   return (
-    <section>
+    <section className="w-full">
         <div className="flex justify-between  mt-12">
           <h2 className="text-2xl font-semibold mb-2 pl-[50px]">Ratings and Reviews</h2>
-          <div className="flex items-center text-gray-600 mb-6 pr-[220px] ml-20">
+          <div className="flex items-center text-gray-600 mb-6 pr-[165px] ml-20">
             <span className="text-xl">★ 4.5</span>
             <span className="ml-2">10 Reviews</span>
           </div>
         </div>
-      <div className="flex flex-col w-full max-w-[1280px] items-center justify-center py-12 ">
+      <div className="flex flex-col w-full max-w-[1280px] mx-auto py-12 ">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-4">
           {reviews.map((review, index) => (
             <ReviewCard
@@ -80,7 +80,8 @@ function RatingsAndReviews() {
             />
           ))}
         </div>
-        <button className="mt-6 px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-200 transition flex items-center">
+      </div>
+        <button className="mt-6 px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-200 transition flex items-center mx-auto">
           See all 10 Reviews
           <svg
           className="ml-1 w-5 h-5 transform transition-transform duration-200 -rotate-90 "
@@ -94,7 +95,6 @@ function RatingsAndReviews() {
           />
         </svg>
         </button>
-      </div>
     </section>
   );
 }
