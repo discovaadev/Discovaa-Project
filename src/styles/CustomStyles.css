@@ -1,0 +1,18 @@
+.clip-ellipse-left {
+  clip-path: ellipse(70% 80% at 30% 50%);
+}
+
+.clip-ellipse-right {
+  clip-path: ellipse(70% 80% at 70% 50%);
+}
+
+.bg-blue-custom {
+  background-color: #ebf8ff !important;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
