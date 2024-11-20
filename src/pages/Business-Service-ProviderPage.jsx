@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import UserDashboard from "../components/UserDashboard";
+import UserDashboard from "../components/Dashboard";
 import Footer from "../components/footer";
 
 const BuisnessSerViceProviderPage = ({
@@ -7,6 +7,7 @@ const BuisnessSerViceProviderPage = ({
   onSearchChange,
   profilePic,
   onProfileImageChange,
+  onToggleChat
 }) => {
   return (
     <section className="flex flex-col">
@@ -23,7 +24,8 @@ const BuisnessSerViceProviderPage = ({
           { href: "/contact", label: "Contact" },
         ]}
         onProfileImageChange={onProfileImageChange}
-        profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        profilePic={profilePic}
+        onToggleChat={onToggleChat}
       />
       <UserDashboard />
       <Footer />

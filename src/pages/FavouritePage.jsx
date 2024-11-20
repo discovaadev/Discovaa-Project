@@ -121,6 +121,7 @@ const FavouritePage = ({
   onSearchChange,
   profilePic,
   onProfileImageChange,
+  onToggleChat
 }) => {
   return (
     <div className="flex flex-col">
@@ -138,6 +139,7 @@ const FavouritePage = ({
         ]}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        onToggleChat={onToggleChat}
       />
       <main>
         <div className="p-9 mt-4 ml-8">

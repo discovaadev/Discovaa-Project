@@ -2,7 +2,7 @@
 import Header from "../components/Header";
 import Dashboard from '../components/Dashboard';
 import Footer from '../components/footer';
-const IsvDashboard = ({ searchQuery, onSearchChange, profilePic, onProfileImageChange }) => {
+const IsvDashboard = ({ searchQuery, onSearchChange, profilePic, onProfileImageChange, onToggleChat}) => {
   return (
     <div>
       <Header
@@ -19,6 +19,7 @@ const IsvDashboard = ({ searchQuery, onSearchChange, profilePic, onProfileImageC
         ]}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || '../assets/HeaderProfileImg (2).png'}
+        onToggleChat={onToggleChat}
       />
       <main>
         <Dashboard showBusinessVerification={true} profilePic={profilePic} onProfileImageChange={onProfileImageChange}/>

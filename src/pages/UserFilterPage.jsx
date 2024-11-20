@@ -203,7 +203,7 @@ const newJobData = [
     },
   ]
 
-const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImageChange }) => {
+const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImageChange, onToggleChat}) => {
   return (
     <div>
       <Header
@@ -220,6 +220,7 @@ const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImag
         ]}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        onToggleChat={onToggleChat}
       />{" "}
 
       <main>

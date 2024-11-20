@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import VerificationComplete from '../components/VerificationComplete';
 import Footer from '../components/footer';
 
-const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileImageChange, profilePic}) => {
+const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileImageChange, profilePic, onToggleChat}) => {
   return (
     <div>
       <Header
@@ -19,6 +19,7 @@ const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileIma
         ]}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        onToggleChat={onToggleChat}
       />
       <main>
         <VerificationComplete showBusinessVerification={false}/>

@@ -6,6 +6,7 @@ const UserProfilePersonalinfoPage = ({
   onSearchChange,
   profilePic,
   onProfileImageChange,
+  onToggleChat
 }) => {
   return (
     <section>
@@ -23,6 +24,7 @@ const UserProfilePersonalinfoPage = ({
         ]}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic }
+        onToggleChat={onToggleChat}
       />
       <main>
         <PersonalInfo

@@ -36,6 +36,7 @@ const UserSeeMorePage = ({
   onSearchChange,
   profilePic,
   onProfileImageChange,
+  onToggleChat
 }) => {
   return (
     <div>
@@ -53,6 +54,7 @@ const UserSeeMorePage = ({
         ]}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        onToggleChat={onToggleChat}
       />
       <main>
         <BrowseByCategory

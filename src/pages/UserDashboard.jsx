@@ -2,7 +2,7 @@ import Dashboard from "../components/Dashboard";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 
-const UserDashboard = ({searchQuery, onSearchChange, profilePic, onProfileImageChange}) => {
+const UserDashboard = ({searchQuery, onSearchChange, profilePic, onProfileImageChange, onToggleChat}) => {
     return(
         <div>
         <Header
@@ -19,6 +19,7 @@ const UserDashboard = ({searchQuery, onSearchChange, profilePic, onProfileImageC
           ]}
           onProfileImageChange={onProfileImageChange}
           profilePic={profilePic || '../assets/HeaderProfileImg (2).png'}
+          onToggleChat={onToggleChat}
         />
         <main>
           <Dashboard showBusinessVerification={false} profilePic={profilePic} onProfileImageChange={onProfileImageChange}/>

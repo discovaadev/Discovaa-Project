@@ -10,7 +10,8 @@ const IsvProfilePage = ({
   onProfileImageChange,
   showModal,
   onBookNowClick,
-  onCloseModal
+  onCloseModal,
+  onToggleChat
 }) => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -26,6 +27,7 @@ const IsvProfilePage = ({
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
+        onToggleChat={onToggleChat}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
       />

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import CalenderImg from "../assets/CalenderImg.png";
-
 import DocumentUploadModal from "./DocumentUpload.jsx";
 
-export default function Dashboard({  profilePic,  onProfileImageChange, showBusinessVerification  }) {
+export default function Dashboard({ profilePic, showBusinessVerification  }) {
   const [latestBookings, setLatestBookings] = useState([]);
   const [verificationStatus, setVerificationStatus] = useState(false);
   const [appointments, setAppointments] = useState([]); 
@@ -34,22 +33,6 @@ export default function Dashboard({  profilePic,  onProfileImageChange, showBusi
     setIsModalOpen(true);
   };
 
-  const handleFileChange = (event) => {
-    console.log("File change event triggered");
-    const file = event.target.files[0];
-    console.log(file)
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        
-        onProfileImageChange(reader.result); 
-        console.log("Image data URL:", reader.result); 
-      };
-      reader.readAsDataURL(file);
-    }else {
-      console.error('onProfileImageChange is not a function');
-    }
-  };
   
 
   const closeModal = () => {
@@ -62,8 +45,8 @@ export default function Dashboard({  profilePic,  onProfileImageChange, showBusi
         <div className="flex items-center gap-5 mb-5">
           <img
             src={profilePic}
-            alt="Profile"
-            className="w-[150px] h-[150px] rounded-full"
+            alt="profile"
+            className="w-[150px] h-[150px] rounded-full  object-cover"
           />
           <div>
             <h2 className="text-2xl font-bold">Welcome, Christopher!</h2>
@@ -72,12 +55,7 @@ export default function Dashboard({  profilePic,  onProfileImageChange, showBusi
               can see. Add a profile photo to increase your chances of getting
               replies.
             </p>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="mt-2"
-            />
+
           </div>
         </div>
 
