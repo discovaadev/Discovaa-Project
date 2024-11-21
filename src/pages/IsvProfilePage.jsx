@@ -11,7 +11,8 @@ const IsvProfilePage = ({
   showModal,
   onBookNowClick,
   onCloseModal,
-  onToggleChat
+  onToggleChat,
+  onToggleNotification
 }) => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -23,11 +24,12 @@ const IsvProfilePage = ({
         showProfile={true}
         customLinks={[
           { href: "/", label: "Home" },
-          { href: "/pricing", label: "Pricing" },
+          { href: "/pricing", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
         onToggleChat={onToggleChat}
+        onToggleNotification={onToggleNotification}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
       />

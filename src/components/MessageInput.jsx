@@ -20,7 +20,7 @@ const MessageInput = ({ onSend }) => {
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         placeholder="Type a message..."
-        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
       />
       <button
         onClick={handleSend}

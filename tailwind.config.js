@@ -4,7 +4,11 @@ module.exports = {
     "./public/index.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        "toggle-active": "#78788029", 
+      },
+    },
   },
   plugins: [],
 };

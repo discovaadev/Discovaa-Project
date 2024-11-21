@@ -133,7 +133,7 @@ const FavouritePage = ({
         showProfile={true}
         customLinks={[
           { href: "/", label: "Home" },
-          { href: "/pricing", label: "Pricing" },
+          { href: "/pricing", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}

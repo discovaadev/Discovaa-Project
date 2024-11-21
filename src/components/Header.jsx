@@ -22,6 +22,7 @@ export default function Header({
   profilePic,
   onSearchChange,
   onToggleChat,
+  onToggleNotification
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
 
@@ -87,9 +88,10 @@ export default function Header({
         {showIcons && (
           <div className="flex space-x-3 text-lg mr-8">
             <a
-              href="#/notifications"
+              
               title="Notifications"
               className="cursor-pointer"
+              onClick={onToggleNotification}
             >
               <span className="material-icons">notifications</span>
             </a>

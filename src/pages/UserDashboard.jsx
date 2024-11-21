@@ -18,7 +18,7 @@ const UserDashboard = ({searchQuery, onSearchChange, profilePic, onProfileImageC
             { href: "/contact", label: "Contact" },
           ]}
           onProfileImageChange={onProfileImageChange}
-          profilePic={profilePic || '../assets/HeaderProfileImg (2).png'}
+          profilePic={profilePic}
           onToggleChat={onToggleChat}
         />
         <main>

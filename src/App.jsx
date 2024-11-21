@@ -31,12 +31,19 @@ import FavouritePage from "./pages/FavouritePage";
 import UserProfilePersonalinfoPage from "./pages/UserProfilePersonalinfoPage";
 import ChatPage from "./pages/ChatPage";
 import BuisnessSerViceProviderPage from "./pages/Business-Service-ProviderPage";
-import Dashboard from "./components/Dashboard";
+
+import NotificationPage from "./pages/NotificationPage";
+import JasonDoeMini from "./assets/JasonDoeMini.png";
+import PlumsMini from "./assets/PlumMini.png";
+import AmberMini from "./assets/AmberMini.png";
+import SamMini from "./assets/SamsMini.png";
+import JakeMini from "./assets/JakePullMini.png";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [profilePic, setProfilePic] = useState(ProfilePicPlaceholder);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       sender: "user",
@@ -84,6 +91,98 @@ function App() {
     setIsChatOpen(false);
   };
 
+  const handleToggleNotification = () => {
+    setIsNotificationOpen((prev) => !prev);
+  };
+
+  const closeNotification = () => {
+    setIsNotificationOpen(false);
+  };
+
+  const notifications = [
+    {
+      type: "New Message",
+      section: "Latest",
+      image: JasonDoeMini,
+      name: "Jason Doe",
+      text: "sent a message to you",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "1 hour ago",
+    },
+    {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: JasonDoeMini,
+      name: "Jason Doe",
+      text: "confirmed booking for:",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "8AM",
+    },
+
+    {
+      type: "New Message",
+      section: "Latest",
+      image: PlumsMini,
+      name: "Plum Plumbing Services",
+      text: "sent a message to you",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "2 hours ago",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: AmberMini,
+      name: "Amber's Photography",
+      text: "sent a message to you",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "12 hours ago",
+    },
+    {
+      type: "Confirmed Booking",
+      section: "Previous",
+      image: AmberMini,
+      name: "Amber's Photography",
+      text: "confirmed booking for:",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "12 hours ago",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: SamMini,
+      name: "Sam's Electronics",
+      text: "sent a message to you",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "1 day ago",
+    },
+    {
+      type: "Confirmed Booking",
+      section: "Previous",
+      image: SamMini,
+      name: "Sam's Electronics",
+      text: "sent a message to you",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "1 day ago",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: JakeMini,
+      name: "JackPull Autos",
+      text: "sent a message to you",
+      message:
+        "Yes, I’ll be available. Please send your address and contact details.",
+      time: "2 days ago",
+    },
+  ];
+
   return (
     <div>
       <Router>
@@ -91,7 +190,7 @@ function App() {
           <Routes>
             <Route path="/newpassword" element={<NewPasswordPage />} />
             <Route
-              path="/"
+              path="/businessserviceproviderpage"
               element={
                 <BuisnessSerViceProviderPage
                   profilePic={profilePic}
@@ -152,7 +251,7 @@ function App() {
               }
             />
             <Route
-              path="/isvprofilepage"
+              path="/"
               element={
                 <IsvProfilePage
                   showModal={showModal}
@@ -161,6 +260,7 @@ function App() {
                   profilePic={profilePic}
                   onProfileImageChange={handleProfileImageChange}
                   onToggleChat={handleToggleChat}
+                  onToggleNotification={handleToggleNotification}
                 />
               }
             />
@@ -250,10 +350,16 @@ function App() {
       {isChatOpen && (
         <ChatPage onClose={closeChat} messages={messages} onSend={handleSend} />
       )}
-      <Dashboard
+      {/* <Dashboard
         profilePic={profilePic}
         onProfileImageChange={handleProfileImageChange}
-      />
+      /> */}
+      {isNotificationOpen && (
+        <NotificationPage
+          onClose={closeNotification}
+          notifications={notifications}
+        />
+      )}
     </div>
   );
 }
