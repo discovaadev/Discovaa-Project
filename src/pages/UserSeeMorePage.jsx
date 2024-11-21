@@ -36,7 +36,8 @@ const UserSeeMorePage = ({
   onSearchChange,
   profilePic,
   onProfileImageChange,
-  onToggleChat
+  onToggleChat,
+  onToggleNotification
 }) => {
   return (
     <div>
@@ -48,13 +49,15 @@ const UserSeeMorePage = ({
         showProfile={true}
         customLinks={[
           { href: "/", label: "Home" },
-          { href: "/pricing", label: "Dashboard" },
+          { href: "/userverificationcomplete", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
         onProfileImageChange={onProfileImageChange}
-        profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        profilePic={profilePic}
         onToggleChat={onToggleChat}
+        onToggleNotification={onToggleNotification}
+        userType="endUser"
       />
       <main>
         <BrowseByCategory

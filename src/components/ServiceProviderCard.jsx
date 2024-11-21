@@ -3,7 +3,7 @@ import Rating from "./Rating";
 import { LocationMarkerIcon } from "@heroicons/react/outline";
 import '../styles/CustomStyles.css';
 
-const ServiceProviderCard = ({ provider }) => {
+const ServiceProviderCard = ({ provider,  onViewContact }) => {
   const {
     name,
     category,
@@ -35,7 +35,7 @@ const ServiceProviderCard = ({ provider }) => {
           <LocationMarkerIcon className="h-4 w-4 mr-1 text-gray-400" />
           <span>{location}</span>
         </div>
-        <button className="mt-6 w-60 flex items-center justify-center mx-auto bg-black text-white font-semibold py-2 rounded-lg">
+        <button className="mt-6 w-60 flex items-center justify-center mx-auto bg-black text-white font-semibold py-2 rounded-lg" onClick={() => onViewContact(name)}>
           View Contact
         </button>
       </div>

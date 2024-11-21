@@ -24,7 +24,7 @@ const IsvProfilePage = ({
         showProfile={true}
         customLinks={[
           { href: "/", label: "Home" },
-          { href: "/pricing", label: "Dashboard" },
+          { href: "/userdashboard", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
@@ -32,6 +32,7 @@ const IsvProfilePage = ({
         onToggleNotification={onToggleNotification}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        userType="endUser"
       />
       <div className="relative flex-grow">
         <div className="z-0">

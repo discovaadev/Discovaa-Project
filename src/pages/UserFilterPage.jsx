@@ -203,7 +203,7 @@ const newJobData = [
     },
   ]
 
-const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImageChange, onToggleChat}) => {
+const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImageChange, onToggleChat, onToggleNotification}) => {
   return (
     <div>
       <Header
@@ -214,13 +214,15 @@ const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImag
         showProfile={true}
         customLinks={[
           { href: "/", label: "Home" },
-          { href: "/pricing", label: "Dashboard" },
+          { href: "/userverificationcomplete", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
         onProfileImageChange={onProfileImageChange}
-        profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        profilePic={profilePic}
         onToggleChat={onToggleChat}
+        onToggleNotification={onToggleNotification}
+        userType="endUser"
       />{" "}
 
       <main>

@@ -22,14 +22,27 @@ export default function Header({
   profilePic,
   onSearchChange,
   onToggleChat,
-  onToggleNotification
+  onToggleNotification,
+  userType = "endUser",
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
 
   const handleInputChange = (event) => {
     onSearchChange(event.target.value);
   };
-  console.log("ProfilePic in Header:", profilePic);
+
+  const getFavoritesRoute = () => {
+    switch (userType) {
+      case "endUser":
+        return "/favouritepage";
+      case "individualServiceProvider":
+        return "/favorites/individual";
+      case "businessServiceProvider":
+        return "/favorites/business";
+      default:
+        return "/favorites";
+    }
+  };
 
   return (
     <header
@@ -88,7 +101,6 @@ export default function Header({
         {showIcons && (
           <div className="flex space-x-3 text-lg mr-8">
             <a
-              
               title="Notifications"
               className="cursor-pointer"
               onClick={onToggleNotification}
@@ -102,9 +114,9 @@ export default function Header({
             >
               <span className="material-icons">message</span>
             </span>
-            <a href="#/favorites" title="Favorites" className="cursor-pointer">
+            <Link to={getFavoritesRoute()} title="Favorites">
               <span className="material-icons">favorite</span>
-            </a>
+            </Link>
           </div>
         )}
         {showAuthButtons ? (
@@ -121,9 +133,11 @@ export default function Header({
             </Link>
           </>
         ) : showProfile ? (
-          <div className="w-8">
-            <img src={profilePic} alt="Profile" className="rounded-full" />
-          </div>
+          <Link to="/userprofilepersonalinfopage">
+            <div className="w-10">
+              <img src={profilePic} alt="Profile" className="rounded-full" />
+            </div>
+          </Link>
         ) : null}
       </div>
 

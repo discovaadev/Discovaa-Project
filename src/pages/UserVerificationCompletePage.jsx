@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import VerificationComplete from '../components/VerificationComplete';
 import Footer from '../components/footer';
 
-const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileImageChange, profilePic, onToggleChat}) => {
+const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileImageChange, profilePic, onToggleChat, onToggleNotification}) => {
   return (
     <div>
       <Header
@@ -13,13 +13,14 @@ const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileIma
         showProfile={true}
         customLinks={[
           { href: "/", label: "Home" },
-          { href: "/pricing", label: "Pricing" },
+          { href: "/pricing", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
         onProfileImageChange={onProfileImageChange}
-        profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        profilePic={profilePic}
         onToggleChat={onToggleChat}
+        onToggleNotification={onToggleNotification}
       />
       <main>
         <VerificationComplete showBusinessVerification={false}/>

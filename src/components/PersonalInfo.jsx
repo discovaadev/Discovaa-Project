@@ -65,7 +65,7 @@ const PersonalInfo = ({ profilePic, onProfileImageChange }) => {
       return (
         <>
           <div className="flex flex-col items-center mt-6">
-            <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-gray-300">
+            <div className=" relative w-44 h-44 rounded-full overflow-hidden border-4 border-gray-300 items-center justify-center">
               <img
                 src={profilePic}
                 alt="Profile"
@@ -74,9 +74,10 @@ const PersonalInfo = ({ profilePic, onProfileImageChange }) => {
               />
               <label
                 htmlFor="profilePicInput"
-                className="absolute top-0 right-0 bg-gray-800 p-2 rounded-full cursor-pointer border border-red-500 z-0"
+                className="absolute bg-gray-800 p-2 rounded-full cursor-pointer flex items-center justify-center"
+                style={{ bottom: '10px', right: '10px', zIndex: '20px' }} 
               >
-                <FaCamera className="text-white text-xl" />
+                <FaCamera className="text-white text-xl " />
               </label>
               <input
                 type="file"

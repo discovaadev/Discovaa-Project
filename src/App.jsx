@@ -15,7 +15,7 @@ import IsvSignUpPage from "./pages/IsvSignUpPage1";
 import IsvSignUpPage2 from "./pages/IsvSignUpPage2";
 import IsvDashboard from "./pages/Isv-Dashboard";
 import UserDashboard from "./pages/UserDashboard";
-import ProfilePicPlaceholder from "./assets/HeaderProfileImg (2).png";
+import ProfilePicPlaceholder from "./assets/UserProfileImg.png";
 import UserVerificationCompletePage from "./pages/UserVerificationCompletePage";
 import ForgotPassword from "./pages/ForgotPassword";
 import OtpVerificationPage from "./pages/OtpVerificationPage";
@@ -31,7 +31,6 @@ import FavouritePage from "./pages/FavouritePage";
 import UserProfilePersonalinfoPage from "./pages/UserProfilePersonalinfoPage";
 import ChatPage from "./pages/ChatPage";
 import BuisnessSerViceProviderPage from "./pages/Business-Service-ProviderPage";
-
 import NotificationPage from "./pages/NotificationPage";
 import JasonDoeMini from "./assets/JasonDoeMini.png";
 import PlumsMini from "./assets/PlumMini.png";
@@ -203,7 +202,7 @@ function App() {
             />
 
             <Route
-              path="/userfilterpage"
+              path="/"
               element={
                 <UserFilterPage
                   profilePic={profilePic}
@@ -211,6 +210,7 @@ function App() {
                   searchQuery={searchQuery}
                   onSearchChange={handleSearchChange}
                   onToggleChat={handleToggleChat}
+                  onToggleNotification={handleToggleNotification}
                 />
               }
             />
@@ -223,6 +223,7 @@ function App() {
                   searchQuery={searchQuery}
                   onSearchChange={handleSearchChange}
                   onToggleChat={handleToggleChat}
+                  onToggleNotification={handleToggleNotification}
                 />
               }
             />
@@ -251,7 +252,7 @@ function App() {
               }
             />
             <Route
-              path="/"
+              path="/isvprofilepage"
               element={
                 <IsvProfilePage
                   showModal={showModal}
@@ -304,6 +305,7 @@ function App() {
                   searchQuery={searchQuery}
                   onSearchChange={handleSearchChange}
                   onToggleChat={handleToggleChat}
+                  onToggleNotification={handleToggleNotification}
                 />
               }
             />
