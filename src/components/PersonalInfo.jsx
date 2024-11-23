@@ -166,7 +166,7 @@ const PersonalInfo = ({ profilePic, onProfileImageChange }) => {
                 {isEditing === item.field ? (
                   <button
                     onClick={handleSaveClick}
-                    className="border border-green-500 text-green-500 rounded-full px-4 py-1 hover:bg-green-500 hover:text-white transition"
+                    className="border border-gray-500 text-black rounded-full px-4 py-1 hover:bg-gray-500 hover:text-white transition"
                   >
                     Save
                   </button>

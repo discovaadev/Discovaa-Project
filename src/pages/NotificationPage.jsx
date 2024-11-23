@@ -59,7 +59,7 @@ const NotificationPage = ({ onClose, notifications }) => {
             <img
               src={LastDayText}
               alt="Last Day Text"
-              className="w-[265px] h-[90px]"
+              className="w-[265px] h-[90px] mt-5"
             />
           )}
         </div>

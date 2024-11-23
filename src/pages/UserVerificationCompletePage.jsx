@@ -23,7 +23,7 @@ const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileIma
         onToggleNotification={onToggleNotification}
       />
       <main>
-        <VerificationComplete showBusinessVerification={false}/>
+        <VerificationComplete showBusinessVerification={false} profilePic={profilePic}/>
       </main>
       <Footer />
     </div>

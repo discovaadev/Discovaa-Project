@@ -18,7 +18,7 @@ const NotificationList = ({ activeTab, notifications }) => {
         <>
           <div className="mb-6">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-sm font-bold text-gray-600">LATEST</h3>
+              <h3 className="text-sm font-bold text-gray-600 ">LATEST</h3>
               <button className="text-sm text-gray-900">
                 Mark all as read
               </button>
@@ -37,7 +37,7 @@ const NotificationList = ({ activeTab, notifications }) => {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold text-gray-600 mb-4">PREVIOUS</h3>
+            <h3 className="text-sm font-bold text-gray-600 mb-10 mt-2">PREVIOUS</h3>
             {previousNotifications.map((notification, index) => (
               <NotificationItem key={index} {...notification} />
             ))}

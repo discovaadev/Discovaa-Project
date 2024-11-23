@@ -121,7 +121,8 @@ const FavouritePage = ({
   onSearchChange,
   profilePic,
   onProfileImageChange,
-  onToggleChat
+  onToggleChat,
+  onToggleNotification
 }) => {
   return (
     <div className="flex flex-col">
@@ -138,8 +139,9 @@ const FavouritePage = ({
           { href: "/contact", label: "Contact" },
         ]}
         onProfileImageChange={onProfileImageChange}
-        profilePic={profilePic || "../assets/HeaderProfileImg (2).png"}
+        profilePic={profilePic}
         onToggleChat={onToggleChat}
+        onToggleNotification={onToggleNotification}
       />
       <main>
         <div className="p-9 mt-4 ml-8">

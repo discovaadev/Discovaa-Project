@@ -1,8 +1,8 @@
 import CalenderImg from "../assets/CalenderImg.png";
-import profilePic from "../assets/ProfilePic (2).png";
+
 import CompleteIconImg from "../assets/CompleteIconImg.png";
 
-export default function VerificationComplete({ showBusinessVerification }) {
+export default function VerificationComplete({profilePic, showBusinessVerification }) {
   return (
     <div className="flex gap-5 px-20 py-5 h-screen justify-between">
       <div className="flex flex-col gap-8">
@@ -10,7 +10,7 @@ export default function VerificationComplete({ showBusinessVerification }) {
           <img
             src={profilePic}
             alt="Profile"
-            className="w-24 h-24 rounded-full"
+            className="w-32 h-32 rounded-full"
           />
           <div className="flex flex-col">
             <h2 className="text-2xl font-semibold">Welcome, Christopher!</h2>
