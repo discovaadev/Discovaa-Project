@@ -236,6 +236,7 @@ function App() {
                   searchQuery={searchQuery}
                   onSearchChange={handleSearchChange}
                   onToggleChat={handleToggleChat}
+                  onToggleNotification={handleToggleNotification}
                 />
               }
             />
