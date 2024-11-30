@@ -1,13 +1,26 @@
 import { useState } from "react";
 
-function ServiceButton() {
+function ServiceButton({ isIsvProfile = false }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedServices, setSelectedServices] = useState({
-    Plumbing: false,
-    "Water Heater": false,
-    Pipes: false,
-    Handyman: false,
-  });
+  const [selectedServices, setSelectedServices] = useState({});
+
+  const defaultServices = isIsvProfile
+    ? {
+        "Engine repairs": false,
+        "Transmission repairs": false,
+        "Exhaust repairs": false,
+        "Break repairs": false,
+        "Electrical system repair": false,
+        "General servicing": false,
+      }
+    : {
+        Plumbing: false,
+        "Water Heater": false,
+        Pipes: false,
+        Handyman: false,
+        Zink: false,
+        Rubber: false,
+      };
 
   const handleCheckboxChange = (service) => {
     setSelectedServices((prev) => ({
@@ -19,7 +32,9 @@ function ServiceButton() {
   return (
     <div className="w-[1200px] h-12 bg-gray-200 rounded-md flex items-center justify-between px-4 cursor-pointer relative border-2 border-gray-300">
       <div className="flex items-center">
-        <span className="text-gray-500 text-lg">Plumbing</span>
+        <span className="text-gray-500 text-lg">
+          {isIsvProfile ? "Engine repairs" : "Plumbing"}
+        </span>
       </div>
 
       <div className="relative">
@@ -44,7 +59,7 @@ function ServiceButton() {
 
         {isOpen && (
           <ul className="absolute right-0 top-12 w-56 bg-white shadow-lg rounded-md py-2 z-10">
-            {Object.keys(selectedServices).map((service) => (
+            {Object.keys(defaultServices).map((service) => (
               <li
                 key={service}
                 className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"

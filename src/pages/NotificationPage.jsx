@@ -35,7 +35,7 @@ const NotificationPage = ({ onClose, notifications }) => {
 
   return (
     <div className="fixed inset-0 top-16 left-2/4  items-center z-50">
-      <div className="w-[700px] h-[680px] bg-white shadow-lg border rounded-xl overflow-hidden">
+      <div className="w-[700px] h-[626px] bg-white shadow-lg border rounded-xl overflow-hidden p-5">
         <div className="flex justify-between items-center px-4 py-8 bg-white text-white">
           <h2 className="text-3xl font-semibold text-black">Notifications</h2>
           <button
@@ -59,7 +59,7 @@ const NotificationPage = ({ onClose, notifications }) => {
             <img
               src={LastDayText}
               alt="Last Day Text"
-              className="w-[265px] h-[90px]"
+              className="w-auto h-[60px]"
             />
           )}
         </div>

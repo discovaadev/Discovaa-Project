@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import "./index.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import RandomSearchPage from "./pages/RandomSearchPage";
 import HomePage from "./pages/HomePage";
 import SubscriptionPage from "./pages/SubscibePage";
@@ -25,7 +25,7 @@ import UserEmailConfirmationPage from "./pages/UserEmailConfirmationPage";
 import UserSignUpPage2 from "./pages/UserSignUpPage2";
 import BusinessSignUpPage from "./pages/Buisness-SignUp-Page1";
 import UserFilterPage from "./pages/UserFilterPage";
-import IsvProfilePage from "./pages/IsvProfilePage";
+import IsvProfilePage from "./pages/IspProfilePage";
 import UserSeeMorePage from "./pages/UserSeeMorePage";
 import FavouritePage from "./pages/FavouritePage";
 import UserProfilePersonalinfoPage from "./pages/UserProfilePersonalinfoPage";
@@ -37,12 +37,21 @@ import PlumsMini from "./assets/PlumMini.png";
 import AmberMini from "./assets/AmberMini.png";
 import SamMini from "./assets/SamsMini.png";
 import JakeMini from "./assets/JakePullMini.png";
+import IsvProfilePageEdit from "./pages/IspProfilePageEdit";
+import MartPic from "./assets/MartPicImg.png";
+import Khrisjan from "./assets/KristJanPicImg.png";
+import MariLiis from "./assets/MariPicImg.png";
+import KatiPic from "./assets/KatyPicImg.png";
+import Priit from "./assets/PriitPicImg.png";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [profilePic, setProfilePic] = useState(ProfilePicPlaceholder);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [headerName, setHeaderName] = useState("Plum Plumbing Services");
+  const [activePage, setActivePage] = useState("UserFilterPage");
   const [messages, setMessages] = useState([
     {
       sender: "user",
@@ -72,8 +81,6 @@ function App() {
     setProfilePic(base64Image);
   };
 
-  const [showModal, setShowModal] = useState(false);
-
   const handleBookNowClick = () => {
     setShowModal(true);
   };
@@ -84,6 +91,7 @@ function App() {
 
   const handleToggleChat = () => {
     setIsChatOpen((prev) => !prev);
+    setHeaderName("Mart Jaan");
   };
 
   const closeChat = () => {
@@ -98,7 +106,7 @@ function App() {
     setIsNotificationOpen(false);
   };
 
-  const notifications = [
+  const userNotifications = [
     {
       type: "New Message",
       section: "Latest",
@@ -113,10 +121,9 @@ function App() {
       type: "Confirmed Booking",
       section: "Latest",
       image: JasonDoeMini,
-      name: "Jason Doe",
       text: "confirmed booking for:",
-      message:
-        "Yes, I’ll be available. Please send your address and contact details.",
+      name: "Jason Doe",
+      date: "2nd February 2024",
       time: "8AM",
     },
 
@@ -131,6 +138,15 @@ function App() {
       time: "2 hours ago",
     },
     {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: PlumsMini,
+      name: "Plum Plumbing Services",
+      text: "confirmed booking for",
+      Date: "2nd February 2024",
+      time: "8AM",
+    },
+    {
       type: "New Message",
       section: "Previous",
       image: AmberMini,
@@ -146,9 +162,8 @@ function App() {
       image: AmberMini,
       name: "Amber's Photography",
       text: "confirmed booking for:",
-      message:
-        "Yes, I’ll be available. Please send your address and contact details.",
-      time: "12 hours ago",
+      Date: "2nd February 2024",
+      time: "8AM",
     },
     {
       type: "New Message",
@@ -165,10 +180,9 @@ function App() {
       section: "Previous",
       image: SamMini,
       name: "Sam's Electronics",
-      text: "sent a message to you",
-      message:
-        "Yes, I’ll be available. Please send your address and contact details.",
-      time: "1 day ago",
+      text: "confirmed booking for:",
+      Date: "2nd February 2024",
+      time: "8AM",
     },
     {
       type: "New Message",
@@ -182,180 +196,387 @@ function App() {
     },
   ];
 
+  const ispNotifications = [
+    {
+      type: "New Message",
+      section: "Latest",
+      image: MartPic,
+      name: "Mart Jaan",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 hour ago",
+    },
+
+    {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: MartPic,
+      text: "confirmed booking for:",
+      name: "Mart Jaan",
+      Date: "2nd February 2024",
+      time: "8AM",
+    },
+    {
+      type: "New Message",
+      section: "Latest",
+      image: Khrisjan,
+      name: "Kristjan Tõnis",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "2 hour ago",
+    },
+
+    {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: Khrisjan,
+      text: "confirmed booking for:",
+      name: "Kristjan Tõnis",
+      Date: "2nd February 2024",
+      time: "8AM",
+    },
+
+    {
+      type: "New Message",
+      section: "Previous",
+      image: MariLiis,
+      name: "Mari Liis",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "12 hour ago",
+    },
+    {
+      type: "Confirmed Booking",
+      section: "Previous",
+      image: MariLiis,
+      text: "confirmed booking for:",
+      name: "Mari Liis",
+      Date: "2nd February 2024",
+      time: "8AM",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: KatiPic,
+      name: "Kati Kristiina",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 day ago",
+    },
+
+    {
+      type: "Confirmed Booking",
+      section: "Previous",
+      image: KatiPic,
+      text: "confirmed booking for:",
+      name: "Kati Kristiina",
+      Date: "2nd February 2024",
+      time: "8AM",
+    },
+
+    {
+      type: "New Message",
+      section: "Previous",
+      image: Priit,
+      name: "Priit Maarja",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 day ago",
+    },
+  ];
+  const bspNotifications = [
+    {
+      type: "New Message",
+      section: "Latest",
+      image: MartPic,
+      name: "Mart Jaan",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 hour ago",
+    },
+
+    {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: MartPic,
+      text: "confirmed booking for:",
+      name: "Mart Jaan",
+      Date: "2nd February 2024",
+      time: "8AM",
+    },
+
+    {
+      type: "New Message",
+      section: "Latest",
+      image: Khrisjan,
+      name: "Kristjan Tõnis",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "2 hour ago",
+    },
+
+    {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: Khrisjan,
+      text: "confirmed booking for:",
+      name: "Kristjan Tõnis",
+      Date: "2nd February 2024",
+      time: "8AM",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: MariLiis,
+      name: "Mari Liis",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "12 hour ago",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: KatiPic,
+      name: "Kati Kristiina",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 day ago",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: Priit,
+      name: "Priit Maarja",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 day ago",
+    },
+  ];
+
+  const notifications =
+    activePage === "UserFilterPage"
+      ? userNotifications
+      : activePage === "IspProfilePage" || activePage === "IspProfilePageEdit"
+      ? ispNotifications
+      : activePage === "bspProfilePage"
+      ? bspNotifications
+      : [];
+
   return (
     <div>
-      <Router>
-        <div className="App">
-          <Routes>
-            <Route path="/newpassword" element={<NewPasswordPage />} />
-            <Route
-              path="/businessserviceproviderpage"
-              element={
-                <BuisnessSerViceProviderPage
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                />
-              }
-            />
+      <div className="App">
+        <Routes>
+          <Route path="/newpassword" element={<NewPasswordPage />} />
+          <Route
+            path="/businessserviceproviderpage"
+            element={
+              <BuisnessSerViceProviderPage
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+              />
+            }
+          />
 
-            <Route
-              path="/"
-              element={
-                <UserFilterPage
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                  onToggleNotification={handleToggleNotification}
-                />
-              }
-            />
-            <Route
-              path="/userseemorepage"
-              element={
-                <UserSeeMorePage
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                  onToggleNotification={handleToggleNotification}
-                />
-              }
-            />
-            <Route
-              path="/favouritepage"
-              element={
-                <FavouritePage
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                />
-              }
-            />
-            <Route
-              path="/userprofilepersonalinfopage"
-              element={
-                <UserProfilePersonalinfoPage
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                />
-              }
-            />
-            <Route
-              path="/isvprofilepage"
-              element={
-                <IsvProfilePage
-                  showModal={showModal}
-                  onBookNowClick={handleBookNowClick}
-                  onCloseModal={closeModal}
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  onToggleChat={handleToggleChat}
-                  onToggleNotification={handleToggleNotification}
-                />
-              }
-            />
-            <Route path="/usersignuppage2" element={<UserSignUpPage2 />} />
-            <Route path="/usersignuppage" element={<UserSignUpPage />} />
-            <Route
-              path="/useremailconfirmation"
-              element={<UserEmailConfirmationPage />}
-            />
-            <Route path="/businesssignup" element={<BusinessSignUpPage />} />
-            <Route
-              path="/isvDashboard"
-              element={
-                <IsvDashboard
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                />
-              }
-            />
-            <Route
-              path="/userdashboard"
-              element={
-                <UserDashboard
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                />
-              }
-            />
-            <Route
-              path="/userverificationcomplete"
-              element={
-                <UserVerificationCompletePage
-                  profilePic={profilePic}
-                  onProfileImageChange={handleProfileImageChange}
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                  onToggleChat={handleToggleChat}
-                  onToggleNotification={handleToggleNotification}
-                />
-              }
-            />
-            <Route path="/forgotpassword" element={<ForgotPassword />} />
-            <Route path="/otpverification" element={<OtpVerificationPage />} />
-            <Route path="/isvsignup2" element={<IsvSignUpPage2 />} />
-            <Route path="/isvsignup" element={<IsvSignUpPage />} />
-            <Route path="/isvemail" element={<IsvEmailPage />} />
-            <Route path="/select" element={<SelectSignUpPage2 />} />
-            <Route path="/signup" element={<SelectSignUpPage1 />} />
-            <Route
-              path="/error"
-              element={
-                <ErrorPage
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                />
-              }
-            />
-            <Route path="/home" element={<HomePage />} />
-            <Route
-              path="/subscribe"
-              element={
-                <SubscriptionPage
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                />
-              }
-            />
-            <Route path="/contact" element={<ContactForm />} />
-            <Route
-              path="/search"
-              element={
-                <RandomSearchPage
-                  searchQuery={searchQuery}
-                  onSearchChange={handleSearchChange}
-                />
-              }
-            />
-            <Route path="/login" element={<LoginForm />} />
-          </Routes>
-        </div>
-      </Router>
+          <Route
+            path="/"
+            element={
+              <UserFilterPage
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
+              />
+            }
+          />
+          <Route
+            path="/userseemorepage"
+            element={
+              <UserSeeMorePage
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
+              />
+            }
+          />
+          <Route
+            path="/favouritepage"
+            element={
+              <FavouritePage
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
+              />
+            }
+          />
+          <Route
+            path="/userprofilepersonalinfopage"
+            element={
+              <UserProfilePersonalinfoPage
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+              />
+            }
+          />
+          <Route
+            path="/isvprofilepage"
+            element={
+              <IsvProfilePage
+                showModal={showModal}
+                onBookNowClick={handleBookNowClick}
+                onCloseModal={closeModal}
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
+              />
+            }
+          />
+          <Route
+            path="/isvprofilepageedit"
+            element={
+              <IsvProfilePageEdit
+                showModal={showModal}
+                onBookNowClick={handleBookNowClick}
+                onCloseModal={closeModal}
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
+                headerName={headerName}
+              />
+            }
+          />
+          <Route path="/usersignuppage2" element={<UserSignUpPage2 />} />
+          <Route path="/usersignuppage" element={<UserSignUpPage />} />
+          <Route
+            path="/useremailconfirmation"
+            element={<UserEmailConfirmationPage />}
+          />
+          <Route path="/businesssignup" element={<BusinessSignUpPage />} />
+          <Route
+            path="/isvDashboard"
+            element={
+              <IsvDashboard
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+              />
+            }
+          />
+          <Route
+            path="/userdashboard"
+            element={
+              <UserDashboard
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+              />
+            }
+          />
+          <Route
+            path="/userverificationcomplete"
+            element={
+              <UserVerificationCompletePage
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
+              />
+            }
+          />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/otpverification" element={<OtpVerificationPage />} />
+          <Route path="/isvsignup2" element={<IsvSignUpPage2 />} />
+          <Route path="/isvsignup" element={<IsvSignUpPage />} />
+          <Route path="/isvemail" element={<IsvEmailPage />} />
+          <Route path="/select" element={<SelectSignUpPage2 />} />
+          <Route path="/signup" element={<SelectSignUpPage1 />} />
+          <Route
+            path="/error"
+            element={
+              <ErrorPage
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+              />
+            }
+          />
+          <Route path="/home" element={<HomePage />} />
+          <Route
+            path="/subscribe"
+            element={
+              <SubscriptionPage
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+              />
+            }
+          />
+          <Route path="/contact" element={<ContactForm />} />
+          <Route
+            path="/search"
+            element={
+              <RandomSearchPage
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+              />
+            }
+          />
+          <Route path="/login" element={<LoginForm />} />
+        </Routes>
+      </div>
+
       {isChatOpen && (
-        <ChatPage onClose={closeChat} messages={messages} onSend={handleSend} />
+        <ChatPage
+          onClose={closeChat}
+          messages={messages}
+          onSend={handleSend}
+          headerName={headerName}
+        />
       )}
-      {/* <Dashboard
-        profilePic={profilePic}
-        onProfileImageChange={handleProfileImageChange}
-      /> */}
+      <div>
+        <button onClick={() => setActivePage("UserFilterProfile")}>
+          User Profile
+        </button>
+        <button onClick={() => setActivePage("IspProfilePage")}>
+          ISP Profile
+        </button>
+        <button onClick={() => setActivePage("IspProfilePageEdit")}>
+          ISP Profile Edit
+        </button>
+        <button onClick={() => setActivePage("BspProfilePage")}>
+          BSP Profile
+        </button>
+      </div>
+
       {isNotificationOpen && (
         <NotificationPage
           onClose={closeNotification}

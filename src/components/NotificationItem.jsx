@@ -1,4 +1,4 @@
-const NotificationItem = ({ image, name, message, time, text, isRead, isLatest }) => {
+const NotificationItem = ({ image, name, message, time, date, text, isRead, isLatest }) => {
   return (
     <section>
       <div className="flex items-start space-x-4 mb-4">
@@ -12,6 +12,7 @@ const NotificationItem = ({ image, name, message, time, text, isRead, isLatest }
           <div className="flex gap-1 items-center">
             <p className="text-sm font-bold">{name}</p>
             <p className="text-sm font-normal">{text}</p>
+            <p className="text-sm font-normal">{date}</p>
             <p className="text-xs text-gray-500 font-normal">{time}</p>
           </div>
           <div className="flex justify-between">
