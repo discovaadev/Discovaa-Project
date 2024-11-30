@@ -37,7 +37,7 @@ import PlumsMini from "./assets/PlumMini.png";
 import AmberMini from "./assets/AmberMini.png";
 import SamMini from "./assets/SamsMini.png";
 import JakeMini from "./assets/JakePullMini.png";
-import IsvProfilePageEdit from "./pages/IspProfilePageEdit";
+import IspProfilePageEdit from "./pages/IspProfilePageEdit";
 import MartPic from "./assets/MartPicImg.png";
 import Khrisjan from "./assets/KristJanPicImg.png";
 import MariLiis from "./assets/MariPicImg.png";
@@ -373,136 +373,208 @@ function App() {
       : [];
 
   return (
-      <div className="App">
-      <Routes>
-  <Route path="/newpassword" element={<NewPasswordPage />} />
-  <Route
-    path="/businessserviceproviderpage"
-    element={
-      <BuisnessSerViceProviderPage
-        profilePic={profilePic}
-        onProfileImageChange={handleProfileImageChange}
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        onToggleChat={handleToggleChat}
+  <div>
+  <div className="App">
+    <Routes>
+      <Route path="/newpassword" element={<NewPasswordPage />} />
+      <Route
+        path="/businessserviceproviderpage"
+        element={
+          <BuisnessSerViceProviderPage
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+          />
+        }
       />
-    }
-  />
-  <Route
-    path="/"
-    element={
-      <UserFilterPage
-        profilePic={profilePic}
-        onProfileImageChange={handleProfileImageChange}
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        onToggleChat={handleToggleChat}
-        onToggleNotification={handleToggleNotification}
+      <Route
+        path="/"
+        element={
+          <UserFilterPage
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+            onToggleNotification={handleToggleNotification}
+          />
+        }
       />
-    }
-  />
-  <Route path="/userseemorepage" element={<UserSeeMorePage />} />
-  <Route path="/favouritepage" element={<FavouritePage />} />
-  <Route path="/userprofilepersonalinfopage" element={<UserProfilePersonalinfoPage />} />
-  <Route
-    path="/isvprofilepage"
-    element={
-      <IsvProfilePage
-        showModal={showModal}
-        onBookNowClick={handleBookNowClick}
-        onCloseModal={closeModal}
-        profilePic={profilePic}
-        onProfileImageChange={handleProfileImageChange}
-        onToggleChat={handleToggleChat}
-        onToggleNotification={handleToggleNotification}
+      <Route
+        path="/userseemorepage"
+        element={
+          <UserSeeMorePage
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+            onToggleNotification={handleToggleNotification}
+          />
+        }
       />
-    }
-  />
-  <Route path="/usersignuppage2" element={<UserSignUpPage2 />} />
-  <Route path="/usersignuppage" element={<UserSignUpPage />} />
-  <Route path="/useremailconfirmation" element={<UserEmailConfirmationPage />} />
-  <Route path="/businesssignup" element={<BusinessSignUpPage />} />
-  <Route
-    path="/isvDashboard"
-    element={
-      <IsvDashboard
-        profilePic={profilePic}
-        onProfileImageChange={handleProfileImageChange}
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        onToggleChat={handleToggleChat}
+      <Route
+        path="/favouritepage"
+        element={
+          <FavouritePage
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+            onToggleNotification={handleToggleNotification}
+          />
+        }
       />
-    }
-  />
-  <Route
-    path="/userdashboard"
-    element={
-      <UserDashboard
-        profilePic={profilePic}
-        onProfileImageChange={handleProfileImageChange}
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        onToggleChat={handleToggleChat}
+      <Route
+        path="/userprofilepersonalinfopage"
+        element={
+          <UserProfilePersonalinfoPage
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+          />
+        }
       />
-    }
-  />
-  <Route
-    path="/userverificationcomplete"
-    element={
-      <UserVerificationCompletePage
-        profilePic={profilePic}
-        onProfileImageChange={handleProfileImageChange}
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        onToggleChat={handleToggleChat}
-        onToggleNotification={handleToggleNotification}
+      <Route
+        path="/isvprofilepage"
+        element={
+          <IsvProfilePage
+            showModal={showModal}
+            onBookNowClick={handleBookNowClick}
+            onCloseModal={closeModal}
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            onToggleChat={handleToggleChat}
+            onToggleNotification={handleToggleNotification}
+          />
+        }
       />
-    }
-  />
-  <Route path="/forgotpassword" element={<ForgotPassword />} />
-  <Route path="/otpverification" element={<OtpVerificationPage />} />
-  <Route path="/isvsignup2" element={<IsvSignUpPage2 />} />
-  <Route path="/isvsignup" element={<IsvSignUpPage />} />
-  <Route path="/isvemail" element={<IsvEmailPage />} />
-  <Route path="/select" element={<SelectSignUpPage2 />} />
-  <Route path="/signup" element={<SelectSignUpPage1 />} />
-  <Route path="/error" element={<ErrorPage />} />
-  <Route path="/home" element={<HomePage />} />
-  <Route path="/subscribe" element={<SubscriptionPage />} />
-  <Route path="/contact" element={<ContactForm />} />
-  <Route path="/search" element={<RandomSearchPage />} />
-  <Route path="/login" element={<LoginForm />} />
-</Routes>
-      {isChatOpen && (
-        <ChatPage
-          onClose={closeChat}
-          messages={messages}
-          onSend={handleSend}
-          headerName={headerName}
-        />
-      )}
-      <div>
-        <button onClick={() => setActivePage("UserFilterProfile")}>
-          User Profile
-        </button>
-        <button onClick={() => setActivePage("IspProfilePage")}>
-          ISP Profile
-        </button>
-        <button onClick={() => setActivePage("IspProfilePageEdit")}>
-          ISP Profile Edit
-        </button>
-        <button onClick={() => setActivePage("BspProfilePage")}>
-          BSP Profile
-        </button>
-      </div>
+      <Route
+        path="/ispprofilepageedit"
+        element={
+          <IspProfilePageEdit
+            showModal={showModal}
+            onBookNowClick={handleBookNowClick}
+            onCloseModal={closeModal}
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            onToggleChat={handleToggleChat}
+            onToggleNotification={handleToggleNotification}
+            headerName={headerName}
+          />
+        }
+      />
+      <Route path="/usersignuppage2" element={<UserSignUpPage2 />} />
+      <Route path="/usersignuppage" element={<UserSignUpPage />} />
+      <Route
+        path="/useremailconfirmation"
+        element={<UserEmailConfirmationPage />}
+      />
+      <Route path="/businesssignup" element={<BusinessSignUpPage />} />
+      <Route
+        path="/isvDashboard"
+        element={
+          <IsvDashboard
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+          />
+        }
+      />
+      <Route
+        path="/userdashboard"
+        element={
+          <UserDashboard
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+          />
+        }
+      />
+      <Route
+        path="/userverificationcomplete"
+        element={
+          <UserVerificationCompletePage
+            profilePic={profilePic}
+            onProfileImageChange={handleProfileImageChange}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+            onToggleChat={handleToggleChat}
+            onToggleNotification={handleToggleNotification}
+          />
+        }
+      />
+      <Route path="/forgotpassword" element={<ForgotPassword />} />
+      <Route path="/otpverification" element={<OtpVerificationPage />} />
+      <Route path="/isvsignup2" element={<IsvSignUpPage2 />} />
+      <Route path="/isvsignup" element={<IsvSignUpPage />} />
+      <Route path="/isvemail" element={<IsvEmailPage />} />
+      <Route path="/select" element={<SelectSignUpPage2 />} />
+      <Route path="/signup" element={<SelectSignUpPage1 />} />
+      <Route
+        path="/error"
+        element={
+          <ErrorPage
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+          />
+        }
+      />
+      <Route path="/home" element={<HomePage />} />
+      <Route
+        path="/subscribe"
+        element={
+          <SubscriptionPage
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+          />
+        }
+      />
+      <Route path="/contact" element={<ContactForm />} />
+      <Route
+        path="/search"
+        element={
+          <RandomSearchPage
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
+          />
+        }
+      />
+      <Route path="/login" element={<LoginForm />} />
+    </Routes>
+  </div>
 
-      {isNotificationOpen && (
-        <NotificationPage
-          onClose={closeNotification}
-          notifications={notifications}
-        />
-      )}
-    </div>
+  {isChatOpen && (
+    <ChatPage
+      onClose={closeChat}
+      messages={messages}
+      onSend={handleSend}
+      headerName={headerName}
+    />
+  )}
+
+  {isNotificationOpen && (
+    <NotificationPage
+    onClose={closeNotification}
+    notifications={notifications}
+    />
+  )}
+<div style={{ display: "none" }}>
+  <button onClick={() => setActivePage("UserFilterProfile")}>User Profile</button>
+  <button onClick={() => setActivePage("IspProfilePage")}>ISP Profile</button>
+  <button onClick={() => setActivePage("IspProfilePageEdit")}>ISP Profile Edit</button>
+  <button onClick={() => setActivePage("BspProfilePage")}>BSP Profile</button>
+</div>
+</div>
   );
 }
 
