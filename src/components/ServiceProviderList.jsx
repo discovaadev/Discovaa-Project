@@ -10,7 +10,7 @@ const ServiceProviderList = ({
   const handleViewContact = (providerName) => {
     if (providerName === "Plum Plumbing Services") {
       console.log("Navigating to Plum Plumbing Services profile...");
-      window.location.href = "/isvprofilepage";
+      window.location.href = "/ispprofilepage";
     } else {
       console.log(`View contact for ${providerName}`);
     }
