@@ -9,14 +9,19 @@ const ChatMessages = ({ messages, activePage }) => {
             </p>
           )}
           <div
+          
             className={`p-3 rounded-lg max-w-sm ${
-              activePage === "IspProfilePage" || activePage === "IspProfilePageEdit" || activePage === "BspProfilePage"
+              console.log("Active Page:", activePage, "Message Sender:", message.sender),
+
+              activePage === "IspProfilePage" ||
+              activePage === "IspProfilePageEdit" ||
+              activePage === "BspProfilePage"
                 ? message.sender === "user"
-                  ? "bg-white text-black self-start font-light text-xl shadow-md"
-                  : "bg-white text-black self-end font-light text-xl shadow-md"
+                  ? "bg-gray-200 text-black self-start font-light text-xl shadow-md"
+                  : "bg-black text-white self-end font-light text-xl shadow-md"
                 : message.sender === "user"
-                ? "bg-gray-800 text-white self-end font-light text-xl shadow-md"
-                : "bg-white text-black self-start font-light text-xl shadow-md"
+                ? "bg-gray-800 text-white self-start font-light text-xl shadow-md"
+                : "bg-white text-black self-end font-light text-xl shadow-md"
             }`}
           >
             {message.text}

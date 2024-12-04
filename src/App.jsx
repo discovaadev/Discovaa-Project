@@ -36,6 +36,12 @@ import ChatPage from "./pages/ChatPage";
 import BuisnessSerViceProviderPage from "./pages/Business-Service-ProviderPage";
 import NotificationPage from "./pages/NotificationPage";
 import IspProfilePageEdit from "./pages/IspProfilePageEdit";
+import IspAvailability from "./components/IspAvailability";
+import IspFavoritePage from "./pages/IspFavoritePage";
+import IspPersonalProfileInfo from "./pages/IspPersonalProfileInfo";
+import BspProfilePage from "./pages/BspProfilePage";
+import BspPersonalProfileInfo from "./pages/BspPersonalProfileInfo";
+import BspAvailability from "./components/BspAvailability";
 import {
   bspNotifications,
   ispNotifications,
@@ -48,7 +54,10 @@ function App() {
   const [profilePic, setProfilePic] = useState(ProfilePicPlaceholder);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [isFavoriteOpen, setShowFavorite] = useState(false);
   const [activePage, setActivePage] = useState("");
+  const [pageType, setPageType] = useState("UserFilterPage");
+
   const baseMessages = [
     {
       sender: "user",
@@ -61,9 +70,9 @@ function App() {
       date: "",
     },
   ];
-  
+
   const [messages, setMessages] = useState(baseMessages);
-  
+
   useEffect(() => {
     const updatedMessages =
       activePage === "IspProfilePage" ||
@@ -78,10 +87,9 @@ function App() {
               : message
           )
         : baseMessages;
-  
+
     setMessages(updatedMessages);
   }, [activePage]);
-  
 
   const handleSend = (text) => {
     const newMessage = {
@@ -119,6 +127,10 @@ function App() {
     setIsNotificationOpen((prev) => !prev);
   };
 
+  const toggleFavorites = () => {
+    setShowFavorite(!isFavoriteOpen);
+  };
+
   const closeNotification = () => {
     setIsNotificationOpen(false);
   };
@@ -127,14 +139,19 @@ function App() {
   useEffect(() => {
     if (location.pathname === "/userfilterpage") {
       setActivePage("UserFilterPage");
+      setPageType("UserFilterPage");
     } else if (location.pathname === "/ispprofilepage") {
       setActivePage("IspProfilePage");
+      setPageType("IspProfilePage");
     } else if (location.pathname === "/ispprofilepageedit") {
       setActivePage("IspProfilePageEdit");
+      setPageType("IspProfilePageEdit");
     } else if (location.pathname === "/bspprofilepage") {
       setActivePage("BspProfilePage");
+      setPageType("BspProfilePage");
     } else {
       setActivePage("UserFilterPage");
+      setPageType("UserFilterPage");
     }
   }, [location.pathname]);
 
@@ -162,6 +179,33 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/newpassword" element={<NewPasswordPage />} />
+          <Route path="/ispavailability" element={<IspAvailability />} />
+          <Route path="/bspavailability" element={<BspAvailability />} />
+          <Route
+            path="/isppersonalprofileinfo"
+            element={
+              <IspPersonalProfileInfo
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+              />
+            }
+          />
+          <Route
+            path="/bsppersonalprofileinfo"
+            element={
+              <BspPersonalProfileInfo
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+              />
+            }
+          />
+
           <Route
             path="/businessserviceproviderpage"
             element={
@@ -236,6 +280,22 @@ function App() {
                 onProfileImageChange={handleProfileImageChange}
                 onToggleChat={handleToggleChat}
                 onToggleNotification={handleToggleNotification}
+                toggleFavorites={toggleFavorites}
+              />
+            }
+          />
+          <Route
+            path="/bspprofilepage"
+            element={
+              <BspProfilePage
+                showModal={showModal}
+                onBookNowClick={handleBookNowClick}
+                onCloseModal={closeModal}
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
+                toggleFavorites={toggleFavorites}
               />
             }
           />
@@ -250,6 +310,7 @@ function App() {
                 onProfileImageChange={handleProfileImageChange}
                 onToggleChat={handleToggleChat}
                 onToggleNotification={handleToggleNotification}
+                toggleFavorites={toggleFavorites}
               />
             }
           />
@@ -351,7 +412,14 @@ function App() {
         <NotificationPage
           onClose={closeNotification}
           notifications={notifications}
+          pageType={pageType}
         />
+      )}
+
+      {isFavoriteOpen && (
+        <div className="fixed top-20 left-[60%]">
+          <IspFavoritePage />
+        </div>
       )}
     </div>
   );

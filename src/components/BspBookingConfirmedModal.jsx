@@ -1,7 +1,7 @@
 import SucccessImg from "../assets/SuccessImg.png";
 import DocImg from "../assets/DocImg.png";
 
-const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
+const BspBookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
   
   const formatDate = (date) => {
     const options = { weekday: "long", day: "numeric", month: "long", year: "numeric" };
@@ -63,4 +63,4 @@ const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
   );
 };
 
-export default BookingConfirmedModal;
+export default BspBookingConfirmedModal;

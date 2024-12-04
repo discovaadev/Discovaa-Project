@@ -5,7 +5,7 @@ export default function OnboardingSection() {
   return (
     <section className="w-full h-[350px] bg-white p-16 flex items-center ">
       <div className="">
-        {/* Text Content */}
+        
         <p className="text-sm mb-1">FREE 30 TRIAL</p>
         <h2 className="font-bold text-[28px] leading-tight text-gray-900 mb-1">
           The best way <br /> to connect with
@@ -16,7 +16,6 @@ export default function OnboardingSection() {
           Let’s get you started with our quick onboarding.
         </p>
 
-        {/* Buttons */}
         <div className="flex space-x-5 mt-6">
           <Link to="/select">
             <button className="bg-black text-white px-5 py-3 rounded-md font-medium text-sm hover:bg-gray-800 transition">

@@ -5,7 +5,7 @@ import LastDayText from "../assets/LastDaysText.png";
 import SystemUpdateTab from "../components/SystemUpdateTab";
 import DownlaodIcon from '../assets/DownlaodIcon.png';
 
-const NotificationPage = ({ onClose, notifications }) => {
+const NotificationPage = ({ onClose, notifications, pageType  }) => {
   const [activeTab, setActiveTab] = useState("New Message");
 
   const handleTabChange = (tab) => {
@@ -35,7 +35,7 @@ const NotificationPage = ({ onClose, notifications }) => {
 
   return (
     <div className="fixed inset-0 top-16 left-2/4  items-center z-50">
-      <div className="w-[700px] h-[626px] bg-white shadow-lg border rounded-xl overflow-hidden p-5">
+      <div className="w-[670px] h-[626px] bg-white shadow-lg border rounded-xl overflow-hidden p-5">
         <div className="flex justify-between items-center px-4 py-8 bg-white text-white">
           <h2 className="text-3xl font-semibold text-black">Notifications</h2>
           <button
@@ -52,6 +52,7 @@ const NotificationPage = ({ onClose, notifications }) => {
           <NotificationList
             activeTab={activeTab}
             notifications={notifications}
+            pageType={pageType}
           />
         </div>
         <div className="flex justify-center">

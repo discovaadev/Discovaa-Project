@@ -1,3 +1,5 @@
+import blockImg from "../assets/blockImg.png";
+
 const NotificationItem = ({
   image,
   name,
@@ -19,21 +21,23 @@ const NotificationItem = ({
         />
         <div className="flex-grow">
           <div className="flex gap-1 items-center">
-            {isConfirmBooking && (
-              <div className="flex items-center space-x-1 text-red-600">
-                <span className="w-3 h-3 rounded-full bg-red-600 inline-block"></span>
-                <p className="text-sm font-bold">Block</p>
-              </div>
-            )}
             <p className="text-sm font-bold">{name}</p>
             <p className="text-sm font-normal">{text}</p>
             <p className="text-sm font-normal">{date}</p>
             <p className="text-xs text-gray-500 font-normal">{time}</p>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center ">
             <p className="text-sm text-gray-600">{message}</p>
-            {isLatest && !isRead && (
-              <span className="w-2.5 h-2.5 rounded-full bg-black inline-block"></span>
+            {isConfirmBooking ? (
+              <div className="flex items-center space-x-1 text-gray-600 -translate-y-6">
+                <img src={blockImg} alt="block" className="w-[22px] h-[22px]" />
+                <p className="text-xl font-normal">Block</p>
+              </div>
+            ) : (
+              isLatest &&
+              !isRead && (
+                <span className="w-2.5 h-2.5 rounded-full bg-black inline-block"></span>
+              )
             )}
           </div>
         </div>

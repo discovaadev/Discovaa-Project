@@ -5,7 +5,7 @@ import "react-phone-input-2/lib/style.css";
 import LoginAndSecurity from "./LoginAndSecurity";
 import UserPrivacy from "./UserPrivacy";
 
-const PersonalInfo = ({ profilePic, onProfileImageChange }) => {
+const PersonalInfo = ({ profilePic, onProfileImageChange, showServiceOffered, showBusinessRegNumber }) => {
   const [activeTab, setActiveTab] = useState("personalInfo");
   const [formData, setFormData] = useState({
     name: "Chris Metu",
@@ -15,7 +15,11 @@ const PersonalInfo = ({ profilePic, onProfileImageChange }) => {
     phoneNumber: "+37255123456",
     pronouns: "N/A",
     languagesSpoken: "English",
+    BusinessRegNumber: "PS012345",
+    serviceoffered: "Car Maintainance"
   });
+
+
   const [isEditing, setIsEditing] = useState(null);
   const fileInputRef = useRef();
 
@@ -90,27 +94,33 @@ const PersonalInfo = ({ profilePic, onProfileImageChange }) => {
           </div>
 
           <div className="mt-6 space-y-6">
-            {[  
-              { label: "Name", field: "name", value: formData.name },
-              { label: "Gender", field: "gender", value: formData.gender },
-              {
-                label: "Country",
-                field: "country",
-                value: `${formData.country.code}: ${formData.country.name}`,
-              },
-              { label: "TimeZone", field: "timeZone", value: formData.timeZone },
-              {
-                label: "PhoneNumber",
-                field: "phoneNumber",
-                value: formData.phoneNumber,
-              },
-              { label: "Pronouns", field: "pronouns", value: formData.pronouns },
-              {
-                label: "LanguagesSpoken",
-                field: "languagesSpoken",
-                value: formData.languagesSpoken,
-              },
-            ].map((item, index) => (
+          {[
+    { label: "Name", field: "name", value: formData.name },
+    { label: "Gender", field: "gender", value: formData.gender },
+    {
+      label: "Country",
+      field: "country",
+      value: `${formData.country.code}: ${formData.country.name}`,
+    },
+    { label: "TimeZone", field: "timeZone", value: formData.timeZone },
+    {
+      label: "PhoneNumber",
+      field: "phoneNumber",
+      value: formData.phoneNumber,
+    },
+    { label: "Pronouns", field: "pronouns", value: formData.pronouns },
+    {
+      label: "LanguagesSpoken",
+      field: "languagesSpoken",
+      value: formData.languagesSpoken,
+    },
+    ...(showBusinessRegNumber? [
+      { label: "Business Registration Number", field: "businessRegNumber", value: formData.BusinessRegNumber}
+    ] : []), 
+    ...(showServiceOffered ? [
+      { label: "Service Offered", field: "serviceOffered", value: formData.serviceoffered }
+    ] : [])
+  ].map((item, index) => (
               <div
                 key={index}
                 className="flex justify-between items-start py-3 border-b border-gray-200"

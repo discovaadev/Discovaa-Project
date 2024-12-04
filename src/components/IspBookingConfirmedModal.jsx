@@ -1,10 +1,14 @@
 import SucccessImg from "../assets/SuccessImg.png";
 import DocImg from "../assets/DocImg.png";
 
-const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
-  
+const IspBookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
   const formatDate = (date) => {
-    const options = { weekday: "long", day: "numeric", month: "long", year: "numeric" };
+    const options = {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
     return new Date(date).toLocaleDateString("en-US", options);
   };
 
@@ -32,17 +36,23 @@ const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
         </button>
 
         <div className="relative flex justify-center">
-          <img src={SucccessImg} alt="Upload Successful" className="w-28 mt-8" />
+          <img
+            src={SucccessImg}
+            alt="Upload Successful"
+            className="w-28 mt-8"
+          />
           <img
             src={DocImg}
             alt="Upload Successful"
             className="absolute right-2 left-[170px] w-12 mt-16 text-white"
           />
         </div>
-        <h2 className="text-xl font-semibold text-center">Booking Confirmed!</h2>
+        <h2 className="text-xl font-semibold text-center">
+          Booking Confirmed!
+        </h2>
         <p className="text-center text-gray-600 mt-2 text-xs">
-          Your booking with <strong>Plum Plumbing Services</strong> has been confirmed.
-          Details below:
+          Your booking with <strong>Plum Plumbing Services</strong> has been
+          confirmed. Details below:
         </p>
         <div className="mt-6">
           <p className="text-center font-medium">
@@ -63,4 +73,4 @@ const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
   );
 };
 
-export default BookingConfirmedModal;
+export default IspBookingConfirmedModal;

@@ -2,15 +2,14 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import LoadingModal from "./LoadingModal";
-import BookingConfirmedModal from "../components/BookingConfirmedModal";
+import IspBookingConfirmedModal from "../components/IspBookingConfirmedModal";
 
-const BookingInterface = ({ onClose }) => {
+const IspAvailability = ({ onClose }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  // Expanded available dates with ISO format
   const allAvailableDates = [
     { day: "MON", date: "2024-02-02" },
     { day: "TUE", date: "2024-02-03" },
@@ -53,12 +52,10 @@ const BookingInterface = ({ onClose }) => {
     return date.toLocaleDateString("en-US", options).replace(" ", " ");
   };
 
-  // Filter available dates for the selected month
   const filteredAvailableDates = allAvailableDates.filter(
     ({ date }) => new Date(date).getMonth() === selectedDate.getMonth()
   );
 
-  // Filter time slots for the selected date
   const filteredTimeSlots =
     availability[selectedDate.toISOString().split("T")[0]] || [];
 
@@ -158,7 +155,7 @@ const BookingInterface = ({ onClose }) => {
 
         <LoadingModal isVisible={isLoading} />
         {isConfirmed && (
-          <BookingConfirmedModal
+          <IspBookingConfirmedModal
             onClose={handleClose}
             selectedDate={selectedDate}
             selectedTime={selectedTime}
@@ -169,4 +166,4 @@ const BookingInterface = ({ onClose }) => {
   );
 };
 
-export default BookingInterface;
+export default IspAvailability;

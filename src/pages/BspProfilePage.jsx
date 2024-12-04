@@ -9,7 +9,7 @@ import profileImg4 from "../assets/PlumProfile4.png";
 import profileImg5 from "../assets/PlumProfile5.png";
 import PlumsPic from "../assets/plumsProfilePPicture.png";
 
-const IspProfilePage = ({
+const BspProfilePage = ({
   searchQuery,
   onSearchChange,
   profilePic,
@@ -46,7 +46,7 @@ const IspProfilePage = ({
         toggleFavorites={toggleFavorites}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic}
-        userType="individualServiceProvider"
+        userType="businessServiceProvider"
       />
       <div className="relative flex-grow">
         <div className="z-0">
@@ -62,7 +62,7 @@ const IspProfilePage = ({
               profileImg4,
               profileImg5,
             ]}
-            showButton={true}
+            showButton={false}
             showStar={true}
             showModal={showModal}
             onBookNowClick={onBookNowClick}
@@ -86,4 +86,4 @@ const IspProfilePage = ({
   );
 };
 
-export default IspProfilePage;
+export default BspProfilePage;

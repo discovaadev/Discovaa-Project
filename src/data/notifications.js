@@ -46,7 +46,7 @@ export const userNotifications = [
       image: PlumsMini,
       name: "Plum Plumbing Services",
       text: "confirmed booking for",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
     {
@@ -65,7 +65,7 @@ export const userNotifications = [
       image: AmberMini,
       name: "Amber's Photography",
       text: "confirmed booking for:",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
     {
@@ -84,7 +84,7 @@ export const userNotifications = [
       image: SamMini,
       name: "Sam's Electronics",
       text: "confirmed booking for:",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
     {
@@ -117,7 +117,7 @@ export  const ispNotifications = [
       image: MartPic,
       text: "confirmed booking for:",
       name: "Mart Jaan",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
     {
@@ -137,7 +137,7 @@ export  const ispNotifications = [
       image: Khrisjan,
       text: "confirmed booking for:",
       name: "Kristjan Tõnis",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
 
@@ -157,7 +157,7 @@ export  const ispNotifications = [
       image: MariLiis,
       text: "confirmed booking for:",
       name: "Mari Liis",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
     {
@@ -177,7 +177,7 @@ export  const ispNotifications = [
       image: KatiPic,
       text: "confirmed booking for:",
       name: "Kati Kristiina",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
 
@@ -210,7 +210,7 @@ export  const bspNotifications = [
       image: MartPic,
       text: "confirmed booking for:",
       name: "Mart Jaan",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
 
@@ -231,7 +231,7 @@ export  const bspNotifications = [
       image: Khrisjan,
       text: "confirmed booking for:",
       name: "Kristjan Tõnis",
-      Date: "2nd February 2024",
+      date: "2nd February 2024",
       time: "8AM",
     },
     {

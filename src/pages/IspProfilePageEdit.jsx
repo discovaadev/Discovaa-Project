@@ -17,6 +17,7 @@ const IspProfilePageEdit = ({
   onToggleChat,
   onToggleNotification,
   headerName,
+  toggleFavorites
 }) => {
   const isvServices = [
     ["Engine repairs", "Brake repairs"],
@@ -41,8 +42,8 @@ const IspProfilePageEdit = ({
         onToggleChat={onToggleChat}
         onToggleNotification={onToggleNotification}
         onProfileImageChange={onProfileImageChange}
+        toggleFavorites={toggleFavorites}
         profilePic={profilePic}
-        userType="endUser"
         headerName={headerName}
       />
       <div className="relative flex-grow">
