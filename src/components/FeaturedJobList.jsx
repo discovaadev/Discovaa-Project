@@ -7,7 +7,7 @@ import OnboardingButtons from "../components/OnboardingButtons.jsx";
 
 export default function FeaturedJobList() {
   return (
-    <section className="w-[97%] h-[700px] border border-gray-300 rounded-[70px] mx-auto mt-[280px] flex flex-col items-center">
+    <section className="w-[97%] h-[700px] border border-gray-300 rounded-[70px] mx-auto mt-[280px] flex flex-col items-center hidden md:block">
       <div className="flex bg-black relative justify-between items-center w-[1020px] h-[270px] rounded-[25px] mt-[-100px]">
         <div className="mt-[-75px] ml-[60px]">
           <img src={CardImg} alt="card-img" className="w-[365px]" />

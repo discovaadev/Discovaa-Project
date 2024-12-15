@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function ReviewsHeader() {
   return (
-    <div className="bg-black h-[110px] flex items-center px-[80px] relative">
+    <div className="bg-black h-[110px] flex items-center px-[80px] relative md:block hidden">
       <img src={Reviews} alt="reviews" className="w-[350px] ml-[20px]" />
       <img
         src={engineerPhotos}
@@ -19,7 +19,7 @@ function ReviewsHeader() {
 
 function ReviewsCard() {
   return (
-    <div className="bg-[#fff9f5] h-[422px]">
+    <div className="bg-[#fff9f5] h-[422px] hidden md:block ">
       <div className="flex justify-between px-[150px] py-[105px]">
         <div className="w-[260px] h-[260px] bg-black rounded-lg flex items-center justify-center">
           <img src={Person} alt="person" className="w-[260px] mt-[-74px]" />

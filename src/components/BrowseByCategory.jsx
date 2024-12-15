@@ -10,7 +10,7 @@ export default function BrowseByCategory({
   description = "Browse Artisans by Category",
 }) {
   return (
-    <section className="py-8 px-6 md:px-24 font-inter">
+    <section className="py-8 px-6 md:px-24 font-inter hidden md:block">
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-2xl font-bold">{description}</h2>
         {showSeeMore && <SeeMoreButton />}

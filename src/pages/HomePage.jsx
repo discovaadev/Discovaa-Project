@@ -22,11 +22,10 @@ const jobData = [
   
   ];
   
-
 const HomePage = () => {
     return(
-        <section>
-            <HeroSection/>
+        <section className="">
+            <HeroSection  />
             <OnboardingSection />
             <ArtisanShowcase />
             <BrowseByCategory jobData={jobData} rowLimit={5} showSeeMore={false} showSearchContainer={true} />

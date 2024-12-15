@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
+import 'swiper/css';
+import 'swiper/css/autoplay'
 import "./App.css";
 import "./index.css";
 import { Route, Routes } from "react-router-dom";
@@ -219,7 +220,7 @@ function App() {
             }
           />
           <Route
-            path="/"
+            path="/eert"
             element={
               <UserFilterPage
                 profilePic={profilePic}
@@ -374,7 +375,7 @@ function App() {
               />
             }
           />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/subscribe"
             element={

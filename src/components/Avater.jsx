@@ -6,12 +6,13 @@ export default function Avatar({
   translateY = "-translate-y-56", 
   marginLeft = "ml-12",    
 }) {
+  console.log(width, translateY, marginLeft);
   return (
     <div className="avatar">
       <img
         src={avater}
         alt="avatar"
-        className={`avatar ${width} ${translateY} ${marginLeft}`}
+        className={` ${width} ${translateY} ${marginLeft}`}
       />
     </div>
   );

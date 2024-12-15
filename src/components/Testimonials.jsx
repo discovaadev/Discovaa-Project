@@ -25,7 +25,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="font-inter font-light ">
+    <section className="font-inter font-light hidden md:block">
       <div className="bg-black w-full h-[85px] mx-auto text-white flex items-center justify-center -mt-[90px]">
         <h2>TESTIMONIALS</h2>
       </div>

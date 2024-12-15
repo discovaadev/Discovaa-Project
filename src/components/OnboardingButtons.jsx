@@ -5,7 +5,7 @@ export default function OnboardingButtons({
   style,
 }) {
   return (
-    <div className="flex space-x-5 mt-6" style={style}>
+    <div className=" flex space-x-5 mt-6" style={style}>
       <Link to="/select">
         <button
           className="px-5 py-3 rounded-md font-medium text-sm hover:bg-gray-800 transition"

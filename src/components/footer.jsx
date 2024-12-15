@@ -3,7 +3,7 @@ import WhiteLogo from '../assets/WhiteLogo.png';
 
 export default function Footer({className}) {
   return (
-    <section className={`bg-[#161622] py-6 flex gap-28 mt-20 ${className}`}>
+    <section className={`bg-[#161622] py-6 flex gap-28 mt-20 hidden md:block ${className}`}>
       <div className="flex flex-col items-center">
         <Logo src={WhiteLogo} alt="White Logo" width="100px" height="auto" className="w-24 h-auto" style={{ filter: 'none' }} />
         <div className="flex gap-2 mt-3 pl-12 text-white">
