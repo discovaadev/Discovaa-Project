@@ -220,7 +220,7 @@ function App() {
             }
           />
           <Route
-            path="/eert"
+            path="/userfilterpage"
             element={
               <UserFilterPage
                 profilePic={profilePic}
@@ -316,7 +316,7 @@ function App() {
             }
           />
           <Route path="/usersignuppage2" element={<UserSignUpPage2 />} />
-          <Route path="/usersignuppage" element={<UserSignUpPage />} />
+          <Route path="/" element={<UserSignUpPage />} />
           <Route
             path="/useremailconfirmation"
             element={<UserEmailConfirmationPage />}
@@ -375,7 +375,7 @@ function App() {
               />
             }
           />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/homepage" element={<HomePage />} />
           <Route
             path="/subscribe"
             element={

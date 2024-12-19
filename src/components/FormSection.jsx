@@ -50,9 +50,9 @@ export default function FormSection({
   };
 
   return (
-    <div className="flex justify-evenly p-8 mr-12">
+    <div className="flex justify-center w-full pl-5 sm:justify-evenly p-0 ">
       <div className="max-w-md">
-        <img src={imageSrc} alt="photo-img" className="w-full" />
+        <img src={imageSrc} alt="photo-img" className="hidden sm:flex w-full " />
       </div>
       <div className="max-w-md">
         <div className="mb-8">

@@ -4,9 +4,9 @@ import Footer from "../components/footer";
 import Photographer from "../assets/photographer (1).png";
 const UserSignUpPage = () => {
   return (
-    <div>
+    <div className=" w-full">
       <Header
-        bgColor="bg transparent"
+        bgColor="bg-black"
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 01/03"
@@ -16,14 +16,15 @@ const UserSignUpPage = () => {
         customLinks={[]}
         showSearch={false}
         showIcons={false}
+        showBackButtonAndStepText={true}
       />
-      <main>
+      <main className="h-screen">
         <FormSection
           description="Register User Account!"
           imageSrc={Photographer}
         />
       </main>
-      <Footer />
+      <Footer className='hidden lg:flex' />
     </div>
   );
 };

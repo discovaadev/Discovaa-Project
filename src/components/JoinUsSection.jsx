@@ -18,23 +18,23 @@ export default function JoinUsSection() {
   };
 
   return (
-    <div className="flex justify-evenly h-screen pt-20">
-      <div className="flex-shrink-0">
+    <section className="flex flex-col items-center justify-center h-full md:pt-20 lg:flex-row justify-evenly  ">
+      <div className="">
         <img
           src={CarMaintainaceImg}
           alt="Car-maintenance"
-          className="w-full max-w-[437px]"
+          className=" w-[350px] md:w-[437px]"
         />
       </div>
 
-      <div className="flex flex-col items-start max-w-lg">
-        <h1 className="mb-4 font-bold text-2xl">Join Us!</h1>
+      <div className="m-auto pl-3 sm:m-0 ">
+        <h1 className="text-3xl sm:mb-4 font-bold text-2xl">Join Us!</h1>
         <p className="w-[340px] font-normal text-base text-gray-500 mb-10">
           To begin this journey, tell us what type of account you&apos;d be
           opening.
         </p>
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 ">
           <Link to="/isvsignup">
             <div
               className={`group flex items-center justify-between w-[426px] h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white ${
@@ -53,7 +53,7 @@ export default function JoinUsSection() {
                   I want to request artisans business services.
                 </p>
               </div>
-             
+
               <ArrowForwardIcon className="text-black group-hover:block hidden" />
             </div>
           </Link>
@@ -76,12 +76,12 @@ export default function JoinUsSection() {
                   Own or belong to a company, this is for you.
                 </p>
               </div>
-             
+
               <ArrowForwardIcon className="text-black group-hover:block hidden" />
             </div>
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

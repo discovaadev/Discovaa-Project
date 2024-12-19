@@ -27,6 +27,8 @@ export default function Header({
   userType = "endUser",
   toggleFavorites,
   showAvaterNlogo = false,
+  hideNavLinks,
+  showBackButtonAndStepText = false,
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
 
@@ -47,6 +49,7 @@ export default function Header({
     toggleFavorites();
   };
   console.log(location.pathname);
+  console.log("hideNavLinks:", hideNavLinks);
 
   const getFavoritesRoute = () => {
     switch (userType) {
@@ -76,10 +79,18 @@ export default function Header({
 
   return (
     <header
-      className={`flex justify-between items-center ${
+      className={`flex  ${
         bgColor || "bg-transparent"
-      } ${validLinkColor} w-[460px] text-white py-8 px-16 rounded-b-[90px] sm:rounded-b-none md:bg-transparent h-56 sm:h-auto  sm:w-auto  ${className}`}
+      } ${validLinkColor} w-full text-white py-8 p-0 rounded-b-[90px] h-[200px] sm:rounded-b-none h-auto sm:w-auto md: px-5 justify-between lg:h-auto bg-transparent   ${className}`}
     >
+      <div className="">
+        {showBackButtonAndStepText && (
+          <div className="flex flex-row items-center justify-between sm:hidden w-full ">
+            <BackButton  />
+            <div className="text-gray-300 font-semibold">{stepText}</div>
+          </div>
+        )}
+      </div>
       <div className="flex flex-col sm:hidden">
         {showAvaterNlogo && (
           <div className="flex flex-col justify-center items-center  w-full">
@@ -88,25 +99,41 @@ export default function Header({
         )}
       </div>
 
-      <div className="hidden sm:flex justify-between w-full ">
-        <div className=" ">
+      <div className="hidden sm:flex items-center justify-between w-full ">
+        <div className=" flex space-x-16">
           <div className="flex items-center space-x-6 text-sm">
-            {showBackButton && <BackButton />}
+            <div> {showBackButton && <BackButton />}</div>
 
             <Logo src={logoSrc} width="112px" height="auto" />
-            <nav className={`${linkColor} flex space-x-6 items-center ml-6`}>
-              {customLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  to={link.href}
-                  className={`text-sm ${
-                    link.label === "Home" ? "font-bold" : "font-extralight"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+            {hideNavLinks ? (
+              <nav className="hidden lg:flex space-x-6 items-center ml-6">
+                {customLinks.map((link, index) => (
+                  <Link
+                    key={index}
+                    to={link.href}
+                    className={`text-sm ${
+                      link.label === "Home" ? "font-bold" : "font-extralight"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            ) : (
+              <nav className={`${linkColor}  flex space-x-6 items-center ml-6`}>
+                {customLinks.map((link, index) => (
+                  <Link
+                    key={index}
+                    to={link.href}
+                    className={`text-sm ${
+                      link.label === "Home" ? "font-bold" : "font-extralight"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            )}
           </div>
 
           {showSearch && (
@@ -191,12 +218,25 @@ export default function Header({
           ) : null}
 
           {showSignInText && (
-            <div className="flex items-center justify-center mt-4 text-sm">
-              <span className="text-[#8692A6]">Already have an account? </span>
-              <Link to="/signin" className="text-blue-500 ml-1">
-                Sign in
-              </Link>
-            </div>
+            <>
+              <div className="hidden sm:flex items-center justify-center mt-4 text-sm">
+                <span className="text-[#8692A6]">
+                  Already have an account?{" "}
+                </span>
+                <Link to="/signin" className="text-blue-500 ml-1">
+                  Sign in
+                </Link>
+              </div>
+
+              <div className="flex sm:hidden items-center justify-center mt-4 text-sm">
+                <span className="text-[#8692A6]">
+                  Already have an account?{" "}
+                </span>
+                <Link to="/signin" className="text-blue-500 ml-1">
+                  Sign in
+                </Link>
+              </div>
+            </>
           )}
 
           {stepText && (

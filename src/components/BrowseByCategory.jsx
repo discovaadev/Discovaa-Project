@@ -16,7 +16,7 @@ export default function BrowseByCategory({
         {showSeeMore && <SeeMoreButton />}
         {showSearchContainer && <SearchContainer />}
       </div>
-      <JobGrid jobData={jobData} rowLimit={rowLimit} />
+      <JobGrid jobData={jobData} rowLimit={rowLimit}  />
     </section>
   );
 }

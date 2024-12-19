@@ -19,7 +19,7 @@ const settings = {
 };
 export default function HeroSection() {
   return (
-    <section className="sm:bg-none md:bg-[url('./assets/blackBacGround.png')] bg-cover bg-center bg-no-repeat h-screen max-h-[700px] relative">
+    <section className="w-full overflow-y-hidden md:bg-[url('./assets/blackBacGround.png')] bg-cover bg-center bg-no-repeat h-screen max-h-[700px] relative ">
       <div className=" md:flex flex-col items-center w-full relative">
         <div className="w-full">
           <Header
@@ -38,22 +38,22 @@ export default function HeroSection() {
             showAvaterNlogo={true}
           />
         </div>
-        <div className="hidden md:block hero-content flex flex-col items-center justify-center mt-40">
-          <div className="hero-images flex justify-between max-w-4xl w-full mx-auto mt-28">
+        <div className="hidden md:block hero-content flex-col items-center justify-center mt-40">
+          <div className="hero-images flex justify-between max-w-4xl w-full mx-auto mt-28 md:max-w-4xl">
             <img
               src={worker2}
               alt="Worker 2"
-              className="hero-image shape-left w-72"
+              className="hero-image shape-left w-72 md:w-60"
             />
             <img
               src={photographer}
               alt="Photographer"
-              className="hero-image shape-center relative -top-48 z-10 w-72"
+              className="hero-image shape-center relative -top-48 z-10 w-72 md:w-60"
             />
             <img
               src={worker1}
               alt="Worker 1"
-              className="hero-image shape-right w-72"
+              className="hero-image shape-right w-72 md:w-60"
             />
           </div>
 
@@ -69,7 +69,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="md:hidden w-full h-full mt-4">
+      <div className="m-auto md:hidden w-full h-full mt-4">
         <Slider {...settings}>
           <div>
             <img src={worker2} alt="Worker 2" className="w-full h-full object-cover" />

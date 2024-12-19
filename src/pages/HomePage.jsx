@@ -24,14 +24,14 @@ const jobData = [
   
 const HomePage = () => {
     return(
-        <section className="">
+        <section >
             <HeroSection  />
             <OnboardingSection />
             <ArtisanShowcase />
-            <BrowseByCategory jobData={jobData} rowLimit={5} showSeeMore={false} showSearchContainer={true} />
+            <BrowseByCategory jobData={jobData}   showSeeMore={false} showSearchContainer={true} />
             <FeaturedJobList />
             <Testimonials />
-            <Footer />
+            <Footer className='hidden md:block'/>
         </section>
     )
 }

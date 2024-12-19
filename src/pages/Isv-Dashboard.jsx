@@ -6,6 +6,7 @@ const IsvDashboard = ({ searchQuery, onSearchChange, profilePic, onProfileImageC
   return (
     <div>
       <Header
+      bgColor="bg-black"
         searchQuery={searchQuery}
         onSearchChange={onSearchChange}
         linkColor="text-white"
