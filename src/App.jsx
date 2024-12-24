@@ -316,7 +316,7 @@ function App() {
             }
           />
           <Route path="/usersignuppage2" element={<UserSignUpPage2 />} />
-          <Route path="/" element={<UserSignUpPage />} />
+          <Route path="/usersignuppage" element={<UserSignUpPage />} />
           <Route
             path="/useremailconfirmation"
             element={<UserEmailConfirmationPage />}

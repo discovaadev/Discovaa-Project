@@ -4,8 +4,9 @@ import GoogleImg from "../assets/googleImg.png";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import BlackLogo from "../assets/BlackLogo.png";
 import { Link } from "react-router-dom";
-
+import MobileImg from "../assets/mobileLoginImg.png";
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -89,29 +90,45 @@ const LoginForm = () => {
   };
 
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col ">
       <Header
-        bgColor="bg transparent"
-        logoSrc={false}
-        showBackButton={true}
-        stepText="STEP 01/03"
+        bgColor=""
+        logoSrc={BlackLogo}
+        showBackButton={false}
+        stepText=""
         onBackClick={() => console.log("Back clicked")}
         searchQuery={""}
         showProfile={false}
         showSignInText={false}
-        customLinks={[]}
+        customLinks={[
+          { href: "/", label: "Home" },
+          { href: "/pricing", label: "Pricing" },
+          { href: "/about", label: "About Us" },
+          { href: "/contact", label: "Contact" },
+        ]}
         showSearch={false}
         showIcons={false}
         showSignInSignUp={true}
+        showSignUpText={true}
+        showMobileLogo={true}
       />
-      <div className="flex flex-row justify-center gap-24 h-screen ">
+      <div className="flex flex-col lg:flex-row ">
         <LoginImg />
-        <div className="flex flex-col max-w-sm mt-12 ">
-          <h2 className="text-2xl font-semibold">Welcome</h2>
-          <p className="text-gray-600 mb-4">Login to continue</p>
+        <div>
+          <img
+            src={MobileImg}
+            alt=""
+            className="block w-5/12 m-auto sm:hidden"
+          />
+        </div>
+        <div className="mt-0 -translate-y-16 pl-3 md:flex flex-col max-w-sm mt-12 md:translate-y-0 md:pl-0 m-auto mt-24 lg:ml-6">
+          <div className="hidden md:block ">
+            <h2 className="text-2xl font-semibold">Welcome</h2>
+            <p className="text-gray-600 mb-4">Login to continue</p>
+          </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="mb-6">
+            <div className="mb-6 ">
               <label htmlFor="email" className="block text-sm mb-2">
                 Email
               </label>
@@ -126,7 +143,7 @@ const LoginForm = () => {
                   placeholder="Your email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full m-auto md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs">{errors.email}</p>
@@ -149,7 +166,7 @@ const LoginForm = () => {
                   placeholder="Your password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full  md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.password && (
                   <p className="text-red-500 text-xs">{errors.password}</p>
@@ -169,7 +186,7 @@ const LoginForm = () => {
               </div>
             </div>
 
-            <div className="flex justify-between items-center mb-6 text-xs max-w-xs">
+            <div className="flex justify-between items-center mb-6 text-xs ">
               <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
@@ -180,7 +197,7 @@ const LoginForm = () => {
                 />
                 <label htmlFor="rememberMe">Remember me</label>
               </div>
-              <p className="text-blue-500 cursor-pointer">
+              <p className="text-blue-500 cursor-pointer ">
                 <a href="#/">Forgot Password?</a>
               </p>
             </div>
@@ -201,7 +218,7 @@ const LoginForm = () => {
           </form>
         </div>
       </div>
-      <Footer />
+      <Footer className="hidden lg:flex" />
     </section>
   );
 };

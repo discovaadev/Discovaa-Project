@@ -52,148 +52,159 @@ const ProfileForm = ({
   };
 
   return (
-    <div className="flex justify-evenly p-10">
+    <div className="flex flex-col lg:flex-row justify-evenly  p-10">
       <div>
-        <img src={imgSrc} alt="Profile" className="max-w-lg" />
+        <img src={imgSrc} alt="Profile" className="hidden lg:block max-w-lg " />
       </div>
       <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6">
-        <h3 className={`${titleStyle}`}>Complete Your Profile!</h3>
-        <p className="text-gray-500 w-80 font-normal">
+        <h3 className={`${titleStyle} hidden md:block`}>
+          Complete Your Profile!
+        </h3>
+        <p className="text-gray-500 w-80 font-normal -translate-y-8 md:translate-y-0">
           For the purpose of industry regulation, your details are required.
         </p>
-
-        <div className="space-y-2">
-          <label htmlFor="phoneNumber" className="block text-gray-700 text-sm">
-            Phone number
-          </label>
-          <div className="relative flex items-center w-full">
-            <div
-              className={`${getFlagClass(
-                selectedCountryCode
-              )} absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5`}
-            ></div>
-
-            <select
-              className="absolute left-10 top-1/2 transform -translate-y-1/2 text-gray-500 text-xs bg-transparent outline-none cursor-pointer"
-              value={selectedCountryCode}
-              onChange={(e) => setSelectedCountryCode(e.target.value)}
+        <p className="border border-1 border-gray-500 w-full -translate-y-10 md:translate-y-0 md:hidden"></p>
+        <div className="-translate-y-8 sm:translate-y-0">
+          <div className="w-full  md:space-y-2 ">
+            <label
+              htmlFor="phoneNumber"
+              className="block text-gray-700 text-sm"
             >
-              <option value="+234">🇳🇬 +234</option>
-              <option value="+1">🇺🇸 +1</option>
-              <option value="+44">🇬🇧 +44</option>
-              <option value="+91">🇮🇳 +91</option>
-            </select>
+              Phone number
+            </label>
+            <div className="relative flex items-center w-full">
+              <div
+                className={`${getFlagClass(
+                  selectedCountryCode
+                )} absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5`}
+              ></div>
 
-            <input
-              type="text"
-              id="phoneNumber"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              placeholder="09091234567"
-              className="w-4/5 pl-16 p-3 border border-gray-300 rounded-md placeholder-text-gray placeholder:text-xs text-center hover:border-blue-500"
-            />
-          </div>
-          {errors.phone && (
-            <span className="text-red-500 text-[9px] transform -translate-y-8 ">
-              {errors.phone}
-            </span>
-          )}
-        </div>
-
-        <div className="space-y-2">
-          <label htmlFor="address" className="block text-gray-700 text-xs">
-            Your Address
-          </label>
-          <input
-            type="text"
-            id="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Enter your address"
-            className="w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500 placeholder:text-xs"
-          />
-        </div>
-        {errors.address && (
-          <span className="text-red-500 text-[9px] transform -translate-y-8 ">
-            {errors.address}
-          </span>
-        )}
-
-        {showBusinessInfo && (
-          <>
-            <div className="space-y-2">
-              <label
-                htmlFor="businessName"
-                className="block text-gray-700 text-sm"
+              <select
+                className="absolute left-10 top-1/2 transform -translate-y-1/2 text-gray-500 text-xs bg-transparent outline-none cursor-pointer"
+                value={selectedCountryCode}
+                onChange={(e) => setSelectedCountryCode(e.target.value)}
               >
-                Business Name
-              </label>
+                <option value="+234">🇳🇬 +234</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+44">🇬🇧 +44</option>
+                <option value="+91">🇮🇳 +91</option>
+              </select>
+
               <input
                 type="text"
-                id="businessName"
-                value={businessName}
-                onChange={(e) => setBusinessName(e.target.value)}
-                placeholder="Enter your business name"
-                className="w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500"
+                id="phoneNumber"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                placeholder="09091234567"
+                className="w-full md:w-4/5 pl-16 p-3 border border-gray-300 rounded-md placeholder-text-gray placeholder:text-xs text-center hover:border-blue-500"
               />
             </div>
-            {errors.businessName && (
+            {errors.phone && (
               <span className="text-red-500 text-[9px] transform -translate-y-8 ">
-                {errors.businessName}
+                {errors.phone}
               </span>
             )}
-
-            <div className="space-y-2">
-              <label
-                htmlFor="businessDescription"
-                className="block text-gray-700 text-sm"
-              >
-                Business Description
-              </label>
-              <textarea
-                id="businessDescription"
-                value={businessDescription}
-                onChange={(e) => setBusinessDescription(e.target.value)}
-                placeholder="Describe your business"
-                className="w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500"
-              />
-            </div>
-          </>
-        )}
-
-        <div className="space-y-2">
-          <label htmlFor="country" className="block text-gray-700 text-sm">
-            Country of residence
-          </label>
-          <select
-            id="country"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            className="w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500  text-gray-700 text-xs"
-          >
-            <option value="">Select your country</option>
-            <option value="Nigeria">Nigeria</option>
-            <option value="United States">United States</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="India">India</option>
-          </select>
-        </div>
-        {errors.country && (
-          <div className="transform -translate-y-8 ">
-            <span className="text-red-500 text-[9px] ">{errors.country}</span>
           </div>
-        )}
-        <Link to="/login">
-          <button
-            type="submit"
-            className="w-4/5 bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors"
-          >
-            Save and Continue
-          </button>
-        </Link>
-        <div className="security flex items-center ml-20 gap-2 mt-7 text-[13px] text-[#8692A6]">
-          <span className="material-symbols-outlined text-[15px]">lock</span>
-          <p className="security-note">Your info is safely secured</p>
+
+          <div className="space-y-2">
+            <label htmlFor="address" className="block text-gray-700 text-xs">
+              Your Address
+            </label>
+            <input
+              type="text"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Enter your address"
+              className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500 placeholder:text-xs"
+            />
+          </div>
+          {errors.address && (
+            <span className="text-red-500 text-[9px] transform -translate-y-8 ">
+              {errors.address}
+            </span>
+          )}
+
+          {showBusinessInfo && (
+            <>
+              <div className="space-y-2">
+                <label
+                  htmlFor="businessName"
+                  className="block text-gray-700 text-sm"
+                >
+                  Business Name
+                </label>
+                <input
+                  type="text"
+                  id="businessName"
+                  value={businessName}
+                  onChange={(e) => setBusinessName(e.target.value)}
+                  placeholder="Enter your business name"
+                  className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500"
+                />
+              </div>
+              {errors.businessName && (
+                <span className="text-red-500 text-[9px] transform -translate-y-8 ">
+                  {errors.businessName}
+                </span>
+              )}
+
+              <div className="space-y-2">
+                <label
+                  htmlFor="businessDescription"
+                  className="block text-gray-700 text-sm"
+                >
+                  Business Description
+                </label>
+                <textarea
+                  id="businessDescription"
+                  value={businessDescription}
+                  onChange={(e) => setBusinessDescription(e.target.value)}
+                  placeholder="Describe your business"
+                  className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500"
+                />
+              </div>
+            </>
+          )}
+
+          <div className="space-y-2">
+            <label htmlFor="country" className="block text-gray-700 text-sm">
+              Country of residence
+            </label>
+            <select
+              id="country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500  text-gray-700 text-xs"
+            >
+              <option value="">Select your country</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="United States">United States</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="India">India</option>
+            </select>
+          </div>
+          {errors.country && (
+            <div className="transform -translate-y-8 ">
+              <span className="text-red-500 text-[9px] ">{errors.country}</span>
+            </div>
+          )}
+          <div className="mt-20 sm:mt-0">
+            <Link to="/login">
+              <button
+                type="submit"
+                className="w-full mt-3 md:w-4/5 bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors"
+              >
+                Save and Continue
+              </button>
+            </Link>
+            <div className="security flex items-center ml-20  text-[13px] text-[#8692A6]">
+              <span className="material-symbols-outlined text-[15px]">
+                lock
+              </span>
+              <p className="security-note">Your info is safely secured</p>
+            </div>
+          </div>
         </div>
       </form>
     </div>

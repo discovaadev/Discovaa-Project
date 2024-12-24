@@ -24,7 +24,7 @@ export default function HeroSection() {
         <div className="w-full">
           <Header
             linkColor="text-white"
-            bgColor="bg-black"
+            bgColor=""
             showSearch={false}
             showProfile={false}
             showIcons={false}
@@ -36,6 +36,9 @@ export default function HeroSection() {
             ]}
             showAuthButtons={true}
             showAvaterNlogo={true}
+            showMobileLogo={false}
+            showSignInButton={true}
+            showSignUpButton={true}
           />
         </div>
         <div className="hidden md:block hero-content flex-col items-center justify-center mt-40">

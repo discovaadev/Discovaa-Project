@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Photographer from "../assets/photographer (1).png";
 
 export default function CodeInput({
   title = "Check your Mail",
@@ -10,7 +11,7 @@ export default function CodeInput({
   contactInfoStyle = "text-blue-600",
   buttonText = "Verify",
   buttonStyle = "w-full py-2 bg-black text-white rounded",
-  descriptionWidth = "w-[500px]",
+  descriptionWidth = "",
 }) {
   const [codes, setCodes] = useState(Array(6).fill(""));
 
@@ -38,52 +39,58 @@ export default function CodeInput({
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="mb-5 ">
-        <h2 className={`${titleStyle}`}>{title}</h2>
-        <p
-          className={`${descriptionWidth} text-gray-500 text-sm mt-2 w-[500px]`}
-        >
-          {description}{" "}
-          <span className={`${contactInfoStyle}`}>
-            {typeof contactInfo === "string" ? (
-              <a href="#/">{contactInfo}</a>
-            ) : (
-              contactInfo
-            )}
-          </span>
-          {contactText}
-        </p>
+    <section className="flex flex-col items-center sm:flex-row space-x-5  justify-evenly  ">
+      <div className="">
+        <img src={Photographer} alt="photographer" className="w-80 hidden lg:block w-[400px]" />
       </div>
-      <div className="w-[500px]">
-        <form onSubmit={handleSubmit} className="w-72">
-          <div className="grid grid-cols-6 gap-2 mb-6">
-            {codes.map((code, index) => (
-              <input
-                key={index}
-                type="text"
-                id={`code-${index}`}
-                value={code}
-                onChange={(e) => handleChange(e, index)}
-                onKeyDown={(e) => handleKeyDown(e, index)}
-                maxLength="1"
-                className="w-full h-14 text-center text-2xl border border-black-300 rounded bg-gray-100 focus:outline-none hover:border-black"
-              />
-            ))}
-          </div>
-          <Link to="/isvsignup2">
-            <button type="submit" className={` ${buttonStyle}`}>
-              {buttonText}
-            </button>
-          </Link>
-        </form>
+      <div className="flex flex-col items-center pr-1 lg:items-start ">
+        <div className="mb-5  pt-12">
+          <h2 className={`${titleStyle} hidden sm:block text-center lg:text-start`}>{title}</h2>
+          <p
+            className={`${descriptionWidth} text-gray-500 text-sm pl-2 lg:w-[445px] text-start justify-center pl-0 `}
+          >
+            {description}{" "}
+            <span className={`${contactInfoStyle}`}>
+              {typeof contactInfo === "string" ? (
+                <a href="#/">{contactInfo}</a>
+              ) : (
+                contactInfo
+              )}
+            </span>
+            {contactText}
+          </p>
+          <p className=" border border-1 border-gray-400 w-full  mt-1 sm:hidden"></p>
+        </div>
+        <div className="">
+          <form onSubmit={handleSubmit} className="md:w-72">
+            <div className="grid grid-cols-6 gap-2 md:text-start">
+              {codes.map((code, index) => (
+                <input
+                  key={index}
+                  type="text"
+                  id={`code-${index}`}
+                  value={code}
+                  onChange={(e) => handleChange(e, index)}
+                  onKeyDown={(e) => handleKeyDown(e, index)}
+                  maxLength="1"
+                  className="w-full h-14 text-center text-2xl border border-black-300 rounded bg-gray-100 focus:outline-none hover:border-black"
+                />
+              ))}
+            </div>
+            <Link to="/isvsignup2">
+              <button type="submit" className={` ${buttonStyle} `}>
+                {buttonText}
+              </button>
+            </Link>
+          </form>
+        </div>
+        <span className="text-gray-400 text-xs mt-2 lg:ml-11  ">
+          Didn&apos;t receive a code?{" "}
+          <a href="#/" className="text-blue-600">
+            Resend Code
+          </a>
+        </span>
       </div>
-      <span className="text-gray-400 text-xs mt-6 w-[500px] ml-14">
-        Didn&apos;t receive a code?{" "}
-        <a href="#/" className="text-blue-600">
-          Resend Code
-        </a>
-      </span>
-    </div>
+    </section>
   );
 }

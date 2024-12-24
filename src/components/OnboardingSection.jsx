@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function OnboardingSection() {
   return (
-    <section className=" bg-blue-500 md:bg-white w-full p-16 flex items-center ">
+    <section className=" md:bg-white w-full p-16 flex items-center ">
       <div className="">
         <p className="text-sm mb-1">FREE 30 TRIAL</p>
         <div>

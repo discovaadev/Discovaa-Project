@@ -50,17 +50,18 @@ export default function FormSection({
   };
 
   return (
-    <div className="flex justify-center w-full pl-5 sm:justify-evenly p-0 ">
-      <div className="max-w-md">
-        <img src={imageSrc} alt="photo-img" className="hidden sm:flex w-full " />
+    <div className="flex justify-center w-full pl-5 sm:justify-evenly p-0 md:flex-col items-center lg:flex-row ">
+      <div className="">
+        <img src={imageSrc} alt="photo-img" className="hidden md:block w-[200px] -mt-8 lg: w-[450px] " />
       </div>
       <div className="max-w-md">
         <div className="mb-8">
-          <p className="mb-2 text-gray-500">Personal info.</p>
-          <h2 className={`${descriptionStyle}`}>{description}</h2>
-          <p className="mt-2 text-gray-400 text-sm w-80">
+          <p className="mb-2 text-gray-500 hidden sm:block">Personal info.</p>
+          <h2 className={`${descriptionStyle} hidden sm:block`}>{description}</h2>
+          <p className="mt-2 text-gray-400 text-sm w-80 ">
             For the purpose of industry regulation, your details are required.
           </p>
+          <div className=" border border-2 border-gray-300 w-full mt-2 sm:hidden "></div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

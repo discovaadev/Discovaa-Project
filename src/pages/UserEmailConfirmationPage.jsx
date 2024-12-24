@@ -1,13 +1,13 @@
 import Header from "../components/Header";
-import Photographer from "../assets/photographer (1).png";
+
 import CodeInput from "../components/CodeInput";
-import Footer from '../components/footer';
+import Footer from "../components/footer";
 
 const UserEmailConfirmationPage = () => {
   return (
-    <div>
+    <div className="">
       <Header
-        bgColor="bg transparent"
+        bgColor=""
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 02/03"
@@ -18,14 +18,14 @@ const UserEmailConfirmationPage = () => {
         customLinks={[]}
         showSearch={false}
         showIcons={false}
+        showBackButtonAndStepText={true}
+        pageTitle="Check your Mail"
+        showPageTitle={true}
       />
-      <main className="flex flex-row h-screen gap-32 justify-center pt-20">
-        <div className="max-w-md">
-          <img src={Photographer} alt="photographer" />
-        </div>
-        <CodeInput buttonStyle="mt-14" />
+      <main className="min-h-screen">
+        <CodeInput buttonStyle="mt-14 bg-black text-white w-full p-1 rounded-md " />
       </main>
-      <Footer />
+      <Footer className="hidden lg:flex mb-0" />
     </div>
   );
 };

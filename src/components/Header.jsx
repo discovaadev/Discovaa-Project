@@ -4,6 +4,7 @@ import SearchIcon from "../assets/SearchIcon.png";
 import BackButton from "../components/BackButton.jsx";
 import { Link, useLocation } from "react-router-dom";
 import MobileLogo from "../assets/MobileLogo.png";
+import { useState } from "react";
 
 export default function Header({
   logoSrc = WhiteLogo,
@@ -18,6 +19,7 @@ export default function Header({
   linkColor = "text-black",
   className = "",
   showSignInText = false,
+  showSignUpText = false,
   showBackButton = false,
   stepText = "",
   profilePic,
@@ -29,6 +31,11 @@ export default function Header({
   showAvaterNlogo = false,
   hideNavLinks,
   showBackButtonAndStepText = false,
+  pageTitle = "",
+  showPageTitle = false,
+  showMobileLogo = false,
+  showSignInButton = false,
+  showSignUpButton = false,
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
 
@@ -76,29 +83,115 @@ export default function Header({
         return "/userprofilepersonalinfopage";
     }
   };
+  const isUserSignupPage = location.pathname === "/usersignuppage";
+  const isUserSignupPage2 = location.pathname === "/usersignuppage2";
+  const isUserConfirmationPage = location.pathname === "/useremailconfirmation";
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
 
   return (
     <header
-      className={`flex  ${
-        bgColor || "bg-transparent"
-      } ${validLinkColor} w-full text-white py-8 p-0 rounded-b-[90px] h-[200px] sm:rounded-b-none h-auto sm:w-auto md: px-5 justify-between lg:h-auto bg-transparent   ${className}`}
+      className={`flex ${
+        bgColor ? bgColor : "bg-black h-48 sm:bg-transparent"
+      } ${validLinkColor} w-full text-white py-8 p-0 rounded-b-[30px]  
+    sm:rounded-b-none h-auto sm:w-auto md:px-5 justify-between 
+    lg:h-auto ${className}`}
     >
-      <div className="">
-        {showBackButtonAndStepText && (
-          <div className="flex flex-row items-center justify-between sm:hidden w-full ">
-            <BackButton  />
-            <div className="text-gray-300 font-semibold">{stepText}</div>
-          </div>
-        )}
-      </div>
-      <div className="flex flex-col sm:hidden">
-        {showAvaterNlogo && (
-          <div className="flex flex-col justify-center items-center  w-full">
-            <img src={MobileLogo} />
-          </div>
-        )}
-      </div>
+      <div className="flex flex-col sm:hidden w-full">
+        {" "}
+        <div className="flex justify-between items-center px-4 relative">
+          {showMobileLogo && (
+            <div className="flex items-center">
+              <img src={logoSrc} alt="Logo" className="w-24 h-auto invert brightness-200 " />
+            </div>
+          )}
 
+          <div className="absolute right-6">
+          <button
+            onClick={toggleMenu}
+            className="text-white focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <span className="material-icons text-3xl">close</span>
+            ) : (
+              <span className="material-icons text-3xl">menu</span>
+            )}
+          </button>
+          </div>
+        </div>
+        {menuOpen && (
+          <nav
+            className="flex flex-col items-center text-white rounded-b-lg mt-2 p-4 space-y-4"
+            onClick={() => setMenuOpen(false)}
+          >
+            {customLinks.map((link, index) => (
+              <Link
+                key={index}
+                to={link.href}
+                className="text-lg hover:text-blue-500 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            {showSignInButton && (
+              <Link to="/signin">
+                <button className="w-full px-4 py-1 bg-white text-black rounded">
+                  Sign In
+                </button>
+              </Link>
+            )}
+            {showSignUpButton && (
+              <Link to="/signup">
+                <button className="w-full px-4 py-1 bg-white text-black border border-black rounded">
+                  Sign Up
+                </button>
+              </Link>
+            )}
+          </nav>
+        )}
+        {showBackButtonAndStepText && (
+          <div className="flex flex-row items-center justify-between w-full">
+            <BackButton />
+            <div className="text-gray-300 font-semibold ml-40 pr-3 text-sm">
+              {stepText}
+            </div>
+          </div>
+        )}
+        {showAvaterNlogo && (
+          <div className="flex flex-col justify-center items-center m-auto w-6/12">
+            <img src={MobileLogo} alt="Logo" />
+          </div>
+        )}
+        {showPageTitle && (
+          <div className="block text-2xl text-white text-start pl-20 py-5 sm:hidden">
+            {isUserSignupPage && (
+              <div className="text-sm text-gray-600 font-semibold">
+                Personal Info
+              </div>
+            )}
+            <div
+              className={`text-2xl font-semibold ${
+                isUserSignupPage
+                  ? " text-white "
+                  : isUserConfirmationPage
+                  ? "ml-6 translate-y-4"
+                  : isUserSignupPage2
+                  ? " translate-y-4"
+                  : "text-white"
+              }`}
+            >
+              {pageTitle}
+            </div>
+          </div>
+        )}
+      </div>
+      {/* FOR DESKTOP */}
       <div className="hidden sm:flex items-center justify-between w-full ">
         <div className=" flex space-x-16">
           <div className="flex items-center space-x-6 text-sm">
@@ -216,6 +309,24 @@ export default function Header({
               </div>
             </Link>
           ) : null}
+
+          {showSignUpText && (
+            <>
+              <div className="hidden sm:flex items-center justify-center mt-4 text-sm">
+                <span className="text-[#8692A6]">Don’t have an account? </span>
+                <Link to="/signup" className="text-blue-500 ml-1">
+                  Sign up
+                </Link>
+              </div>
+
+              <div className="flex sm:hidden items-center justify-center mt-4 text-sm">
+                <span className="text-[#8692A6]">Don’t have an account? </span>
+                <Link to="/signup" className="text-blue-500 ml-1">
+                  Sign up
+                </Link>
+              </div>
+            </>
+          )}
 
           {showSignInText && (
             <>

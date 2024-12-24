@@ -6,7 +6,7 @@ const UserSignUpPage = () => {
   return (
     <div className=" w-full">
       <Header
-        bgColor="bg-black"
+        bgColor=""
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 01/03"
@@ -17,14 +17,17 @@ const UserSignUpPage = () => {
         showSearch={false}
         showIcons={false}
         showBackButtonAndStepText={true}
+        pageTitle="Register User Account!"
+        showPageTitle={true}
+        isUserSignupPage={true}
       />
-      <main className="h-screen">
+      <main className="">
         <FormSection
           description="Register User Account!"
           imageSrc={Photographer}
         />
       </main>
-      <Footer className='hidden lg:flex' />
+      <Footer className="hidden lg:flex" />
     </div>
   );
 };
