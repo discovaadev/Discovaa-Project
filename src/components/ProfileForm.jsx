@@ -52,18 +52,18 @@ const ProfileForm = ({
   };
 
   return (
-    <div className="flex flex-col lg:flex-row justify-evenly  p-10">
+    <div className="flex flex-col p-6 md:m-auto lg:flex-row lg:m-0 justify-evenly lg:p-0  ">
       <div>
-        <img src={imgSrc} alt="Profile" className="hidden lg:block max-w-lg " />
+        <img src={imgSrc} alt="Profile" className=" lg:block w-[400px] " />
       </div>
       <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6">
         <h3 className={`${titleStyle} hidden md:block`}>
           Complete Your Profile!
         </h3>
-        <p className="text-gray-500 w-80 font-normal -translate-y-8 md:translate-y-0">
+        <p className="hidden text-gray-500 w-80 font-normal -translate-y-8 md:translate-y-0 md:block">
           For the purpose of industry regulation, your details are required.
         </p>
-        <p className="border border-1 border-gray-500 w-full -translate-y-10 md:translate-y-0 md:hidden"></p>
+        <p className="hidden border border-1 border-gray-500 w-full -translate-y-10 md:translate-y-0 "></p>
         <div className="-translate-y-8 sm:translate-y-0">
           <div className="w-full  md:space-y-2 ">
             <label
@@ -96,7 +96,7 @@ const ProfileForm = ({
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="09091234567"
-                className="w-full md:w-4/5 pl-16 p-3 border border-gray-300 rounded-md placeholder-text-gray placeholder:text-xs text-center hover:border-blue-500"
+                className="w-full  pl-16 p-3 border border-gray-300 rounded-md placeholder-text-gray placeholder:text-xs text-center hover:border-blue-500"
               />
             </div>
             {errors.phone && (
@@ -116,7 +116,7 @@ const ProfileForm = ({
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               placeholder="Enter your address"
-              className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500 placeholder:text-xs"
+              className="w-full p-3 border border-gray-300 rounded-md hover:border-blue-500 placeholder:text-xs"
             />
           </div>
           {errors.address && (
@@ -140,7 +140,7 @@ const ProfileForm = ({
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
                   placeholder="Enter your business name"
-                  className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500"
+                  className="w-full  p-3 border border-gray-300 rounded-md hover:border-blue-500"
                 />
               </div>
               {errors.businessName && (
@@ -161,7 +161,7 @@ const ProfileForm = ({
                   value={businessDescription}
                   onChange={(e) => setBusinessDescription(e.target.value)}
                   placeholder="Describe your business"
-                  className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500"
+                  className="w-full  p-3 border border-gray-300 rounded-md hover:border-blue-500"
                 />
               </div>
             </>
@@ -175,7 +175,7 @@ const ProfileForm = ({
               id="country"
               value={country}
               onChange={(e) => setCountry(e.target.value)}
-              className="w-full md:w-4/5 p-3 border border-gray-300 rounded-md hover:border-blue-500  text-gray-700 text-xs"
+              className="w-full  p-3 border border-gray-300 rounded-md hover:border-blue-500  text-gray-700 text-xs"
             >
               <option value="">Select your country</option>
               <option value="Nigeria">Nigeria</option>
@@ -193,7 +193,7 @@ const ProfileForm = ({
             <Link to="/login">
               <button
                 type="submit"
-                className="w-full mt-3 md:w-4/5 bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors"
+                className="w-full mt-3 bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors"
               >
                 Save and Continue
               </button>

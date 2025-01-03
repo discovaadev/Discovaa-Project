@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Photographer from "../assets/photographer (1).png";
+
 
 export default function CodeInput({
   title = "Check your Mail",
@@ -39,15 +39,12 @@ export default function CodeInput({
   };
 
   return (
-    <section className="flex flex-col items-center sm:flex-row space-x-5  justify-evenly  ">
-      <div className="">
-        <img src={Photographer} alt="photographer" className="w-80 hidden lg:block w-[400px]" />
-      </div>
-      <div className="flex flex-col items-center pr-1 lg:items-start ">
-        <div className="mb-5  pt-12">
+    <section className="-translate-y-5 sm:flex-row space-x-5 justify-evenly ">
+      <div className=" p-6 flex flex-col items-center lg:items-start">
+        <div className="mb-5   ">
           <h2 className={`${titleStyle} hidden sm:block text-center lg:text-start`}>{title}</h2>
           <p
-            className={`${descriptionWidth} text-gray-500 text-sm pl-2 lg:w-[445px] text-start justify-center pl-0 `}
+            className={`${descriptionWidth} text-gray-500 text-sm  lg:w-[445px] text-start justify-center pl-0 `}
           >
             {description}{" "}
             <span className={`${contactInfoStyle}`}>
@@ -59,7 +56,7 @@ export default function CodeInput({
             </span>
             {contactText}
           </p>
-          <p className=" border border-1 border-gray-400 w-full  mt-1 sm:hidden"></p>
+          {/* <p className=" border border-1 border-gray-400 w-full  mt-1 sm:hidden"></p> */}
         </div>
         <div className="">
           <form onSubmit={handleSubmit} className="md:w-72">

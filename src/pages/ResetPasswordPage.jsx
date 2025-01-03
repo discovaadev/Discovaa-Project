@@ -1,10 +1,9 @@
+import Footer from "../components/footer";
 import Header from "../components/Header";
 import LoginImgSection from "../components/LoginImgSection";
-import CodeInput from "../components/CodeInput";
-import Footer from "../components/footer";
+import NewPassword from "../components/NewPassword";
 import PhotograhImg from "../assets/photographer (1).png";
-
-const OtpVerificationPage = () => {
+const ResetPasswordPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header
@@ -16,7 +15,7 @@ const OtpVerificationPage = () => {
         showSearch={false}
         showProfile={false}
       />
-      <main className="flex-grow flex flex-col lg:flex-row justify-evenly items-center">
+      <main className="flex-grow lg:flex flex-row items-center justify-evenly">
         <div className="md:hidden lg:block">
           <LoginImgSection />
         </div>
@@ -27,18 +26,12 @@ const OtpVerificationPage = () => {
             className="m-auto w-[200px] mt-3  md:-mt-0 md:w-[300px] lg:hidden m-0 "
           />
         </div>
-        <CodeInput
-          title="Forgot Your Password?"
-          description="Please enter the 6-digit verification code sent to"
-          contactInfo="+234(803)*********123"
-          buttonText="Proceed"
-          buttonStyle="mt-24 bg-black text-white w-full p-2 rounded-md lg:mt-32 "
-          contactText=" "
-        />
+        <NewPassword />
       </main>
+
       <Footer />
     </div>
   );
 };
 
-export default OtpVerificationPage;
+export default ResetPasswordPage;

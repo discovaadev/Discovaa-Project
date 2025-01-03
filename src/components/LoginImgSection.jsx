@@ -6,7 +6,8 @@ import Logo from './logo.jsx';
 import Avater from './Avater.jsx';
 import HeroLogo from '../assets/HeroLogo.png';
 
-export default function LoginImg() {
+
+export default function LoginImgSection() {
   return (
     <div className="hidden  md:flex flex-col  items-center justify-center translate-y-40 lg:translate-y-0 m-auto lg:mt-[240px]">
       <div className="flex justify-evenly">
@@ -18,6 +19,7 @@ export default function LoginImg() {
         />
         <img src={worker1} alt="Worker 1" className="w-[200px] clip-ellipse-right md:w-40 lg:w-[200px]" />
       </div>
+
 
       <div className="flex flex-col items-center justify-center -translate-y-[177px]">
         <Avater width='w-[140px]' translateY = "translate-y-6" marginLeft = "ml-0"/>

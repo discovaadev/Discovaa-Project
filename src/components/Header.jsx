@@ -36,6 +36,7 @@ export default function Header({
   showMobileLogo = false,
   showSignInButton = false,
   showSignUpButton = false,
+  showMenuIcon = false,
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
 
@@ -86,6 +87,10 @@ export default function Header({
   const isUserSignupPage = location.pathname === "/usersignuppage";
   const isUserSignupPage2 = location.pathname === "/usersignuppage2";
   const isUserConfirmationPage = location.pathname === "/useremailconfirmation";
+  const isLoginPage = location.pathname === "/login";
+  const isIsvSignUpPage = location.pathname === "/isvsignup";
+  const isIsvEmailPage = location.pathname === "/isvemail";
+  const isBsvSignUpPage = location.pathname === "/businesssignup";
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -96,33 +101,39 @@ export default function Header({
   return (
     <header
       className={`flex ${
-        bgColor ? bgColor : "bg-black h-48 sm:bg-transparent"
+        bgColor ? bgColor : "bg-black h-46 sm:bg-transparent"
       } ${validLinkColor} w-full text-white py-8 p-0 rounded-b-[30px]  
     sm:rounded-b-none h-auto sm:w-auto md:px-5 justify-between 
     lg:h-auto ${className}`}
     >
+      {/* FOR MOBILE */}
       <div className="flex flex-col sm:hidden w-full">
         {" "}
         <div className="flex justify-between items-center px-4 relative">
           {showMobileLogo && (
             <div className="flex items-center">
-              <img src={logoSrc} alt="Logo" className="w-24 h-auto invert brightness-200 " />
+              <img
+                src={logoSrc}
+                alt="Logo"
+                className="w-24 h-auto invert brightness-200 "
+              />
             </div>
           )}
-
+        {showMenuIcon && (
           <div className="absolute right-6">
-          <button
-            onClick={toggleMenu}
-            className="text-white focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? (
-              <span className="material-icons text-3xl">close</span>
-            ) : (
-              <span className="material-icons text-3xl">menu</span>
-            )}
-          </button>
+            <button
+              onClick={toggleMenu}
+              className="text-white focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? (
+                <span className="material-icons text-3xl">close</span>
+              ) : (
+                <span className="material-icons text-3xl">menu</span>
+              )}
+            </button>
           </div>
+        )}
         </div>
         {menuOpen && (
           <nav
@@ -163,6 +174,7 @@ export default function Header({
             </div>
           </div>
         )}
+        <div> {showBackButton && <BackButton />}</div>
         {showAvaterNlogo && (
           <div className="flex flex-col justify-center items-center m-auto w-6/12">
             <img src={MobileLogo} alt="Logo" />
@@ -170,11 +182,22 @@ export default function Header({
         )}
         {showPageTitle && (
           <div className="block text-2xl text-white text-start pl-20 py-5 sm:hidden">
-            {isUserSignupPage && (
+            {isUserSignupPage &&  (
               <div className="text-sm text-gray-600 font-semibold">
                 Personal Info
               </div>
             )}
+            {isIsvSignUpPage &&  (
+              <div className="text-sm text-gray-600 font-semibold -translate-x-4">
+                Personal Info
+              </div>
+            )}
+            {isBsvSignUpPage &&  (
+              <div className="text-sm text-gray-600 font-semibold -translate-x-8">
+                Personal Info
+              </div>
+            )}
+            
             <div
               className={`text-2xl font-semibold ${
                 isUserSignupPage
@@ -183,11 +206,24 @@ export default function Header({
                   ? "ml-6 translate-y-4"
                   : isUserSignupPage2
                   ? " translate-y-4"
+                  : isLoginPage
+                  ? "text-white ml-14 "
+                  : isIsvSignUpPage
+                  ? "text-white text-xl -translate-x-4"
+                  : isIsvEmailPage
+                  ? "ml-2"
+                  : isBsvSignUpPage
+                  ? "text-white -translate-x-8"
                   : "text-white"
               }`}
             >
               {pageTitle}
             </div>
+            {isLoginPage && (
+              <div className="text-[11px] text-gray-600 font-semibold ml-[65px] -mt-3">
+                Login to continue
+              </div>
+            )}
           </div>
         )}
       </div>

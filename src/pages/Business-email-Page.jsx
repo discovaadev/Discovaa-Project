@@ -4,9 +4,9 @@ import Footer from "../components/footer.jsx";
 
 const BusinessEmailPage = () => {
   return (
-    <section className="flex flex-col ">
+    <div className="flex flex-col min-h-screen">
       <Header
-        bgColor="bg transparent"
+        bgColor=""
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 02/03"
@@ -16,10 +16,15 @@ const BusinessEmailPage = () => {
         customLinks={[]}
         showSearch={false}
         showIcons={false}
+        showBackButtonAndStepText={true}
+        pageTitle="Check your Mail"
+        showPageTitle={true}
       />
-      <EmailConfirmation />
+      <main className=" flex-grow">
+        <EmailConfirmation />
+      </main>
       <Footer />
-    </section>
+    </div>
   );
 };
 

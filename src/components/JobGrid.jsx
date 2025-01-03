@@ -1,27 +1,28 @@
 import { useState, useEffect } from "react";
-
 function JobGrid({ jobData }) {
-  const [rowLimit, setRowLimit] = useState(5);
+  const [itemsToDisplay, setItemsToDisplay] = useState([]);
 
   useEffect(() => {
-    const updateRowLimit = () => {
-      if (window.innerWidth < 768) {
-        setRowLimit(3);
+    const updateItemsToDisplay = () => {
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth >= 1024) {
+        setItemsToDisplay(jobData.slice(0, 30));
+      } else if (screenWidth >= 768) {
+        setItemsToDisplay(jobData.slice(0, 9));
       } else {
-        setRowLimit(5);
+        setItemsToDisplay(jobData.slice(0, 6));
       }
     };
 
-    updateRowLimit(); // Set initial state
-    window.addEventListener("resize", updateRowLimit);
+    updateItemsToDisplay();
+    window.addEventListener("resize", updateItemsToDisplay);
 
-    return () => window.removeEventListener("resize", updateRowLimit);
-  }, []);
-
-  const itemsToDisplay = Array.from({ length: rowLimit }).flatMap(() => jobData);
+    return () => window.removeEventListener("resize", updateItemsToDisplay);
+  }, [jobData]);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8 justify-center mt-9 w-full mx-auto">
+    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 justify-center mt-9 w-full mx-auto">
       {itemsToDisplay.map((job, index) => (
         <div key={index} className="flex flex-col">
           <img
@@ -37,4 +38,5 @@ function JobGrid({ jobData }) {
     </div>
   );
 }
+
 export default JobGrid;

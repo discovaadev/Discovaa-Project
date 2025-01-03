@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import LockIcon from "../assets/lock-Icon.png";
 import LikeIcon from "../assets/Like-Icon.png";
+import { useNavigate } from "react-router-dom";
 
 export default function NewPassword() {
   const [newPassword, setNewPassword] = useState("");
@@ -10,8 +11,10 @@ export default function NewPassword() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   const validateForm = () => {
+    
     const newErrors = {};
     if (!newPassword) {
       newErrors.newPassword = "New Password is required";
@@ -31,24 +34,31 @@ export default function NewPassword() {
     if (Object.keys(validationErrors).length === 0) {
       console.log("Passwords are valid");
       setModalVisible(true);
+
+ 
+      setTimeout(() => {
+        navigate("/homepage");
+      }, 3000);
     } else {
       setErrors(validationErrors);
     }
   };
+
+  
 
   const closeModal = () => {
     setModalVisible(false);
   };
 
   return (
-    <div className="flex h-screen pt-6">
-      <div className="w-[400px] mx-auto">
-        <div className="mb-8 ">
-          <h2 className="text-2xl font-bold mb-4">Reset Your Password</h2>
-          <p className="text-gray-400 text-lg">Please enter your new password</p>
+    <div className="p-6 md:flex flex-row items-center justify-center ">
+      <div className="">
+        <div className="">
+          <h2 className="text-2xl font-bold ">Reset Your Password</h2>
+          <p className="text-gray-400 text-sm">Please enter your new password</p>
         </div>
         
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 mt-4 lg:max-w-[400px] ">
           <div>
             <label className="block font-bold text-sm mb-1">New Password:</label>
             <div className="relative">
@@ -112,7 +122,7 @@ export default function NewPassword() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg text-center w-[400px] p-10 relative">
             <span
-              className="absolute top-4 right-4 text-white bg-blue-500 rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
+              className="absolute top-4 right-4 text-white bg-black rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
               onClick={closeModal}
             >
               &times;
@@ -123,8 +133,8 @@ export default function NewPassword() {
             <h2 className="text-2xl font-bold">Reset Password Successful!</h2>
             <p className="text-gray-400 mt-4">Please wait...</p>
             <p className="text-gray-400">You will be directed to the homepage soon.</p>
-            <div className="mt-6">
-              <img src={LikeIcon} alt="Like Icon" className="w-28 h-28 mx-auto" />
+            <div className="mt-6 ">
+              <img src={LikeIcon} alt="Like Icon" className="w-28 h-28 ml-20" />
             </div>
           </div>
         </div>

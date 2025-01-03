@@ -1,11 +1,9 @@
-
 import { useState } from "react";
 import PhotoImg from "../assets/PhotoImg.png";
 import LetterSend from "../assets/letter_send.png";
-import Footer from '../components/footer.jsx';
-import  Header from '../components/Header.jsx';
-import BlackLogo from '../assets/BlackLogo.png'
-
+import Footer from "../components/footer.jsx";
+import Header from "../components/Header.jsx";
+import BlackLogo from "../assets/BlackLogo.png";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -52,37 +50,37 @@ export default function ContactForm() {
   return (
     <section className="flex flex-col w-full">
       <Header
-      logoSrc={BlackLogo}
-       showSearch = {false} 
-       showProfile={false} 
-       bgColor = "bg-transparent"
-       linkColor="text-black"
-       fontSize = "font-normal"
-       showIcons = {false}
-      customLinks={[
-        { href: "/", label: "Home" },
-        { href: "/pricing", label: "Pricing" },
-        { href: "/about", label: "About Us" },
-        { href: "/contact", label: "Contact" }
-      ]}
-      
-      
+        logoSrc={BlackLogo}
+        showSearch={false}
+        showProfile={false}
+        bgColor=""
+        linkColor="text-black"
+        fontSize="font-normal"
+        showIcons={false}
+        customLinks={[
+          { href: "/", label: "Home" },
+          { href: "/pricing", label: "Pricing" },
+          { href: "/about", label: "About Us" },
+          { href: "/contact", label: "Contact" },
+        ]}
+        showMobileLogo={true}
+        showMenuIcon={true}
       />
-      <div className="text-center pt-12  h-full">
+      <div className=" hidden md:block text-center pt-12  h-full">
         <h2 className="font-bold text-3xl">Contact Us</h2>
         <p className="text-gray-500 mt-5 text-lg">
           Any question or remarks? Just write us a message!
         </p>
       </div>
 
-      <div className="flex justify-around bg-white w-[1196px]  rounded-md mx-auto shadow-lg p-8">
-        <div className="w-full max-w-xs">
-          <img src={PhotoImg} alt="Contact" className="w-full h-auto" />
+      <div className="flex flex-col w-full lg:flex-row justify-around lg:w-[1200px]  rounded-md mx-auto shadow-lg p-8">
+        <div className="w-full max-w-xs md:m-auto lg:m-0">
+          <img src={PhotoImg} alt="Contact" className="w-full h-auto " />
         </div>
-        <div className="w-3/5">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="flex gap-6">
-              <div className="flex flex-col w-1/2">
+        <div className="lg:w-7/12">
+          <form onSubmit={handleSubmit} className=" space-y-6">
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="flex flex-col w-full">
                 <label className="text-gray-500 text-sm mb-1">First Name</label>
                 <input
                   type="text"
@@ -90,14 +88,16 @@ export default function ContactForm() {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   placeholder="John"
-                  className="p-2 border-b-2 border-gray-300 focus:border-black focus:outline-none"
+                  className=" p-2 border-b-2 border-gray-300 focus:border-black focus:outline-none"
                 />
                 {errors.firstName && (
-                  <span className="text-red-500 text-xs">{errors.firstName}</span>
+                  <span className="text-red-500 text-xs">
+                    {errors.firstName}
+                  </span>
                 )}
               </div>
 
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-full">
                 <label className="text-gray-500 text-sm mb-1">Last Name</label>
                 <input
                   type="text"
@@ -108,13 +108,15 @@ export default function ContactForm() {
                   className="p-2 border-b-2 border-gray-300 focus:border-black focus:outline-none"
                 />
                 {errors.lastName && (
-                  <span className="text-red-500 text-xs">{errors.lastName}</span>
+                  <span className="text-red-500 text-xs">
+                    {errors.lastName}
+                  </span>
                 )}
               </div>
             </div>
 
-            <div className="flex gap-6">
-              <div className="flex flex-col w-1/2">
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="flex flex-col w-full">
                 <label className="text-gray-500 text-sm mb-1">Email</label>
                 <input
                   type="email"
@@ -129,8 +131,10 @@ export default function ContactForm() {
                 )}
               </div>
 
-              <div className="flex flex-col w-1/2">
-                <label className="text-gray-500 text-sm mb-1">Phone Number</label>
+              <div className="flex flex-col w-full">
+                <label className="text-gray-500 text-sm mb-1">
+                  Phone Number
+                </label>
                 <input
                   type="text"
                   name="phoneNumber"
@@ -140,14 +144,18 @@ export default function ContactForm() {
                   className="p-2 border-b-2 border-gray-300 focus:border-black focus:outline-none"
                 />
                 {errors.phoneNumber && (
-                  <span className="text-red-500 text-xs">{errors.phoneNumber}</span>
+                  <span className="text-red-500 text-xs">
+                    {errors.phoneNumber}
+                  </span>
                 )}
               </div>
             </div>
 
-            <div>
-              <label className="block text-gray-500 font-semibold mb-2">Select Subject</label>
-              <div className="flex gap-6">
+            <div className="">
+              <label className="block text-gray-500 font-semibold mb-2">
+                Select Subject
+              </label>
+              <div className="flex flex-col lg:flex-row w-full gap-6">
                 <label className="text-sm flex items-center">
                   <input
                     type="radio"
@@ -191,26 +199,27 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col ">
               <label className="text-gray-500 text-sm mb-1">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Write your message..."
-                className="p-2 border-b-2 border-gray-300 focus:border-black focus:outline-none h-32"
+                className="w-full p-2 border-b-2 border-gray-300 focus:border-black focus:outline-none h-32"
               />
             </div>
-
-            <button
-              type="submit"
-              className="bg-black text-white px-6 py-3 rounded-md mt-8 hover:bg-gray-800 transition duration-300 w-[190px] absolute right-[280px]"
-            >
-              Send Message
-            </button>
+            <div className="text-right">
+              <button
+                type="submit"
+                className="bg-black text-white p-4 rounded-md mr-0 m-auto"
+              >
+                Send Message
+              </button>
+            </div>
           </form>
-          <div className="mt-6">
-            <img src={LetterSend} alt="letter-send" className="w-60 mx-auto" />
+          <div className="mt-1 md:ml-96 lg:ml-96 -mt-[20px]">
+            <img src={LetterSend} alt="letter-send" className="w-40 mx-auto" />
           </div>
         </div>
       </div>

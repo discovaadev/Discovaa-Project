@@ -19,7 +19,30 @@ const jobData = [
     { title: "Photographer", img: photographerImg },
     { title: "Specialized Care", img: specializedCareImg },
     { title: "Carpenter", img: carpenterImg },
-  
+    { title: "Car Maintenance", img: carMaintenanceImg },
+    { title: "Electrical Maintenance", img: electricalMaintenanceImg },
+    { title: "Hair Saloon", img: hairSaloonImg },
+    { title: "Photographer", img: photographerImg },
+    { title: "Specialized Care", img: specializedCareImg },
+    { title: "Carpenter", img: carpenterImg },
+    { title: "Car Maintenance", img: carMaintenanceImg },
+    { title: "Electrical Maintenance", img: electricalMaintenanceImg },
+    { title: "Hair Saloon", img: hairSaloonImg },
+    { title: "Photographer", img: photographerImg },
+    { title: "Specialized Care", img: specializedCareImg },
+    { title: "Carpenter", img: carpenterImg },
+    { title: "Car Maintenance", img: carMaintenanceImg },
+    { title: "Electrical Maintenance", img: electricalMaintenanceImg },
+    { title: "Hair Saloon", img: hairSaloonImg },
+    { title: "Photographer", img: photographerImg },
+    { title: "Specialized Care", img: specializedCareImg },
+    { title: "Carpenter", img: carpenterImg },
+    { title: "Car Maintenance", img: carMaintenanceImg },
+    { title: "Electrical Maintenance", img: electricalMaintenanceImg },
+    { title: "Hair Saloon", img: hairSaloonImg },
+    { title: "Photographer", img: photographerImg },
+    { title: "Specialized Care", img: specializedCareImg },
+    { title: "Carpenter", img: carpenterImg },
   ];
   
 const HomePage = () => {
@@ -31,7 +54,7 @@ const HomePage = () => {
             <BrowseByCategory jobData={jobData}   showSeeMore={false} showSearchContainer={true} />
             <FeaturedJobList />
             <Testimonials />
-            <Footer className='hidden md:block'/>
+            <Footer className=''/>
         </section>
     )
 }

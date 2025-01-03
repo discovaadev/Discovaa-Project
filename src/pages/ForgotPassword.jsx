@@ -4,9 +4,9 @@ import LineVerification from "../components/LineVerification";
 
 const ForgotPassword = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header
-        bgColor="bg-transparent"
+        bgColor=""
         showBackButton={true}
         logoSrc={false}
         showIcons={false}
@@ -15,7 +15,7 @@ const ForgotPassword = () => {
         showProfile={false}
         
       />
-      <main>
+      <main className="flex-grow">
         <LineVerification />
       </main>
       <Footer />

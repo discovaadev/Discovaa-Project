@@ -7,7 +7,7 @@ const BusinessSignUpPage = () => {
   return (
     <section className='flex flex-col w-full'>
       <Header
-        bgColor="bg transparent"
+        bgColor=""
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 01/03"
@@ -17,6 +17,9 @@ const BusinessSignUpPage = () => {
         customLinks={[]}
         showSearch={false}
         showIcons={false}
+        pageTitle="Business Service Provider"
+        showPageTitle={true}
+        showBackButtonAndStepText={true}
       />
       <FormSection description='Business Service Provider!' descriptionStyle='text-3xl font-bold' imageSrc={EngineerImg} />
       <Footer />

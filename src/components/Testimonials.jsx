@@ -1,28 +1,51 @@
 import Black from "../assets/black.png";
 import Flores from "../assets/flores.png";
 import Cooper from "../assets/cooper.png";
-
+import { useState, useEffect, useMemo } from "react";
 export default function Testimonials() {
-  const testimonials = [
-    {
-      name: "Black, Marvin",
-      text: "Excellent conversation. Very practical, logical and motivating info. Thanks for your time Kosta! Tal",
-      image: Black,
-      handle: "@marvin_dev",
-    },
-    {
-      name: "Flores, Juanita",
-      text: "Eden is 110% recommendable! Very friendly and accurate. She brought me a lot of value in a short period.",
-      image: Flores,
-      handle: "@juanita_dev",
-    },
-    {
-      name: "Cooper, Kristin",
-      text: "Peter was amazing! He shared wonderful tips, made the most out of our call, and was very attentive.",
-      image: Cooper,
-      handle: "@kristin_dev",
-    },
-  ];
+  const testimonials = useMemo(
+    () => [
+      {
+        name: "Black, Marvin",
+        text: "Excellent conversation. Very practical, logical and motivating info. Thanks for your time Kosta! Tal",
+        image: Black,
+        handle: "@marvin_dev",
+      },
+      {
+        name: "Flores, Juanita",
+        text: "Eden is 110% recommendable! Very friendly and accurate. She brought me a lot of value in a short period.",
+        image: Flores,
+        handle: "@juanita_dev",
+      },
+      {
+        name: "Cooper, Kristin",
+        text: "Peter was amazing! He shared wonderful tips, made the most out of our call, and was very attentive.",
+        image: Cooper,
+        handle: "@kristin_dev",
+      },
+    ],
+    []
+  );
+
+  const [visibleTestimonials, setVisibleTestimonials] = useState(testimonials);
+
+  useEffect(() => {
+    const updateTestimonials = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 768 && screenWidth < 1024) {
+        setVisibleTestimonials(testimonials.slice(0, 2));
+      } else {
+        setVisibleTestimonials(testimonials);
+      }
+    };
+
+    updateTestimonials();
+    window.addEventListener("resize", updateTestimonials);
+
+    return () => {
+      window.removeEventListener("resize", updateTestimonials);
+    };
+  }, [testimonials]);
 
   return (
     <section className="font-inter font-light hidden md:block">
@@ -30,8 +53,8 @@ export default function Testimonials() {
         <h2>TESTIMONIALS</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 place-items-center justify-center mt-[90px] ">
-        {testimonials.map((testimonial, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-5 place-items-center justify-center mt-[90px] lg:grid-cols-3 ">
+        {visibleTestimonials.map((testimonial, index) => (
           <div
             className="bg-[#232627] text-[#fefefe] w-[340px] h-[205px] rounded-tl-[12px] rounded-br-[12px] p-10 flex flex-col justify-between"
             key={index}
@@ -47,7 +70,9 @@ export default function Testimonials() {
               />
               <div className="flex flex-col">
                 <h3 className="text-xs m-0">{testimonial.name}</h3>
-                <span className="text-xs text-gray-400 mt-1">{testimonial.handle}</span>
+                <span className="text-xs text-gray-400 mt-1">
+                  {testimonial.handle}
+                </span>
               </div>
             </div>
           </div>

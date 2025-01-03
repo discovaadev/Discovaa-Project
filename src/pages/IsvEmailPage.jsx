@@ -4,9 +4,9 @@ import Footer from "../components/footer.jsx";
 
 const IsvEmailPage = () => {
   return (
-    <div >
+    <div className="flex flex-col min-h-screen">
       <Header
-       bgColor="bg transparent"
+       bgColor=""
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 02/03"
@@ -17,10 +17,11 @@ const IsvEmailPage = () => {
         customLinks={[]}
         showSearch={false}
         showIcons={false}
-
-
+        showBackButtonAndStepText={true}
+        pageTitle="Check your Mail"
+        showPageTitle={true}
       />
-      <main>
+      <main className=" flex-grow ">
         <EmailConfirmation />
       </main>
       <Footer />

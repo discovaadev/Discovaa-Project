@@ -19,6 +19,7 @@ const UserSignUpPage2 = () => {
         showBackButtonAndStepText={true}
         showPageTitle={true}
         pageTitle="Complete Your Profile!"
+        showMenuIcon={false}
       />
       <main className="h-screen">
         <ProfileForm imgSrc={Photographer} alt='Photographer' />

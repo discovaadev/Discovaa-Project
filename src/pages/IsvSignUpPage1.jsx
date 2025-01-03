@@ -7,7 +7,7 @@ const IsvSignUpPage = () => {
   return (
     <div>
       <Header
-        bgColor="bg transparent"
+        bgColor=""
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 01/03"
@@ -17,11 +17,15 @@ const IsvSignUpPage = () => {
         customLinks={[]}
         showSearch={false}
         showIcons={false}
+        showMenuIcon={false}
+        showBackButtonAndStepText={true}
+        showPageTitle={true}
+        pageTitle="Individual Service Provider!"
       />
       <main>
-        <FormSection imageSrc={EngineerImg} alt='photographer' description="Individual Service Account!"  descriptionStyle='font-bold text-[30px]' />
+        <FormSection imageSrc={EngineerImg} alt='photographer'  description="Individual Service Account!"  descriptionStyle='font-bold text-[30px]' />
       </main>
-      <Footer />
+      <Footer className='' />
     </div>
   );
 };

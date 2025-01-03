@@ -1,12 +1,30 @@
 import { useState } from "react";
-import LoginImg from "../components/LoginImg";
+import LoginImg from "../components/LoginImgSection";
 import GoogleImg from "../assets/googleImg.png";
 import Header from "../components/Header";
 import Footer from "../components/footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import BlackLogo from "../assets/BlackLogo.png";
 import { Link } from "react-router-dom";
-import MobileImg from "../assets/mobileLoginImg.png";
+// import MobileImg from "../assets/mobileLoginImg.png";
+
+import photographer from "../assets/photographer (1).png";
+import worker1 from "../assets/worker1.png";
+import worker2 from "../assets/worker2.png";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const settings = {
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  dots: true,
+};
+
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -110,16 +128,46 @@ const LoginForm = () => {
         showIcons={false}
         showSignInSignUp={true}
         showSignUpText={true}
-        showMobileLogo={true}
+        showMobileLogo={false}
+        pageTitle="Welcome"
+        showPageTitle={true}
+        isLoginPage={true}
+        showMenuIcon={true}
+       
       />
       <div className="flex flex-col lg:flex-row ">
         <LoginImg />
         <div>
-          <img
+          {/* <img
             src={MobileImg}
             alt=""
             className="block w-5/12 m-auto sm:hidden"
-          />
+          /> */}
+          <div className=" overflow-hidden w-full md:hidden  mt-12 ">
+            <Slider {...settings}>
+              <div className="">
+                <img
+                  src={worker2}
+                  alt="Worker 2"
+                  className="w-[300px] object-cover m-auto"
+                />
+              </div>
+              <div>
+                <img
+                  src={photographer}
+                  alt="Photographer"
+                  className="w-[300px] h-full object-cover m-auto"
+                />
+              </div>
+              <div>
+                <img
+                  src={worker1}
+                  alt="Worker 1"
+                  className="w-[300px] h-full object-cover m-auto"
+                />
+              </div>
+            </Slider>
+          </div>
         </div>
         <div className="mt-0 -translate-y-16 pl-3 md:flex flex-col max-w-sm mt-12 md:translate-y-0 md:pl-0 m-auto mt-24 lg:ml-6">
           <div className="hidden md:block ">
@@ -218,7 +266,7 @@ const LoginForm = () => {
           </form>
         </div>
       </div>
-      <Footer className="hidden lg:flex" />
+      <Footer  />
     </section>
   );
 };

@@ -19,7 +19,7 @@ const settings = {
 };
 export default function HeroSection() {
   return (
-    <section className="w-full overflow-y-hidden md:bg-[url('./assets/blackBacGround.png')] bg-cover bg-center bg-no-repeat h-screen max-h-[700px] relative ">
+    <section className="w-full overflow-y-hidden md:bg-[url('./assets/blackBacGround.png')] bg-cover bg-center bg-no-repeat  relative ">
       <div className=" md:flex flex-col items-center w-full relative">
         <div className="w-full">
           <Header
@@ -39,10 +39,11 @@ export default function HeroSection() {
             showMobileLogo={false}
             showSignInButton={true}
             showSignUpButton={true}
+            showMenuIcon={true}
           />
         </div>
         <div className="hidden md:block hero-content flex-col items-center justify-center mt-40">
-          <div className="hero-images flex justify-between max-w-4xl w-full mx-auto mt-28 md:max-w-4xl">
+          <div className="hero-images flex justify-between  w-full mx-auto mt-28 md:max-w-4xl">
             <img
               src={worker2}
               alt="Worker 2"
@@ -61,7 +62,7 @@ export default function HeroSection() {
           </div>
 
           <div className="hero-text text-center mt-8">
-            <Avater />
+            <Avater translateY="-translate-y-[228px]" marginLeft="ml-[280px]" />
             <div className="inter-text-cont mt-[-249px] ml-3">
               <Logo src={WhiteLogo} className="w-[263px]" />
               <p className="text text-white font-extralight mt-[-27px] text-lg ">
@@ -72,16 +73,16 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="m-auto md:hidden w-full h-full mt-4">
+      <div className=" overflow-hidden w-full md:hidden  mt-12 ">
         <Slider {...settings}>
-          <div>
-            <img src={worker2} alt="Worker 2" className="w-full h-full object-cover" />
+          <div className="">
+            <img src={worker2} alt="Worker 2" className="w-[300px] object-cover m-auto" />
           </div>
           <div>
-            <img src={photographer} alt="Photographer" className="w-full h-full object-cover" />
+            <img src={photographer} alt="Photographer" className="w-[300px] h-full object-cover m-auto" />
           </div>
           <div>
-            <img src={worker1} alt="Worker 1" className="w-full h-full object-cover" />
+            <img src={worker1} alt="Worker 1" className="w-[300px] h-full object-cover m-auto" />
           </div>
         </Slider>
       </div>

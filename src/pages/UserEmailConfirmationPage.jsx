@@ -1,11 +1,11 @@
 import Header from "../components/Header";
-
+import Photographer from "../assets/photographer (1).png";
 import CodeInput from "../components/CodeInput";
 import Footer from "../components/footer";
 
 const UserEmailConfirmationPage = () => {
   return (
-    <div className="">
+    <div className="flex flex-col min-h-screen">
       <Header
         bgColor=""
         logoSrc={false}
@@ -22,10 +22,16 @@ const UserEmailConfirmationPage = () => {
         pageTitle="Check your Mail"
         showPageTitle={true}
       />
-      <main className="min-h-screen">
-        <CodeInput buttonStyle="mt-14 bg-black text-white w-full p-1 rounded-md " />
+      <main className="flex flex-col items-center flex-grow lg:flex-row justify-evenly  ">
+        <img
+          src={Photographer}
+          alt="photographer"
+          className="w-52 lg:block lg:w-[400px] "
+        />
+
+        <CodeInput buttonStyle="mt-14 bg-black text-white w-full p-2 rounded-md " />
       </main>
-      <Footer className="hidden lg:flex mb-0" />
+      <Footer  />
     </div>
   );
 };

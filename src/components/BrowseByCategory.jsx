@@ -4,7 +4,6 @@ import JobGrid from "../components/JobGrid";
 
 export default function BrowseByCategory({
   jobData,
-  rowLimit,
   showSeeMore = false,
   showSearchContainer = false,
   description = "Browse Artisans by Category",
@@ -16,7 +15,7 @@ export default function BrowseByCategory({
         {showSeeMore && <SeeMoreButton />}
         {showSearchContainer && <SearchContainer />}
       </div>
-      <JobGrid jobData={jobData} rowLimit={rowLimit}  />
+      <JobGrid jobData={jobData} />
     </section>
   );
 }

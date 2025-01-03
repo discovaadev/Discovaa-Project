@@ -23,7 +23,7 @@ import ProfilePicPlaceholder from "./assets/UserProfileImg.png";
 import UserVerificationCompletePage from "./pages/UserVerificationCompletePage";
 import ForgotPassword from "./pages/ForgotPassword";
 import OtpVerificationPage from "./pages/OtpVerificationPage";
-import NewPasswordPage from "./pages/NewPasswordPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 import UserSignUpPage from "./pages/UserSignUpPage";
 import UserEmailConfirmationPage from "./pages/UserEmailConfirmationPage";
 import UserSignUpPage2 from "./pages/UserSignUpPage2";
@@ -43,6 +43,8 @@ import IspPersonalProfileInfo from "./pages/IspPersonalProfileInfo";
 import BspProfilePage from "./pages/BspProfilePage";
 import BspPersonalProfileInfo from "./pages/BspPersonalProfileInfo";
 import BspAvailability from "./components/BspAvailability";
+import BspEmailPage from "./pages/Business-email-Page";
+import BspSignUpPage3 from "./pages/Business-SignUp-Page3";
 import {
   bspNotifications,
   ispNotifications,
@@ -179,9 +181,12 @@ function App() {
     <div>
       <div className="App">
         <Routes>
-          <Route path="/newpassword" element={<NewPasswordPage />} />
+          <Route path="/resetpassword" element={<ResetPasswordPage />} />
           <Route path="/ispavailability" element={<IspAvailability />} />
           <Route path="/bspavailability" element={<BspAvailability />} />
+          <Route path="/bspemailpage" element={<BspEmailPage />} />
+          <Route path="/bspsignuppage3" element={<BspSignUpPage3 />} />
+
           <Route
             path="/isppersonalprofileinfo"
             element={
