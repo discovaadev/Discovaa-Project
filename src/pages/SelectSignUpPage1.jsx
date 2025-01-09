@@ -5,7 +5,7 @@ import JoinUsSection from "../components/JoinUsSection";
 import { Link } from "react-router-dom";
 const SelectSignUpPage1 = () => {
   return (
-    <div className="">
+    <div className="flex flex-col min-h-screen">
       <Header
         logoSrc={BlackLogo}
         customLinks={[
@@ -17,13 +17,13 @@ const SelectSignUpPage1 = () => {
         linkColor="text-black"
         showSignInText={true}
         showProfile={false}
-        bgColor="bg-black"
+        bgColor=""
         showSearch={false}
         showIcons={false}
         showAvaterNlogo={true}
         hideNavLinks={true}
       />
-      <main>
+      <main className="">
         <JoinUsSection />
       </main>
       <div className="flex sm:hidden items-center justify-center mt-8 text-sm">
@@ -32,7 +32,7 @@ const SelectSignUpPage1 = () => {
           Sign in
         </Link>
       </div>
-      <Footer className="hidden lg:flex" />
+      <Footer />
     </div>
   );
 };

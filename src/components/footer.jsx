@@ -3,9 +3,9 @@ import WhiteLogo from '../assets/WhiteLogo.png';
 
 export default function Footer({ className }) {
   return (
-    <section className={`bg-slate-400 lg:bg-[#161622] py-6 flex flex-col md:flex-row gap-8 md:gap-52 mt-20 ${className}`}>
+    <section className={`bg-[#161622] py-6 flex flex-col md:flex-row gap-8 md:gap-52 mt-20 ${className}`}>
       
-      <div className="flex flex-col items-center pl-8  md:items-start">
+      <div className="flex flex-col items-center  md:items-start md:pl-4">
         <Logo
           src={WhiteLogo}
           alt="White Logo"
@@ -27,20 +27,20 @@ export default function Footer({ className }) {
         <div className="flex flex-col items-center md:items-start gap-2">
           <p>Home</p>
           <p>Services</p>
-          <p className='hidden md:block'>Screenshots</p>
-          <p className='hidden md:block'>Contact</p>
+          <p className=''>Screenshots</p>
+          <p className=''>Contact</p>
         </div>
         <div className="flex flex-col items-center md:items-start gap-2">
           <p>How to Download</p>
           <p>How it Works</p>
-          <p className='hidden md:block'>Video Tutorial</p>
-          <p className='hidden md:block'>FAQ</p>
+          <p className=''>Video Tutorial</p>
+          <p className=''>FAQ</p>
         </div>
         <div className="flex flex-col items-center md:items-start gap-2 md:hidden lg:block">
           <p>Google Play Store</p>
           <p>Apple App Store</p>
-          <p className='hidden md:block'>Download</p>
-          <p className='hidden md:block'>Directly</p>
+          <p className=''>Download</p>
+          <p className=''>Directly</p>
         </div>
       </div>
     </section>

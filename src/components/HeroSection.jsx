@@ -40,6 +40,9 @@ export default function HeroSection() {
             showSignInButton={true}
             showSignUpButton={true}
             showMenuIcon={true}
+            enableTabletHeader={false}
+          
+            
           />
         </div>
         <div className="hidden md:block hero-content flex-col items-center justify-center mt-40">

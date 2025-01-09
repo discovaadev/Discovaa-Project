@@ -142,16 +142,23 @@ const FavouritePage = ({
         profilePic={profilePic}
         onToggleChat={onToggleChat}
         onToggleNotification={onToggleNotification}
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader ={false}
       />
-      <main>
-        <div className="p-9 mt-4 ml-8">
+      <main className=" ">
+        <div className="p-9 mt-4 ml-8 md:ml-0 lg:ml-9">
           <h1 className="font-bold text-3xl">Recently Booked Artisans</h1>
           <p className="text-gray-500">
             Artisans you've booked and met will appear here. Click to view their
             profile or message them.
           </p>
         </div>
-        <ServiceProviderList providers={sampleProviders} showHeaderText={false} showSortDropdown={false} customStyles="bg-transparent mt-[-50px]" />
+        <ServiceProviderList providers={sampleProviders} showHeaderText={false} showSortDropdown={false} customStyles="bg-transparent mt-[-50px] flex flex-col items-center md:pl-4" />
       </main>
       <Footer />
     </div>

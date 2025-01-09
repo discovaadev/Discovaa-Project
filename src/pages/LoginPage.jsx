@@ -128,7 +128,7 @@ const LoginForm = () => {
         showIcons={false}
         showSignInSignUp={true}
         showSignUpText={true}
-        showMobileLogo={false}
+        showMobileLogo={true}
         pageTitle="Welcome"
         showPageTitle={true}
         isLoginPage={true}
@@ -191,7 +191,7 @@ const LoginForm = () => {
                   placeholder="Your email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full m-auto md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-[330px] m-auto md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs">{errors.email}</p>

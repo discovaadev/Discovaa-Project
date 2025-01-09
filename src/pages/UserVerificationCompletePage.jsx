@@ -4,7 +4,7 @@ import Footer from '../components/footer';
 
 const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileImageChange, profilePic, onToggleChat, onToggleNotification}) => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header
         searchQuery={searchQuery}
         onSearchChange={onSearchChange}
@@ -21,8 +21,15 @@ const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileIma
         profilePic={profilePic}
         onToggleChat={onToggleChat}
         onToggleNotification={onToggleNotification}
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader = {true}
       />
-      <main>
+      <main className="flex-grow">
         <VerificationComplete showBusinessVerification={false} profilePic={profilePic}/>
       </main>
       <Footer />

@@ -10,7 +10,6 @@ const BookingInterface = ({ onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  // Expanded available dates with ISO format
   const allAvailableDates = [
     { day: "MON", date: "2024-02-02" },
     { day: "TUE", date: "2024-02-03" },
@@ -53,18 +52,20 @@ const BookingInterface = ({ onClose }) => {
     return date.toLocaleDateString("en-US", options).replace(" ", " ");
   };
 
-  // Filter available dates for the selected month
   const filteredAvailableDates = allAvailableDates.filter(
     ({ date }) => new Date(date).getMonth() === selectedDate.getMonth()
   );
 
-  // Filter time slots for the selected date
   const filteredTimeSlots =
     availability[selectedDate.toISOString().split("T")[0]] || [];
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
-      <div className="relative bg-white shadow-lg rounded-lg p-6 w-full max-w-4xl">
+    <div
+      className={`${
+        window.innerWidth <= 768 ? "absolute" : "fixed"
+      } inset-0 -translate-y-[860px] flex justify-center items-center bg-black bg-opacity-50 z-50 md:-translate-y-0 lg:-translate-y-0 `}
+    >
+      <div className=" relative bg-white shadow-lg rounded-lg p-6 w-full lg:max-w-4xl ">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-white hover:text-white text-2xl rounded-full bg-black w-8 h-8"
@@ -78,16 +79,17 @@ const BookingInterface = ({ onClose }) => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <div className="border rounded-lg p-4">
+          <div className="m-auto">
+            <div className="border rounded-lg p-4 ">
               <div className="text-center text-gray-700 font-semibold mb-2">
                 Choose a Date
-              </div>
+              </div >
               <DatePicker
                 selected={selectedDate}
                 onChange={(date) => setSelectedDate(date)}
                 inline
-                calendarClassName="custom-calendar"
+                calendarClassName="custom-calendar "
+               
               />
             </div>
           </div>

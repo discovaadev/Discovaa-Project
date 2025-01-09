@@ -24,7 +24,7 @@ const UserSignUpPage2 = () => {
       <main className="h-screen">
         <ProfileForm imgSrc={Photographer} alt='Photographer' />
       </main>
-      <Footer className='hidden lg:flex' />
+      <Footer  />
     </div>
   );
 };

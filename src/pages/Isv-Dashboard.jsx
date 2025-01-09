@@ -21,6 +21,13 @@ const IsvDashboard = ({ searchQuery, onSearchChange, profilePic, onProfileImageC
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || '../assets/HeaderProfileImg (2).png'}
         onToggleChat={onToggleChat}
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader = {true}
       />
       <main>
         <Dashboard showBusinessVerification={true} profilePic={profilePic} onProfileImageChange={onProfileImageChange}/>

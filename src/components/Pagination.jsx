@@ -4,7 +4,7 @@ const Pagination = ({
   showPage4 = true,
 }) => {
   return (
-    <div className="flex items-center justify-center space-x-2 mt-40">
+    <div className="flex items-center justify-center  mt-40">
       {showFirstPage && (
         <button
           className="px-4 py-2 rounded-md text-gray-500 hover:bg-gray-200 border border-gray-300"

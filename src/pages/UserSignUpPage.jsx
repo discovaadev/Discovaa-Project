@@ -27,7 +27,7 @@ const UserSignUpPage = () => {
           imageSrc={Photographer}
         />
       </main>
-      <Footer className="hidden lg:flex" />
+      <Footer />
     </div>
   );
 };

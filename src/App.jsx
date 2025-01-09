@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import 'swiper/css';
-import 'swiper/css/autoplay'
+import "swiper/css";
+import "swiper/css/autoplay";
 import "./App.css";
 import "./index.css";
 import { Route, Routes } from "react-router-dom";
@@ -45,6 +45,8 @@ import BspPersonalProfileInfo from "./pages/BspPersonalProfileInfo";
 import BspAvailability from "./components/BspAvailability";
 import BspEmailPage from "./pages/Business-email-Page";
 import BspSignUpPage3 from "./pages/Business-SignUp-Page3";
+import BuisnessDashboardPage from "./pages/BuisnessDashboardPage";
+
 import {
   bspNotifications,
   ispNotifications,
@@ -127,6 +129,7 @@ function App() {
   };
 
   const handleToggleNotification = () => {
+    console.log("Notifications toggled");
     setIsNotificationOpen((prev) => !prev);
   };
 
@@ -186,6 +189,18 @@ function App() {
           <Route path="/bspavailability" element={<BspAvailability />} />
           <Route path="/bspemailpage" element={<BspEmailPage />} />
           <Route path="/bspsignuppage3" element={<BspSignUpPage3 />} />
+          <Route
+            path="/bspdashboard"
+            element={
+              <BuisnessDashboardPage
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
+                searchQuery={searchQuery}
+                onSearchChange={handleSearchChange}
+                onToggleChat={handleToggleChat}
+              />
+            }
+          />
 
           <Route
             path="/isppersonalprofileinfo"

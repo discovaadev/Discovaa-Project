@@ -1,11 +1,18 @@
 import SucccessImg from "../assets/SuccessImg.png";
 import DocImg from "../assets/DocImg.png";
+import { useNavigate } from "react-router-dom";
 
 const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
+  const navigate = useNavigate();
   
   const formatDate = (date) => {
     const options = { weekday: "long", day: "numeric", month: "long", year: "numeric" };
     return new Date(date).toLocaleDateString("en-US", options);
+  };
+
+
+  const handleBackToHomePage = () => {
+    navigate("/homepage");  
   };
 
   return (
@@ -36,7 +43,7 @@ const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
           <img
             src={DocImg}
             alt="Upload Successful"
-            className="absolute right-2 left-[170px] w-12 mt-16 text-white"
+            className="absolute  w-12 mt-16"
           />
         </div>
         <h2 className="text-xl font-semibold text-center">Booking Confirmed!</h2>
@@ -53,7 +60,7 @@ const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
           </p>
         </div>
         <button
-          onClick={onClose}
+          onClick={handleBackToHomePage}
           className="mt-6 w-full bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-800"
         >
           Back to Home Page

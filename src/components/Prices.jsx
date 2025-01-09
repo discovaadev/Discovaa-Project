@@ -3,14 +3,14 @@ import ServiceButton from "./ServiceBtn";
 function Prices({isIsvProfile}) {
   return (
     <section>
-      <div className="p-9 mt-[-20px]">
-        <h1 className="font-bold text-2xl pl-4 mb-5 ">Prices</h1>
+      <div className="p-5 lg:p-9 mt-[-20px]">
+        <h1 className="font-bold text-2xl  ">Prices</h1>
 
-        <div className="flex pl-6">
+        <div className="flex flex-row pl-6">
           <ServiceButton isIsvProfile={isIsvProfile} />
         </div>
       </div>
-      <div className="mt-[-25px]">
+      <div className="-translate-x-6 lg:mt-[-25px]">
         <div className="flex items-center  pl-16">
           <p className="text-gray-500">Hourly rate</p>
           <p className="border border-gray-[#B0B0B0] w-[1040px] h-0 mt-5 "></p>

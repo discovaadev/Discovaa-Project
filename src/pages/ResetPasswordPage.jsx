@@ -14,6 +14,9 @@ const ResetPasswordPage = () => {
         searchQuery={false}
         showSearch={false}
         showProfile={false}
+        showPageTitle = {true}
+        pageTitle="Forgot Your Password?"
+        
       />
       <main className="flex-grow lg:flex flex-row items-center justify-evenly">
         <div className="md:hidden lg:block">

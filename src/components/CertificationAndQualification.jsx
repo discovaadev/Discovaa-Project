@@ -13,11 +13,11 @@ function CertificationAndQualification({ forIsvProfile }) {
 
   return (
     <section>
-      <div className="p-9 w-full">
+      <div className="lg:p-9 w-full">
         <h1 className="font-bold text-2xl pl-4">
           Certification and Qualification
         </h1>
-        <div className="mt-5 flex items-center text-gray-500 gap-80 ">
+        <div className="flex flex-col lg:mt-5 lg:flex-row lg:items-center text-gray-500 lg:gap-80 ">
           {certifications.map((group, index) => (
             <ul key={index} className="list-disc pl-14">
               {group.map((certification, i) => (

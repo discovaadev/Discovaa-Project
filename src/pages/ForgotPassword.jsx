@@ -13,6 +13,8 @@ const ForgotPassword = () => {
         searchQuery={false}
         showSearch={false}
         showProfile={false}
+        showPageTitle = {true}
+        pageTitle="Forgot Your Password?"
         
       />
       <main className="flex-grow">

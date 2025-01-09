@@ -51,7 +51,7 @@ const HomePage = () => {
             <HeroSection  />
             <OnboardingSection />
             <ArtisanShowcase />
-            <BrowseByCategory jobData={jobData}   showSeeMore={false} showSearchContainer={true} />
+            <BrowseByCategory jobData={jobData}   showSeeMore={false} showSearchContainer={true} showOnMobile={false}/>
             <FeaturedJobList />
             <Testimonials />
             <Footer className=''/>

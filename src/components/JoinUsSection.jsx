@@ -18,16 +18,16 @@ export default function JoinUsSection() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center h-full md:pt-20 lg:flex-row justify-evenly  ">
-      <div className="">
+    <section className="flex flex-col min-h-screen lg:flex-row justify-evenly  ">
+      <div className="m-auto ">
         <img
           src={CarMaintainaceImg}
           alt="Car-maintenance"
-          className=" w-[350px] md:w-[437px]"
+          className=" w-[250px] md:w-[437px] "
         />
       </div>
 
-      <div className="m-auto pl-3 sm:m-0 ">
+      <div className="p-2 sm:m-0 md:m-auto">
         <h1 className="text-3xl sm:mb-4 font-bold text-2xl">Join Us!</h1>
         <p className="w-[340px] font-normal text-base text-gray-500 mb-10">
           To begin this journey, tell us what type of account you&apos;d be
@@ -37,7 +37,7 @@ export default function JoinUsSection() {
         <div className="flex flex-col gap-5 ">
           <Link to="/isvsignup">
             <div
-              className={`group flex items-center justify-between w-[426px] h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white ${
+              className={`group flex items-center space-x-2 h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white md:w-[400px]  ${
                 selectedOptions.includes("user")
                   ? "!bg-blue-100 border border-black"
                   : ""
@@ -45,7 +45,7 @@ export default function JoinUsSection() {
               onClick={(e) => handleClick("user", e)}
             >
               <PersonIcon />
-              <div className="flex flex-col">
+              <div className="flex flex-col ">
                 <h3 className="font-medium text-lg">
                   Individual Service Provider
                 </h3>
@@ -60,7 +60,7 @@ export default function JoinUsSection() {
 
           <Link to="/businesssignup">
             <div
-              className={`group flex items-center justify-between w-[426px] h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white ${
+              className={`group flex items-center space-x-2 h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white md:w-[400px] ${
                 selectedOptions.includes("service")
                   ? "!bg-blue-100 border border-black"
                   : ""

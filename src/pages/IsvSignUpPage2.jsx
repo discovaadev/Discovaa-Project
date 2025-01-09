@@ -7,7 +7,7 @@ const IsvSignUpPage2 = () => {
   return (
     <div>
       <Header
-        bgColor="bg transparent"
+        bgColor=""
         logoSrc={false}
         showBackButton={true}
         stepText="STEP 03/03"
@@ -17,6 +17,9 @@ const IsvSignUpPage2 = () => {
         customLinks={[]}
         showSearch={false}
         showIcons={false}
+        showBackButtonAndStepText={true}
+        showPageTitle={true}
+        pageTitle="Complete Your Profile!"
       />
       <main>
         <ProfileForm showBusinessInfo={true} imgSrc={EngineerImg} titleStyle='font-bold text-3xl' />

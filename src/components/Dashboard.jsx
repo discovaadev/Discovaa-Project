@@ -2,60 +2,50 @@ import { useEffect, useState } from "react";
 import CalenderImg from "../assets/CalenderImg.png";
 import DocumentUploadModal from "./DocumentUpload.jsx";
 
-export default function Dashboard({ profilePic, showBusinessVerification  }) {
+export default function Dashboard({ profilePic, showBusinessVerification }) {
   const [latestBookings, setLatestBookings] = useState([]);
-  const [verificationStatus, setVerificationStatus] = useState(false);
-  const [appointments, setAppointments] = useState([]); 
+  const [verificationStatus, setVerificationStatus] = useState(""); 
+  const [appointments, setAppointments] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
 
   useEffect(() => {
     setLatestBookings([
       { id: 1, title: "Booking 1" },
       { id: 2, title: "Booking 2" },
-      { id: 3, title: "Booking 3" }
+      { id: 3, title: "Booking 3" },
     ]);
 
-    setAppointments([
-      "Appointment A",
-    ]);
+    setAppointments(["Appointment A"]);
   }, []);
 
-  const handleShowAllBookings = () => {
-    alert("Showing all bookings...");
-  };
-
-  const handleVerificationToggle = () => {
-    setVerificationStatus((status) => !status);
+  const handleVerificationToggle = (event) => {
+    setVerificationStatus(event.target.value);
   };
 
   const handleUploadClick = () => {
     setIsModalOpen(true);
   };
 
-  
-
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   return (
-    <div className="flex gap-5 h-screen p-10 justify-between">
-      <div className="flex flex-col gap-5">
-        <div className="flex items-center gap-5 mb-5">
+  <div className="flex flex-col gap-5 p-10 lg:flex-row justify-between ">
+      <div className="flex flex-col gap-5 ">
+        <div className="flex flex-col items-center gap-5 mb-5 lg:flex-row">
           <img
             src={profilePic}
             alt="profile"
-            className="w-[150px] h-[150px] rounded-full  object-cover"
+            className="w-[150px] h-[150px] rounded-full object-cover"
           />
-          <div>
+          <div className="text-center lg:text-start">
             <h2 className="text-2xl font-bold">Welcome, Christopher!</h2>
             <p className="text-gray-600 w-[340px] mt-2">
               Professionals are more likely to trust and work with someone they
               can see. Add a profile photo to increase your chances of getting
               replies.
             </p>
-
           </div>
         </div>
 
@@ -63,7 +53,7 @@ export default function Dashboard({ profilePic, showBusinessVerification  }) {
           <div className="flex justify-between items-center">
             <h3 className="text-xl font-semibold">Latest Bookings</h3>
             <button
-              onClick={handleShowAllBookings}
+              onClick={() => alert("Showing all bookings...")}
               className="text-gray-700 text-lg cursor-pointer"
             >
               Show all
@@ -74,7 +64,7 @@ export default function Dashboard({ profilePic, showBusinessVerification  }) {
               latestBookings.map((booking, index) => (
                 <div
                   key={index}
-                  className="w-[500px] h-[100px] p-3 border rounded shadow-md text-gray-700"
+                  className="w-full lg:w-[500px] h-[100px] p-3 border rounded shadow-md text-gray-700"
                 >
                   <p>{booking.title}</p>
                 </div>
@@ -88,26 +78,27 @@ export default function Dashboard({ profilePic, showBusinessVerification  }) {
 
       <div className="flex flex-col gap-5">
         <div className="mb-5">
-          <h3 className="text-xl font-semibold ml-3">Account Verification Status</h3>
+          <h3 className="text-xl font-semibold ml-3">
+            Account Verification Status
+          </h3>
           <div className="flex flex-col gap-5 mt-3 ml-3">
             <div className="flex items-center gap-5">
               <input
                 type="radio"
                 id="id-verification"
                 name="verification"
-                checked={verificationStatus}
+                value="id-verification"
+                checked={verificationStatus === "id-verification"}
                 onChange={handleVerificationToggle}
-                className="w-5 h-5 border-8 border-solid  border-black rounded-full cursor-pointer"
-               
+                className="cursor-pointer w-7 h-7"
               />
               <div className="flex flex-col">
-                <label
-                  htmlFor="id-verification"
-                  className="font-bold text-sm"
-                >
+                <label htmlFor="id-verification" className="font-bold text-sm">
                   ID Verification
                 </label>
-                <p className="text-gray-600 ">Passport, EU Nationality Identity Card</p>
+                <p className="text-gray-600">
+                  Passport, EU Nationality Identity Card
+                </p>
               </div>
               <button
                 onClick={handleUploadClick}
@@ -123,14 +114,10 @@ export default function Dashboard({ profilePic, showBusinessVerification  }) {
                   type="radio"
                   id="business-verification"
                   name="verification"
-                  checked={verificationStatus}
+                  value="business-verification"
+                  checked={verificationStatus === "business-verification"}
                   onChange={handleVerificationToggle}
-                  className="w-5 h-5 cursor-pointer border-8 border-black"
-                  style={{
-                    borderWidth: '8px',
-                    borderStyle: 'solid',
-                    borderColor: 'black'
-                  }}  
+                  className="cursor-pointer w-7 h-7"
                 />
                 <div className="flex flex-col">
                   <label
@@ -139,7 +126,9 @@ export default function Dashboard({ profilePic, showBusinessVerification  }) {
                   >
                     Business Verification
                   </label>
-                  <p className="text-gray-600 ">Business Registration Certificate</p>
+                  <p className="text-gray-600">
+                    Business Registration Certificate
+                  </p>
                 </div>
                 <button
                   onClick={handleUploadClick}
@@ -152,22 +141,20 @@ export default function Dashboard({ profilePic, showBusinessVerification  }) {
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="lg:translate-y-24">
           <h3 className="text-xl font-semibold mb-3">Appointments</h3>
           <div className="flex items-center gap-3">
-            <img
-              src={CalenderImg}
-              alt="Calendar"
-              className="w-12 h-auto"
-            />
-            <h4 className="w-[250px] text-gray-700">All appointments with artisans will appear here</h4>
+            <img src={CalenderImg} alt="Calendar" className="w-12 h-auto" />
+            <h4 className="w-[250px] text-gray-700">
+              All appointments with artisans will appear here
+            </h4>
           </div>
           {appointments.length > 0 ? (
             <div className="flex flex-col gap-3 mt-3">
               {appointments.map((appointment, index) => (
                 <div
                   key={index}
-                  className="w-[500px] h-[300px] p-3 shadow-lg rounded mt-3 text-gray-700"
+                  className="lg:w-[500px] h-[300px] p-3 shadow-lg rounded mt-3 text-gray-700"
                 >
                   {appointment}
                 </div>

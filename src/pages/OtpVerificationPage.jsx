@@ -15,6 +15,8 @@ const OtpVerificationPage = () => {
         searchQuery={false}
         showSearch={false}
         showProfile={false}
+        showPageTitle = {true}
+        pageTitle="Forgot Your Password?"
       />
       <main className="flex-grow flex flex-col lg:flex-row justify-evenly items-center">
         <div className="md:hidden lg:block">

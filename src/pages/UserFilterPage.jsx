@@ -223,10 +223,17 @@ const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImag
         onToggleChat={onToggleChat}
         onToggleNotification={onToggleNotification}
         userType="endUser"
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader = {true}
       />{" "}
 
       <main>
-      <BrowseByCategory jobData={newJobData} rowLimit={1} showSeeMore={true} description='Browse By Category' />
+      <BrowseByCategory jobData={newJobData} rowLimit={1} showSeeMore={true} description='Browse By Category' showOnMobile={true} />
       <ServiceProviderList  providers={sampleProviders} />
       <Pagination/>
       </main>

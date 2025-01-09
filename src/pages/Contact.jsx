@@ -73,11 +73,11 @@ export default function ContactForm() {
         </p>
       </div>
 
-      <div className="flex flex-col w-full lg:flex-row justify-around lg:w-[1200px]  rounded-md mx-auto shadow-lg p-8">
+      <div className="flex flex-col w-full  lg:flex-row justify-around lg:w-[1200px]  rounded-md mx-auto shadow-lg p-8">
         <div className="w-full max-w-xs md:m-auto lg:m-0">
           <img src={PhotoImg} alt="Contact" className="w-full h-auto " />
         </div>
-        <div className="lg:w-7/12">
+        <div className="mt-4 lg:w-7/12">
           <form onSubmit={handleSubmit} className=" space-y-6">
             <div className="flex flex-col lg:flex-row gap-6">
               <div className="flex flex-col w-full">

@@ -37,8 +37,18 @@ export default function Header({
   showSignInButton = false,
   showSignUpButton = false,
   showMenuIcon = false,
+  showDesktopIcons = false,
+  showSearchButton = false,
+  // tabletMenuEnabled = false,
+  enableTabletHeader = false,
+  tabletView = false,
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   const handleInputChange = (event) => {
     onSearchChange(event.target.value);
@@ -91,8 +101,12 @@ export default function Header({
   const isIsvSignUpPage = location.pathname === "/isvsignup";
   const isIsvEmailPage = location.pathname === "/isvemail";
   const isBsvSignUpPage = location.pathname === "/businesssignup";
+  const isForgotPasswordPage = location.pathname === "/forgotpassword";
+  const isOtpVerificationPage = location.pathname === "/otpverification";
+  const isResetPasswordPage = location.pathname === "/resetpassword";
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isSearchActive, setSearchActive] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -108,33 +122,108 @@ export default function Header({
     >
       {/* FOR MOBILE */}
       <div className="flex flex-col sm:hidden w-full">
-        {" "}
-        <div className="flex justify-between items-center px-4 relative">
+        <div className="flex relative items-center">
           {showMobileLogo && (
-            <div className="flex items-center">
-              <img
-                src={logoSrc}
-                alt="Logo"
-                className="w-24 h-auto invert brightness-200 "
-              />
+            <img src={WhiteLogo} alt="Logo" className="w-24 h-auto ml-3" />
+          )}
+
+          <div className="flex items-center justify-center space-x-2">
+            {showSearchButton && (
+              <div className="relative flex flex-col items-center space-x-2 translate-x-8 -translate-y-1">
+                <button
+                  onClick={() => setSearchActive(!isSearchActive)}
+                  className="text-white text-xl focus:outline-none"
+                  aria-label="Toggle search"
+                >
+                  <span className="material-icons">search</span>
+                </button>
+                <span className="absolute top-4 text-xs text-white">
+                  Search
+                </span>
+              </div>
+            )}
+
+            {showDesktopIcons && (
+              <div className="translate-x-8">
+                <div className="flex space-x-1 translate-x-12">
+                  <a
+                    title="Notifications"
+                    className="cursor-pointer"
+                    onClick={onToggleNotification}
+                  >
+                    <span className="material-icons text-xl">
+                      notifications
+                    </span>
+                  </a>
+                  <span
+                    title="Messages"
+                    className="cursor-pointer"
+                    onClick={onToggleChat}
+                  >
+                    <span className="material-icons text-xl">message</span>
+                  </span>
+                  <Link
+                    to={
+                      userType === "individualServiceProvider" ||
+                      userType === "businessServiceProvider"
+                        ? "#"
+                        : getFavoritesRoute()
+                    }
+                    title="Favorites"
+                    onClick={handleFavoriteClick}
+                  >
+                    <span className="material-icons text-xl">favorite</span>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {showMenuIcon && (
+            <div className="absolute right-6">
+              <button
+                onClick={toggleMenu}
+                className="text-white focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? (
+                  <span className="material-icons text-3xl">close</span>
+                ) : (
+                  <span className="material-icons text-3xl">menu</span>
+                )}
+              </button>
             </div>
           )}
-        {showMenuIcon && (
-          <div className="absolute right-6">
-            <button
-              onClick={toggleMenu}
-              className="text-white focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? (
-                <span className="material-icons text-3xl">close</span>
+        </div>
+
+        {isSearchActive && (
+          <div className="flex flex-col w-full mt-3">
+            <div className="relative w-full flex justify-center">
+              <input
+                type="text"
+                placeholder="Search by name |"
+                value={searchQuery}
+                onChange={handleInputChange}
+                className="w-11/12 px-3 py-1 pr-48 bg-black border border-gray-300 rounded text-white placeholder-gray-500 focus:outline-none"
+              />
+              {searchQuery ? (
+                <button
+                  onClick={() => onSearchChange("")}
+                  className="absolute right-8 top-1 text-gray-500 text-lg focus:outline-none"
+                >
+                  ✖
+                </button>
               ) : (
-                <span className="material-icons text-3xl">menu</span>
+                <img
+                  src={SearchIcon}
+                  alt="Search-icon"
+                  className="absolute right-8 top-1 w-5 h-5 pointer-events-none"
+                />
               )}
-            </button>
+            </div>
           </div>
         )}
-        </div>
+
         {menuOpen && (
           <nav
             className="flex flex-col items-center text-white rounded-b-lg mt-2 p-4 space-y-4"
@@ -166,6 +255,7 @@ export default function Header({
             )}
           </nav>
         )}
+
         {showBackButtonAndStepText && (
           <div className="flex flex-row items-center justify-between w-full">
             <BackButton />
@@ -174,30 +264,50 @@ export default function Header({
             </div>
           </div>
         )}
-        <div> {showBackButton && <BackButton />}</div>
+        {showBackButton && (
+          <div className="hidden md:block">
+            <BackButton />
+          </div>
+        )}
         {showAvaterNlogo && (
           <div className="flex flex-col justify-center items-center m-auto w-6/12">
             <img src={MobileLogo} alt="Logo" />
           </div>
         )}
+
+        {isForgotPasswordPage && (
+          <div className="">
+            <BackButton />
+          </div>
+        )}
+        {isOtpVerificationPage && (
+          <div className="">
+            <BackButton />
+          </div>
+        )}
+        {isResetPasswordPage && (
+          <div className="">
+            <BackButton />
+          </div>
+        )}
         {showPageTitle && (
           <div className="block text-2xl text-white text-start pl-20 py-5 sm:hidden">
-            {isUserSignupPage &&  (
+            {isUserSignupPage && (
               <div className="text-sm text-gray-600 font-semibold">
                 Personal Info
               </div>
             )}
-            {isIsvSignUpPage &&  (
+            {isIsvSignUpPage && (
               <div className="text-sm text-gray-600 font-semibold -translate-x-4">
                 Personal Info
               </div>
             )}
-            {isBsvSignUpPage &&  (
+            {isBsvSignUpPage && (
               <div className="text-sm text-gray-600 font-semibold -translate-x-8">
                 Personal Info
               </div>
             )}
-            
+
             <div
               className={`text-2xl font-semibold ${
                 isUserSignupPage
@@ -227,42 +337,133 @@ export default function Header({
           </div>
         )}
       </div>
-      {/* FOR DESKTOP */}
-      <div className="hidden sm:flex items-center justify-between w-full ">
-        <div className=" flex space-x-16">
-          <div className="flex items-center space-x-6 text-sm">
-            <div> {showBackButton && <BackButton />}</div>
+      {/* FOR TABLET */}
+      {enableTabletHeader && (
+        <div className="hidden md:flex items-center justify-between w-full lg:hidden">
+          <div className="flex items-center justify-between w-full">
+            <button
+              onClick={toggleSidebar}
+              className="text-white text-xl p-2 focus:outline-none"
+            >
+              <span className="material-icons">
+                {isSidebarOpen ? "close" : "menu"}
+              </span>
+            </button>
 
-            <Logo src={logoSrc} width="112px" height="auto" />
-            {hideNavLinks ? (
-              <nav className="hidden lg:flex space-x-6 items-center ml-6">
+            <div
+              className={`fixed top-0 left-0 h-full w-72 bg-black text-white z-50 transform ${
+                isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+              } transition-transform duration-300`}
+            >
+              <div className="flex items-center justify-between p-4">
+                <Logo src={logoSrc} width="112px" height="auto" />
+
+                <button
+                  onClick={toggleSidebar}
+                  className="text-white text-xl focus:outline-none"
+                >
+                  <span className="material-icons">close</span>
+                </button>
+              </div>
+
+              <nav className="flex flex-col space-y-4 mt-6 px-4">
                 {customLinks.map((link, index) => (
                   <Link
                     key={index}
                     to={link.href}
-                    className={`text-sm ${
-                      link.label === "Home" ? "font-bold" : "font-extralight"
-                    }`}
+                    onClick={toggleSidebar}
+                    className="text-white text-lg"
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
-            ) : (
-              <nav className={`${linkColor}  flex space-x-6 items-center ml-6`}>
-                {customLinks.map((link, index) => (
-                  <Link
-                    key={index}
-                    to={link.href}
-                    className={`text-sm ${
-                      link.label === "Home" ? "font-bold" : "font-extralight"
-                    }`}
+            </div>
+
+            {showSearch && (
+              <div className="relative flex-grow flex justify-center px-4">
+                <input
+                  type="text"
+                  placeholder="Search artisans by name |"
+                  value={searchQuery}
+                  onChange={handleInputChange}
+                  className="w-8/12 px-3 py-1 pr-48 bg-black border border-gray-300 rounded text-white placeholder-gray-500 focus:outline-none"
+                />
+                {searchQuery ? (
+                  <button
+                    onClick={() => onSearchChange("")}
+                    className="absolute right-24 top-1 text-gray-500 text-lg focus:outline-none"
                   >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
+                    ✖
+                  </button>
+                ) : (
+                  <img
+                    src={SearchIcon}
+                    alt="Search-icon"
+                    className="absolute right-24 top-1 w-5 h-5 pointer-events-none"
+                  />
+                )}
+              </div>
             )}
+
+            {showIcons && (
+              <div className="flex space-x-3 -translate-x-10 px-4 text-lg">
+                {[
+                  { name: "notifications", action: onToggleNotification },
+                  { name: "message", action: onToggleChat },
+                ].map((icon, index) => (
+                  <button
+                    key={index}
+                    title={icon.name}
+                    onClick={icon.action}
+                    className="cursor-pointer"
+                  >
+                    <span className="material-icons">{icon.name}</span>
+                  </button>
+                ))}
+                <button
+                  title="favorite"
+                  onClick={handleFavoriteClick}
+                  className="cursor-pointer"
+                >
+                  <span className="material-icons">favorite</span>
+                </button>
+              </div>
+            )}
+
+            <Link to={getProfileRoute()}>
+              <div className="w-10">
+                <img src={profilePic} alt="Profile" className="rounded-full" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      )}
+
+      {/* FOR DESKTOP */}
+
+      <div className="hidden lg:flex items-center justify-between w-full">
+        <div className="flex space-x-16">
+          <div className="flex items-center space-x-6 text-sm">
+            {showBackButton && <BackButton />}
+            <Logo src={logoSrc} width="112px" height="auto" />
+            <nav
+              className={`lg:flex space-x-6 items-center ml-6 ${
+                hideNavLinks ? "" : linkColor
+              }`}
+            >
+              {customLinks.map((link, index) => (
+                <Link
+                  key={index}
+                  to={link.href}
+                  className={`text-sm ${
+                    link.label === "Home" ? "font-bold" : "font-extralight"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
 
           {showSearch && (
@@ -294,23 +495,23 @@ export default function Header({
           )}
         </div>
 
-        <div className="flex items-center space-x-6  ">
+        <div className="flex items-center space-x-6">
           {showIcons && (
             <div className="flex space-x-3 text-lg mr-8">
-              <a
-                title="Notifications"
-                className="cursor-pointer"
-                onClick={onToggleNotification}
-              >
-                <span className="material-icons">notifications</span>
-              </a>
-              <span
-                title="Messages"
-                className="cursor-pointer"
-                onClick={onToggleChat}
-              >
-                <span className="material-icons">message</span>
-              </span>
+              {["notifications", "message"].map((icon, index) => (
+                <a
+                  key={index}
+                  title={icon}
+                  onClick={
+                    icon === "notifications"
+                      ? onToggleNotification
+                      : onToggleChat
+                  }
+                  className="cursor-pointer"
+                >
+                  <span className="material-icons">{icon}</span>
+                </a>
+              ))}
               <Link
                 to={
                   userType === "individualServiceProvider" ||
@@ -318,13 +519,13 @@ export default function Header({
                     ? "#"
                     : getFavoritesRoute()
                 }
-                title="Favorites"
                 onClick={handleFavoriteClick}
               >
                 <span className="material-icons">favorite</span>
               </Link>
             </div>
           )}
+
           {showAuthButtons ? (
             <>
               <Link to="/signin">
@@ -346,44 +547,20 @@ export default function Header({
             </Link>
           ) : null}
 
-          {showSignUpText && (
-            <>
-              <div className="hidden sm:flex items-center justify-center mt-4 text-sm">
-                <span className="text-[#8692A6]">Don’t have an account? </span>
-                <Link to="/signup" className="text-blue-500 ml-1">
-                  Sign up
-                </Link>
-              </div>
-
-              <div className="flex sm:hidden items-center justify-center mt-4 text-sm">
-                <span className="text-[#8692A6]">Don’t have an account? </span>
-                <Link to="/signup" className="text-blue-500 ml-1">
-                  Sign up
-                </Link>
-              </div>
-            </>
-          )}
-
-          {showSignInText && (
-            <>
-              <div className="hidden sm:flex items-center justify-center mt-4 text-sm">
-                <span className="text-[#8692A6]">
-                  Already have an account?{" "}
-                </span>
-                <Link to="/signin" className="text-blue-500 ml-1">
-                  Sign in
-                </Link>
-              </div>
-
-              <div className="flex sm:hidden items-center justify-center mt-4 text-sm">
-                <span className="text-[#8692A6]">
-                  Already have an account?{" "}
-                </span>
-                <Link to="/signin" className="text-blue-500 ml-1">
-                  Sign in
-                </Link>
-              </div>
-            </>
+          {(showSignUpText || showSignInText) && (
+            <div className="hidden sm:flex items-center justify-center mt-4 text-sm">
+              <span className="text-[#8692A6]">
+                {showSignUpText
+                  ? "Don’t have an account?"
+                  : "Already have an account?"}{" "}
+              </span>
+              <Link
+                to={showSignUpText ? "/signup" : "/signin"}
+                className="text-blue-500 ml-1"
+              >
+                {showSignUpText ? "Sign up" : "Sign in"}
+              </Link>
+            </div>
           )}
 
           {stepText && (

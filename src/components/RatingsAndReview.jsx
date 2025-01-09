@@ -61,14 +61,14 @@ function RatingsAndReviews() {
   return (
     <section className="w-full">
         <div className="flex justify-between  mt-12">
-          <h2 className="text-2xl font-semibold mb-2 pl-[50px]">Ratings and Reviews</h2>
-          <div className="flex items-center text-gray-600 mb-6 pr-[165px] ml-20">
+          <h2 className="text-2xl p-3 font-semibold mb-2 lg:pl-[50px]">Ratings and Reviews</h2>
+          <div className="flex items-center text-gray-600 mb-6 lg:pr-[165px] ml-20">
             <span className="text-xl">★ 4.5</span>
             <span className="ml-2">10 Reviews</span>
           </div>
         </div>
       <div className="flex flex-col w-full max-w-[1280px] mx-auto py-12 ">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-4">
+        <div className="grid gap-4 m-auto md:grid-cols-2 lg:grid-cols-3 mb-4">
           {reviews.map((review, index) => (
             <ReviewCard
               key={index}

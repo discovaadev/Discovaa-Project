@@ -27,6 +27,13 @@ const UserDashboard = ({
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic}
         onToggleChat={onToggleChat}
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader = {true}
       />
       <main>
         <Dashboard

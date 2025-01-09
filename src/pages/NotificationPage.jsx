@@ -34,43 +34,55 @@ const NotificationPage = ({ onClose, notifications, pageType  }) => {
   ];
 
   return (
-    <div className="fixed inset-0 top-16 left-2/4  items-center z-50">
-      <div className="w-[670px] h-[626px] bg-white shadow-lg border rounded-xl overflow-hidden p-5">
-        <div className="flex justify-between items-center px-4 py-8 bg-white text-white">
-          <h2 className="text-3xl font-semibold text-black">Notifications</h2>
-          <button
-            className="text-xl text-white bg-black w-8 h-8 rounded-full "
-            onClick={onClose}
-          >
-            &times;
-          </button>
-        </div>
-
+    <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
+    <div className="w-full max-w-lg md:max-w-2xl lg:w-[670px] h-auto lg:h-[626px] bg-white shadow-lg border rounded-xl overflow-hidden p-5 mx-4">
+      {/* Header */}
+      <div className="flex justify-between items-center px-4 py-6 border-b">
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-black">
+          Notifications
+        </h2>
+        <button
+          className="text-lg md:text-xl text-white bg-black w-8 h-8 flex items-center justify-center rounded-full"
+          onClick={onClose}
+        >
+          &times;
+        </button>
+      </div>
+  
+      {/* Tab Switcher */}
+      <div className="mt-4">
         <TabSwitcher activeTab={activeTab} onTabChange={handleTabChange} />
-
-        <div className="px-6 py-4 overflow-y-auto">
-          <NotificationList
-            activeTab={activeTab}
-            notifications={notifications}
-            pageType={pageType}
+      </div>
+  
+      {/* Notifications List */}
+      <div className="px-4 py-6 overflow-y-auto max-h-[300px] md:max-h-[400px] lg:max-h-[500px]">
+        <NotificationList
+          activeTab={activeTab}
+          notifications={notifications}
+          pageType={pageType}
+        />
+      </div>
+  
+      {/* Optional Image */}
+      <div className="flex justify-center mt-4">
+        {activeTab !== "System Update" && activeTab !== "News Update" && (
+          <img
+            src={LastDayText}
+            alt="Last Day Text"
+            className="w-3/4 md:w-1/2 lg:w-auto h-auto max-h-16"
           />
-        </div>
-        <div className="flex justify-center">
-          {activeTab !== "System Update" && activeTab !== "News Update" && (
-            <img
-              src={LastDayText}
-              alt="Last Day Text"
-              className="w-auto h-[60px]"
-            />
-          )}
-        </div>
-        <div className="max-w-lg mx-auto mt-8">
-          {activeTab === "System Update" && (
-            <SystemUpdateTab updates={systemUpdates} />
-          )}
-        </div>
+        )}
+      </div>
+  
+      {/* System Update Section */}
+      <div className="mt-6">
+        {activeTab === "System Update" && (
+          <SystemUpdateTab updates={systemUpdates} />
+        )}
       </div>
     </div>
+  </div>
+  
   );
 };
 

@@ -1,7 +1,7 @@
 import SuccessImg from "../assets/SuccessImg.png";
 import SuccessVector from "../assets/SuccessVector.png";
 
-export default function SuccessModal({ message, onClose, messageStyle='text-gray-800 text-lg mb-6' }) {
+export default function SuccessModal({ message, onClose, onNext, messageStyle='text-gray-800 text-lg mb-6' }) {
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
@@ -22,7 +22,8 @@ export default function SuccessModal({ message, onClose, messageStyle='text-gray
         <p className={`${messageStyle}`}>{message}</p>
         <button
           className="bg-black text-white py-1 px-6 rounded hover:bg-gray-700 mt-7"
-          onClick={onClose}
+          onClick={() => onNext()}
+          
         >
           Next
         </button>

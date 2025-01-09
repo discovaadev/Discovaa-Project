@@ -52,7 +52,7 @@ const ProfileForm = ({
   };
 
   return (
-    <div className="flex flex-col p-6 md:m-auto lg:flex-row lg:m-0 justify-evenly lg:p-0  ">
+    <div className="flex flex-col p-6 md:items-center lg:flex-row lg:m-0 justify-evenly lg:p-0  ">
       <div>
         <img src={imgSrc} alt="Profile" className=" lg:block w-[400px] " />
       </div>
@@ -64,7 +64,7 @@ const ProfileForm = ({
           For the purpose of industry regulation, your details are required.
         </p>
         <p className="hidden border border-1 border-gray-500 w-full -translate-y-10 md:translate-y-0 "></p>
-        <div className="-translate-y-8 sm:translate-y-0">
+        <div className="-translate-y-2 sm:translate-y-0">
           <div className="w-full  md:space-y-2 ">
             <label
               htmlFor="phoneNumber"

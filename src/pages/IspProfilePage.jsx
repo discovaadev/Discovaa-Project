@@ -28,7 +28,7 @@ const IspProfilePage = ({
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="">
       <Header
         searchQuery={searchQuery}
         onSearchChange={onSearchChange}
@@ -47,6 +47,13 @@ const IspProfilePage = ({
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic}
         userType="individualServiceProvider"
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader = {true}
       />
       <div className="relative flex-grow">
         <div className="z-0">

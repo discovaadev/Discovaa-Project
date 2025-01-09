@@ -37,7 +37,7 @@ const UserSeeMorePage = ({
   profilePic,
   onProfileImageChange,
   onToggleChat,
-  onToggleNotification
+  onToggleNotification,
 }) => {
   return (
     <div>
@@ -58,15 +58,26 @@ const UserSeeMorePage = ({
         onToggleChat={onToggleChat}
         onToggleNotification={onToggleNotification}
         userType="endUser"
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader ={false}
       />
       <main>
         <BrowseByCategory
           jobData={newJobData}
-          rowLimit={2}
-          showSeeMore= {false}
+          showSeeMore={false}
           description="Browse By Category"
+          showOnMobile={true}
         />
-        <Pagination showFirstPage={false} showPage4={false} showLastPage={false} />
+        <Pagination
+          showFirstPage={false}
+          showPage4={false}
+          showLastPage={false}
+        />
       </main>
       <Footer />
     </div>

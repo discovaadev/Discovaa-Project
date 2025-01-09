@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function OnboardingSection() {
   return (
-    <section className=" md:bg-white w-full p-16 flex items-center ">
+    <section className="p-4 md:bg-white w-full  flex items-center lg:p-12">
       <div className="">
         <p className="text-sm mb-1">FREE 30 TRIAL</p>
         <div>
@@ -28,8 +28,8 @@ export default function OnboardingSection() {
             </button>
           </Link>
           <Link to="/subscribe">
-            <span className="w-full block sm:hidden border border-black text-black px-5 py-3 rounded-md font-medium text-[12px] flex items-center justify-between hover:bg-gray-100 transition">
-              <span className="translate-x-4">Already have an account?</span>
+            <span className="w-full block sm:hidden border border-black text-black px-5 py-3 rounded-md font-medium text-[12px] flex items-center justify-evenly hover:bg-gray-100 transition">
+              <span className="translate-x-8">Already have an account?</span>
               <a
                 href="#"
                 className="text-blue-600 underline-none hover:text-blue-800 "

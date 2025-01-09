@@ -4,17 +4,17 @@ import CompleteIconImg from "../assets/CompleteIconImg.png";
 
 export default function VerificationComplete({profilePic, showBusinessVerification }) {
   return (
-    <div className="flex gap-5 px-20 py-5 h-screen justify-between">
+    <div className="flex flex-col lg:flex-row gap-5 p-10  py-5 justify-between">
       <div className="flex flex-col gap-8">
-        <div className="flex items-center gap-5 mb-5">
+        <div className="flex flex-col items-center gap-5 mb-5 lg:flex-row items-center gap-5 mb-5">
           <img
             src={profilePic}
             alt="Profile"
             className="w-32 h-32 rounded-full"
           />
-          <div className="flex flex-col">
-            <h2 className="text-2xl font-semibold">Welcome, Christopher!</h2>
-            <p className="text-gray-500 max-w-sm">
+          <div className="text-center lg:text-start">
+            <h2 className="text-2xl font-semibold ">Welcome, Christopher!</h2>
+            <p className="text-gray-500 max-w-md">
               Professionals are more likely to trust and work with someone they
               can see. Add a profile photo to increase your chances of getting
               replies.
@@ -35,7 +35,7 @@ export default function VerificationComplete({profilePic, showBusinessVerificati
             {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={index}
-                className="w-125 h-[125px]   p-2 border border-gray-300 rounded-lg shadow-md text-gray-800"
+                className="w-full lg:w-[500px] h-[100px]  p-2 border border-gray-300 rounded-lg shadow-md text-gray-800"
               ></div>
             ))}
           </div>
@@ -45,8 +45,8 @@ export default function VerificationComplete({profilePic, showBusinessVerificati
       <div className="flex flex-col gap-8">
         <div>
           <h3 className="text-xl font-semibold">Account Verification Status</h3>
-          <div className="flex flex-col items-center mt-4 gap-4">
-            <div className="flex items-center gap-3 mb-6 mr-24">
+          <div className="flex flex-col mt-4 gap-4 ">
+            <div className="flex items-center gap-3 mb-6 mr-24 ">
               <img
                 src={CompleteIconImg}
                 alt="complete-icon"

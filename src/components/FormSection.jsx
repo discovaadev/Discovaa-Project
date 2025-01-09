@@ -50,7 +50,7 @@ export default function FormSection({
   };
 
   return (
-    <div className="flex justify-center w-full pl-5 sm:justify-evenly p-0 flex-col items-center lg:flex-row ">
+    <div className="flex justify-center w-full  sm:justify-evenly p-0 flex-col items-center lg:flex-row ">
       <div className="">
         <img src={imageSrc} alt="photo-img" className="w-[230px] mt-5 md:w-[300px] -mt-8 lg:w-[450px] " />
       </div>
@@ -64,7 +64,7 @@ export default function FormSection({
           <div className="hidden sm:border border-2 border-gray-300 w-full mt-2 "></div>
         </div>
 
-        <form onSubmit={handleSubmit} className="w-[300px] md:w-[350px] lg:w-[400px] space-y-6 ">
+        <form onSubmit={handleSubmit} className=" w-[350px] lg:w-[400px] space-y-6 ">
           <div>
             <label
               htmlFor="fullname"
@@ -137,7 +137,7 @@ export default function FormSection({
             )}
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 -translate-y-6">
             <input
               type="checkbox"
               id="terms"
@@ -146,7 +146,7 @@ export default function FormSection({
               onChange={handleInputChange}
               className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-0"
             />
-            <label htmlFor="terms" className="text-gray-600 text-sm">
+            <label htmlFor="terms" className="text-gray-600 text-[12px] ">
               I agree to terms & conditions
             </label>
           </div>

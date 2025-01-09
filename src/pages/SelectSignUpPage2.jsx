@@ -31,7 +31,7 @@ export default function SelectSignUpPage2() {
   };
 
   return (
-    <section className="flex flex-col w-full ">
+    <section className="flex flex-col min-h-screen ">
       <Header
         logoSrc={BlackLogo}
         hideNavLinks={true}
@@ -43,26 +43,26 @@ export default function SelectSignUpPage2() {
         ]}
         showSignInText={true}
         showProfile={false}
-        bgColor="bg-black"
+        bgColor=""
         showSearch={false}
         showIcons={false}
         showAvaterNlogo={true}
       />
-      <div className="flex flex-col items-center m-auto h-screen lg:flex-row justify-evenly">
-        <div className="w-[350px] md:w-[450px]">
-          <img src={CarMaintainaceImg} alt="Car-maintenance" />
+      <div className="flex flex-col h-screen lg:flex-row justify-evenly">
+        <div className="w-[250px] m-auto md:w-[420px]">
+          <img src={CarMaintainaceImg} alt="Car-maintenance"  />
         </div>
 
-        <div className="pl-6 sm:flex flex-col items-start justify-center  ">
-          <h1 className="text-3xl sm:text-2xl font-extrabold mb-4">Join Us!</h1>
-          <p className="text-sm font-normal text-gray-600 w-80">
+        <div className="p-2 sm:flex flex-col items-start justify-center md:m-auto  ">
+          <h1 className="text-3xl sm:text-2xl font-extrabold mb-4 ">Join Us!</h1>
+          <p className="text-sm font-normal text-gray-600 w-80 ">
             To begin this journey, tell us what type of account you&apos;d be
             opening.
           </p>
 
-          <div className="flex flex-col gap-5 mt-10">
+          <div className="flex flex-col p-2">
             <button
-              className={`group flex items-center justify-between w-[426px] h-[90px] p-4 cursor-pointer rounded-lg shadow-lg border ${getClassNames(
+              className={`group flex items-center  space-x-3 w-full h-[90px]  cursor-pointer rounded-lg shadow-lg border  md:w-[400px] ${getClassNames(
                 "user"
               )}`}
               onClick={() => handleClick("user", "/usersignuppage")}
@@ -79,7 +79,7 @@ export default function SelectSignUpPage2() {
             </button>
 
             <button
-              className={`group flex items-center justify-between w-[426px] h-[90px] p-4 cursor-pointer rounded-lg shadow-lg border ${getClassNames(
+              className={`group flex items-center  space-x-3 h-[90px]  cursor-pointer rounded-lg shadow-lg border  md:w-[400px] ${getClassNames(
                 "service"
               )}`}
               onClick={() => handleClick("service", "/signup")}
@@ -103,7 +103,7 @@ export default function SelectSignUpPage2() {
         </Link>
       </div>
       </div>
-      <Footer className="hidden lg:flex" />
+      <Footer className="" />
     </section>
   );
 }

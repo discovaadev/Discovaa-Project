@@ -2,7 +2,7 @@
 import Header from "../components/Header";
 import Dashboard from '../components/Dashboard';
 import Footer from '../components/footer';
-const BuisnessUserDashboardPage = ({ searchQuery, onSearchChange, profilePic, onProfileImageChange }) => {
+const BuisnessDashboardPage = ({searchQuery, onSearchChange, profilePic, onProfileImageChange, onToggleChat }) => {
   return (
     <div>
       <Header
@@ -19,6 +19,14 @@ const BuisnessUserDashboardPage = ({ searchQuery, onSearchChange, profilePic, on
         ]}
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic || '../assets/HeaderProfileImg (2).png'}
+        onToggleChat={onToggleChat}
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader = {true}
       />
       <main>
         <Dashboard showBusinessVerification={true} profilePic={profilePic} onProfileImageChange={onProfileImageChange}/>
@@ -29,4 +37,4 @@ const BuisnessUserDashboardPage = ({ searchQuery, onSearchChange, profilePic, on
   );
 };
 
-export default BuisnessUserDashboardPage;
+export default BuisnessDashboardPage;
