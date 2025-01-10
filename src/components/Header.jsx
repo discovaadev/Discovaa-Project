@@ -146,34 +146,33 @@ export default function Header({
             {showDesktopIcons && (
               <div className="translate-x-8">
                 <div className="flex space-x-1 translate-x-12">
-                  <a
-                    title="Notifications"
-                    className="cursor-pointer"
-                    onClick={onToggleNotification}
-                  >
-                    <span className="material-icons text-xl">
-                      notifications
-                    </span>
-                  </a>
-                  <span
-                    title="Messages"
-                    className="cursor-pointer"
-                    onClick={onToggleChat}
-                  >
-                    <span className="material-icons text-xl">message</span>
-                  </span>
-                  <Link
-                    to={
-                      userType === "individualServiceProvider" ||
-                      userType === "businessServiceProvider"
-                        ? "#"
-                        : getFavoritesRoute()
-                    }
-                    title="Favorites"
-                    onClick={handleFavoriteClick}
-                  >
-                    <span className="material-icons text-xl">favorite</span>
-                  </Link>
+                  <div className="">
+                    {["notifications", "message"].map((icon, index) => (
+                      <a
+                        key={index}
+                        title={icon}
+                        onClick={
+                          icon === "notifications"
+                            ? onToggleNotification
+                            : onToggleChat
+                        }
+                        className="cursor-pointer"
+                      >
+                        <span className="material-icons">{icon}</span>
+                      </a>
+                    ))}
+                    <Link
+                      to={
+                        userType === "individualServiceProvider" ||
+                        userType === "businessServiceProvider"
+                          ? "#"
+                          : getFavoritesRoute()
+                      }
+                      onClick={handleFavoriteClick}
+                    >
+                      <span className="material-icons">favorite</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
@@ -442,7 +441,11 @@ export default function Header({
 
       {/* FOR DESKTOP */}
 
-      <div className="hidden lg:flex items-center justify-between w-full">
+      <div
+        className={`hidden md:flex lg:flex items-center justify-between w-full ${
+          enableTabletHeader ? "md:hidden" : "block"
+        }`}
+      >
         <div className="flex space-x-16">
           <div className="flex items-center space-x-6 text-sm">
             {showBackButton && <BackButton />}
@@ -548,7 +551,7 @@ export default function Header({
           ) : null}
 
           {(showSignUpText || showSignInText) && (
-            <div className="hidden sm:flex items-center justify-center mt-4 text-sm">
+            <div className="hidden sm:flex items-center justify-center text-sm">
               <span className="text-[#8692A6]">
                 {showSignUpText
                   ? "Don’t have an account?"

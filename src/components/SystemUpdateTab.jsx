@@ -4,7 +4,7 @@ const SystemUpdateTab = ({ updates }) => {
       {updates.map((update, index) => (
         <div
           key={index}
-          className="mb-6 border-b last:border-b-0 pb-4 last:pb-0"
+          className=" border-b last:border-b-0  last:pb-0"
         >
           <h2 className="text-xl font-semibold flex items-center justify-between text-gray-800">
             {update.title}

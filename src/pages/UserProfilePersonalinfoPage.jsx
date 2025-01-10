@@ -6,6 +6,7 @@ const UserProfilePersonalinfoPage = ({
   onSearchChange,
   profilePic,
   onProfileImageChange,
+  onToggleNotification,
   onToggleChat
 }) => {
   return (
@@ -25,6 +26,7 @@ const UserProfilePersonalinfoPage = ({
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic }
         onToggleChat={onToggleChat}
+        onToggleNotification ={onToggleNotification}
         showMobileLogo = {true}
         showSearchButton = {true}
         showDesktopIcons = {true}

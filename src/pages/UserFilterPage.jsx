@@ -227,7 +227,6 @@ const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImag
         showSearchButton = {true}
         showDesktopIcons = {true}
         showMenuIcon = {true}
-        tabletMenuEnabled={true}
         isMenuOpen={true}
         enableTabletHeader = {true}
       />{" "}

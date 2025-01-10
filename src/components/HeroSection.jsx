@@ -40,8 +40,6 @@ export default function HeroSection() {
             showSignInButton={true}
             showSignUpButton={true}
             showMenuIcon={true}
-            enableTabletHeader={false}
-          
             
           />
         </div>

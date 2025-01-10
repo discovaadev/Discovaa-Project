@@ -265,3 +265,76 @@ export  const bspNotifications = [
       time: "1 day ago",
     },
   ];
+export const userProfileNotifications = [
+    {
+      type: "New Message",
+      section: "Latest",
+      image: MartPic,
+      name: "Mart Jaan",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 hour ago",
+    },
+
+    {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: MartPic,
+      text: "confirmed booking for:",
+      name: "Mart Jaan",
+      date: "2nd February 2024",
+      time: "8AM",
+    },
+
+    {
+      type: "New Message",
+      section: "Latest",
+      image: Khrisjan,
+      name: "Kristjan Tõnis",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "2 hour ago",
+    },
+
+    {
+      type: "Confirmed Booking",
+      section: "Latest",
+      image: Khrisjan,
+      text: "confirmed booking for:",
+      name: "Kristjan Tõnis",
+      date: "2nd February 2024",
+      time: "8AM",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: MariLiis,
+      name: "Mari Liis",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "12 hour ago",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: KatiPic,
+      name: "Kati Kristiina",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 day ago",
+    },
+    {
+      type: "New Message",
+      section: "Previous",
+      image: Priit,
+      name: "Priit Maarja",
+      text: "sent a message to you",
+      message:
+        "I’d like to confirm if you would be available for a plumbing job next weekend.",
+      time: "1 day ago",
+    },
+  ];

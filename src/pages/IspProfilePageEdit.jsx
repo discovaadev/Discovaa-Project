@@ -45,6 +45,13 @@ const IspProfilePageEdit = ({
         toggleFavorites={toggleFavorites}
         profilePic={profilePic}
         headerName={headerName}
+        showMobileLogo = {true}
+        showSearchButton = {true}
+        showDesktopIcons = {true}
+        showMenuIcon = {true}
+        tabletMenuEnabled={true}
+        isMenuOpen={true}
+        enableTabletHeader = {true}
       />
       <div className="relative flex-grow">
         <div className="z-0">

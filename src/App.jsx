@@ -51,6 +51,7 @@ import {
   bspNotifications,
   ispNotifications,
   userNotifications,
+  userProfileNotifications,
 } from "./data/notifications";
 
 function App() {
@@ -155,21 +156,26 @@ function App() {
     } else if (location.pathname === "/bspprofilepage") {
       setActivePage("BspProfilePage");
       setPageType("BspProfilePage");
+    } else if (location.pathname === "/userprofilepersonalinfopage") {
+      setActivePage("UserProfilePersonalinfoPage");
+      setPageType("UserProfilePersonalinfoPage");
     } else {
       setActivePage("UserFilterPage");
       setPageType("UserFilterPage");
     }
   }, [location.pathname]);
-
   const notifications =
-    activePage === "UserFilterPage"
-      ? userNotifications
-      : activePage === "IspProfilePage" || activePage === "IspProfilePageEdit"
-      ? ispNotifications
-      : activePage === "BspProfilePage"
-      ? bspNotifications
-      : [];
-  console.log("Notifications for", activePage, ":", notifications);
+  activePage === "UserFilterPage"
+    ? userNotifications
+    : activePage === "IspProfilePage" || activePage === "IspProfilePageEdit"
+    ? ispNotifications
+    : activePage === "BspProfilePage"
+    ? bspNotifications
+    : activePage === "UserProfilePersonalinfoPage"
+    ? userProfileNotifications
+    : [];
+console.log("Notifications for", activePage, ":", notifications);
+
 
   const headerName =
     activePage === "UserFilterPage"
@@ -287,6 +293,7 @@ function App() {
                 searchQuery={searchQuery}
                 onSearchChange={handleSearchChange}
                 onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
               />
             }
           />

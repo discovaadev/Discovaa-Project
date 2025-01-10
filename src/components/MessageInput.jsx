@@ -9,10 +9,9 @@ const MessageInput = ({ onSend }) => {
       setInputText("");
     }
   };
-
   return (
     <div className="flex items-center bg-white p-4 border-t border-gray-200">
-      <button className="bg-black p-3 rounded-full w-12 h-12 text-white hover:bg-gray-800 mr-2">
+      <button className="bg-black p-2 rounded-full w-10 h-10 text-white hover:bg-gray-800 mr-2">
         +
       </button>
       <input
@@ -20,7 +19,7 @@ const MessageInput = ({ onSend }) => {
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         placeholder="Type a message..."
-        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
+        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm sm:text-base"
       />
       <button
         onClick={handleSend}

@@ -4,19 +4,17 @@ import MessageInput from "../components/MessageInput";
 
 const ChatPage = ({ messages, onSend, onClose, activePage, headerName }) => {
   return (
-    <div className="">
-      <div className="fixed w-[700px] h-[500px] bg-white shadow-lg border rounded-xl ">
-        <div
-          className="fixed top-[400px] left-3/4 transform -translate-x-1/2 -translate-y-1/2 
-      w-[500px] h-[640px] bg-white rounded-lg shadow-lg flex flex-col "
-        >
-          <ChatHeader onClose={onClose} activePage={activePage} headerName={headerName} />
-          <ChatMessages messages={messages} activePage={activePage} />
-          <MessageInput onSend={onSend} />
-        </div>
+    <div className="fixed top-16 right-0 w-full max-w-md h-[500px] bg-white shadow-lg border rounded-xl flex flex-col">
+      <ChatHeader onClose={onClose} activePage={activePage} headerName={headerName} />
+      <div className="flex-1 overflow-y-auto">
+        <ChatMessages messages={messages} activePage={activePage} />
       </div>
+      <MessageInput onSend={onSend} />
     </div>
   );
 };
 
 export default ChatPage;
+
+
+

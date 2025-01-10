@@ -20,13 +20,13 @@ const NotificationItem = ({
           className="w-10 h-10 rounded-full object-cover"
         />
         <div className="flex-grow">
-          <div className="flex gap-1 items-center">
+          <div className="flex flex-wrap gap-1 items-center">
             <p className="text-sm font-bold">{name}</p>
             <p className="text-sm font-normal">{text}</p>
             <p className="text-sm font-normal">{date}</p>
             <p className="text-xs text-gray-500 font-normal">{time}</p>
           </div>
-          <div className="flex justify-between items-center ">
+          <div className="flex justify-between items-center">
             <p className="text-sm text-gray-600">{message}</p>
             {isConfirmBooking ? (
               <div className="flex items-center space-x-1 text-gray-600 -translate-y-6">
