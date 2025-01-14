@@ -29,7 +29,7 @@ const UserEmailConfirmationPage = () => {
           className="w-52 lg:block lg:w-[400px] "
         />
 
-        <CodeInput buttonStyle="mt-14 bg-black text-white w-full p-2 rounded-md " />
+        <CodeInput buttonStyle="mt-14 bg-black text-white w-full p-2 rounded-md  "  />
       </main>
       <Footer  />
     </div>

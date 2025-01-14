@@ -8,7 +8,7 @@ export default function EmailConfirmation() {
         <img src={EngineerImg} alt="Engineer" className="w-52 m-auto lg:block lg:w-[380px] " />
       </div>
       <div>
-        <CodeInput titleStyle="text-3xl font-bold mb-4" buttonStyle="w-full bg-black text-white py-2 px-4 rounded-md mt-20" />
+        <CodeInput titleStyle="text-3xl font-bold mb-4" buttonStyle="w-full bg-black text-white py-2 px-4 rounded-md mt-20" linkTo='/isvemail' />
       </div>
     </div>
   );

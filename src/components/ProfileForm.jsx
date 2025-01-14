@@ -6,6 +6,7 @@ const ProfileForm = ({
   imgSrc,
   showBusinessInfo = false,
   titleStyle = "font-bold text-xl",
+  linkTo
 }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedCountryCode, setSelectedCountryCode] = useState("+234");
@@ -190,7 +191,7 @@ const ProfileForm = ({
             </div>
           )}
           <div className="mt-20 sm:mt-0">
-            <Link to="/login">
+            <Link to={linkTo}>
               <button
                 type="submit"
                 className="w-full mt-3 bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors"
@@ -198,7 +199,7 @@ const ProfileForm = ({
                 Save and Continue
               </button>
             </Link>
-            <div className="security flex items-center ml-20  text-[13px] text-[#8692A6]">
+            <div className="security flex items-center ml-36  text-[13px] text-[#8692A6]">
               <span className="material-symbols-outlined text-[15px]">
                 lock
               </span>

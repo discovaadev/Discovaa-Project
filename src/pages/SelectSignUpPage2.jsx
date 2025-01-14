@@ -62,7 +62,7 @@ export default function SelectSignUpPage2() {
 
           <div className="flex flex-col p-2">
             <button
-              className={`group flex items-center  space-x-3 w-full h-[90px]  cursor-pointer rounded-lg shadow-lg border  md:w-[400px] ${getClassNames(
+              className={`group flex items-center p-2 space-x-5 w-full h-[90px]  cursor-pointer rounded-lg shadow-lg   md:w-[400px] ${getClassNames(
                 "user"
               )}`}
               onClick={() => handleClick("user", "/usersignuppage")}
@@ -79,7 +79,7 @@ export default function SelectSignUpPage2() {
             </button>
 
             <button
-              className={`group flex items-center  space-x-3 h-[90px]  cursor-pointer rounded-lg shadow-lg border  md:w-[400px] ${getClassNames(
+              className={`group flex items-center p-2 space-x-5 h-[90px]  cursor-pointer rounded-lg shadow-lg   md:w-[400px] ${getClassNames(
                 "service"
               )}`}
               onClick={() => handleClick("service", "/signup")}

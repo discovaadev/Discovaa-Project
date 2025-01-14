@@ -10,7 +10,7 @@ const MessageInput = ({ onSend }) => {
     }
   };
   return (
-    <div className="flex items-center bg-white p-4 border-t border-gray-200">
+    <div className="flex items-center bg-gray-500 p-4 border-t border-gray-200">
       <button className="bg-black p-2 rounded-full w-10 h-10 text-white hover:bg-gray-800 mr-2">
         +
       </button>

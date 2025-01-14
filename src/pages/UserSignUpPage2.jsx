@@ -22,7 +22,7 @@ const UserSignUpPage2 = () => {
         showMenuIcon={false}
       />
       <main className="h-screen">
-        <ProfileForm imgSrc={Photographer} alt='Photographer' />
+        <ProfileForm imgSrc={Photographer} alt='Photographer' linkTo='/login' />
       </main>
       <Footer  />
     </div>

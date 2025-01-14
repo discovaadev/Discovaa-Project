@@ -19,7 +19,7 @@ const ServiceProviderCard = ({ provider,  onViewContact }) => {
     <div className="rounded-lg md:w-[411px]  overflow-hidden">
       <img src={image} alt={name} className="w-[350px] lg:w-[411px]  object-cover"/>
 
-      <div className="p-4 flex flex-col items-center md:items-start">
+      <div className="p-4 flex flex-col items-center md:items-start lg:items-center">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-2xl font-bold">{name}</h3>
           

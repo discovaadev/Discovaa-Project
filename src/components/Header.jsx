@@ -41,7 +41,6 @@ export default function Header({
   showSearchButton = false,
   // tabletMenuEnabled = false,
   enableTabletHeader = false,
-  tabletView = false,
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -228,6 +227,11 @@ export default function Header({
             className="flex flex-col items-center text-white rounded-b-lg mt-2 p-4 space-y-4"
             onClick={() => setMenuOpen(false)}
           >
+            <Link to={getProfileRoute()}>
+              <div className="w-8">
+                <img src={profilePic} alt="Profile" className="rounded-full" />
+              </div>
+            </Link>
             {customLinks.map((link, index) => (
               <Link
                 key={index}
@@ -239,7 +243,7 @@ export default function Header({
             ))}
 
             {showSignInButton && (
-              <Link to="/signin">
+              <Link to="/login">
                 <button className="w-full px-4 py-1 bg-white text-black rounded">
                   Sign In
                 </button>
@@ -531,12 +535,12 @@ export default function Header({
 
           {showAuthButtons ? (
             <>
-              <Link to="/signin">
+              <Link to="/login">
                 <button className="px-4 py-2 bg-black text-white rounded">
-                  Sign in
+                  Login
                 </button>
               </Link>
-              <Link to="/signup">
+              <Link to="/select">
                 <button className="px-4 py-2 bg-white text-black border border-black rounded">
                   Sign up
                 </button>
@@ -558,7 +562,7 @@ export default function Header({
                   : "Already have an account?"}{" "}
               </span>
               <Link
-                to={showSignUpText ? "/signup" : "/signin"}
+                to={showSignUpText ? "/signup" : "/login"}
                 className="text-blue-500 ml-1"
               >
                 {showSignUpText ? "Sign up" : "Sign in"}

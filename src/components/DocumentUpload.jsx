@@ -66,7 +66,7 @@ export default function DocumentUploadModal({ onClose }) {
         />
       )}
       {!showSuccessModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50 ">
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 ">
           <div className="bg-white  md:bg-white p-5 w-[900px] h-[570px] rounded-lg text-center relative md:w-[700px]">
             <div className="flex flex-col space-y-3 md:flex-row justify-evenly mb-10 relative">
               <button

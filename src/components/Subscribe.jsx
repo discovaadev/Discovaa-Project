@@ -39,16 +39,16 @@ export default function Subscribe() {
         </p>
       </div>
 
-      <div className="flex justify-evenly px-28 py-20">
-        <div className="max-w-lg">
+      <div className="flex flex-col  lg:flex-row justify-evenly lg:px-28 lg:py-20">
+        <div className="max-w-lg md:m-auto">
           <img
             src={CarMaintainaceImg}
             alt="subscribe-img"
-            className="w-full h-auto"
+            className="w-[230px] mt-5 m-auto md:w-[350px] lg:w-full h-auto "
           />
         </div>
 
-        <div className="bg-cover bg-no-repeat w-full max-w-sm h-[550px] rounded-lg bg-[url('./assets/ContactCard.png')] p-6">
+        <div className="mt-6 md:mt-4 lg:bg-cover bg-no-repeat w-full md:max-w-lg md:m-auto  h-[610px] rounded-lg bg-[url('./assets/ContactCard.png')] p-6">
           <div className="space-y-16">
             <div>
               <h2 className="text-xl font-semibold">Contact Information</h2>
@@ -87,7 +87,7 @@ export default function Subscribe() {
               </form>
             </div>
 
-            <div className="bg-gray-900 p-5 rounded-md">
+            <div className="bg-gray-900 p-5 rounded-md ">
               <h2 className="text-lg font-semibold mb-6">
                 Join Our NewsLetter
               </h2>
@@ -116,9 +116,9 @@ export default function Subscribe() {
           </div>
 
           <div className="flex items-center gap-6 mt-6">
-            <i className="fab fa-twitter bg-gray-900 p-3 rounded-full text-lg"></i>
-            <i className="fab fa-instagram bg-white text-black p-3 rounded-full text-lg"></i>
-            <i className="fab fa-facebook bg-gray-900 p-3 rounded-full text-lg"></i>
+            <i className="fab fa-twitter bg-gray-900 p-1 rounded-full text-lg"></i>
+            <i className="fab fa-instagram bg-white text-black p-1 rounded-full text-lg"></i>
+            <i className="fab fa-facebook bg-gray-900 p-1 rounded-full text-lg"></i>
           </div>
         </div>
       </div>

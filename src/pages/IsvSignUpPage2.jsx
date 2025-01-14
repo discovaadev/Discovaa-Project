@@ -22,7 +22,7 @@ const IsvSignUpPage2 = () => {
         pageTitle="Complete Your Profile!"
       />
       <main>
-        <ProfileForm showBusinessInfo={true} imgSrc={EngineerImg} titleStyle='font-bold text-3xl' />
+        <ProfileForm showBusinessInfo={true} imgSrc={EngineerImg} titleStyle='font-bold text-3xl' linkTo='/isplogin' />
       </main>
       <Footer />
     </div>

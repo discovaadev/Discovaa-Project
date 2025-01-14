@@ -63,7 +63,7 @@ const BookingInterface = ({ onClose }) => {
     <div
       className={`${
         window.innerWidth <= 768 ? "absolute" : "fixed"
-      } inset-0 -translate-y-[860px] flex justify-center items-center bg-black bg-opacity-50 z-50 md:-translate-y-0 lg:-translate-y-0 `}
+      } inset-0 -translate-y-[900px] flex justify-center items-center bg-black bg-opacity-50 z-50 md:-translate-y-0 lg:-translate-y-0 p-4`}
     >
       <div className=" relative bg-white shadow-lg rounded-lg p-6 w-full lg:max-w-4xl ">
         <button

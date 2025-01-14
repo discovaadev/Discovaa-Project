@@ -1,6 +1,6 @@
 const ChatMessages = ({ messages, activePage }) => {
   return (
-    <div className="flex-1 overflow-y-auto bg-green-50 p-4 space-y-4">
+    <div className="flex-1 overflow-y-auto bg-green-50 p-4 h-full space-y-4">
       {messages.map((message, index) => (
         <div key={index} className="flex flex-col">
           {message.date && (

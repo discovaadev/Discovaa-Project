@@ -33,7 +33,7 @@ const UserProfilePersonalinfoPage = ({
         showMenuIcon = {true}
         tabletMenuEnabled={true}
         isMenuOpen={true}
-        enableTabletHeader ={false}
+        enableTabletHeader ={true}
       />
       <main>
         <PersonalInfo

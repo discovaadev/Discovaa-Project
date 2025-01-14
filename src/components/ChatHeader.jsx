@@ -1,6 +1,6 @@
 const ChatHeader = ({ onClose, headerName }) => {
   return (
-    <div className="flex items-center justify-between bg-white shadow-md text-black px-4 py-4 rounded-t-xl">
+    <div className="flex items-center justify-between bg-white shadow-md text-black px-4 py-4 rounded-t-xl ">
       <div>
         <h2 className="text-xl sm:text-2xl font-bold">{headerName}</h2>
         <p className="text-sm sm:text-base text-gray-500">

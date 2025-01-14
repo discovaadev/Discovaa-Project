@@ -153,7 +153,7 @@ export default function FormSection({
           {errors.agreeToTerms && (
             <p className="text-red-500 text-xs">{errors.agreeToTerms}</p>
           )}
-          <Link to="/isvemail">
+          <Link to="/useremailconfirmation">
             <button
               type="submit"
               className="w-full py-2 text-white bg-black rounded-md hover:bg-gray-800"

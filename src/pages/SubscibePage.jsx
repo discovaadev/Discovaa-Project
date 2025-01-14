@@ -1,7 +1,7 @@
 import Header from "../components/Header.jsx";
 import Footer from "../components/footer.jsx";
 import Subscribe from "../components/Subscribe.jsx";
-const SubscribePage = ({ searchQuery, onSearchChange }) => {
+const SubscribePage = ({ searchQuery, onSearchChange, onProfileImageChange, profilePic }) => {
   return (
     <div>
       <Header
@@ -17,6 +17,12 @@ const SubscribePage = ({ searchQuery, onSearchChange }) => {
           { href: "/error", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
+        showMobileLogo = {true}
+        showMenuIcon = {true}
+       showSearchButton = {true}
+       enableTabletHeader = {true}
+       onProfileImageChange={onProfileImageChange}
+       profilePic={profilePic}
       />
       <main>
         <Subscribe />

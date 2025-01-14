@@ -46,6 +46,7 @@ import BspAvailability from "./components/BspAvailability";
 import BspEmailPage from "./pages/Business-email-Page";
 import BspSignUpPage3 from "./pages/Business-SignUp-Page3";
 import BuisnessDashboardPage from "./pages/BuisnessDashboardPage";
+import IspLoginPage from "./pages/IspLoginPage";
 
 import {
   bspNotifications,
@@ -195,6 +196,7 @@ console.log("Notifications for", activePage, ":", notifications);
           <Route path="/bspavailability" element={<BspAvailability />} />
           <Route path="/bspemailpage" element={<BspEmailPage />} />
           <Route path="/bspsignuppage3" element={<BspSignUpPage3 />} />
+          <Route path="/isplogin" element={<IspLoginPage />} />
           <Route
             path="/bspdashboard"
             element={
@@ -409,6 +411,8 @@ console.log("Notifications for", activePage, ":", notifications);
               <SubscriptionPage
                 searchQuery={searchQuery}
                 onSearchChange={handleSearchChange}
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
               />
             }
           />
@@ -419,6 +423,8 @@ console.log("Notifications for", activePage, ":", notifications);
               <RandomSearchPage
                 searchQuery={searchQuery}
                 onSearchChange={handleSearchChange}
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
               />
             }
           />

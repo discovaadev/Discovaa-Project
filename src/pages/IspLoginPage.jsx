@@ -240,7 +240,7 @@ const LoginForm = () => {
                 <a href="#/">Forgot Password?</a>
               </p>
             </div>
-            <Link to="/userdashboard">
+            <Link to="/isvDashboard">
               <button
                 type="submit"
                 className="w-full py-2 bg-black text-white rounded-md mb-4 hover:bg-gray-800"
