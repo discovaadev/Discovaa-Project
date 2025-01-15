@@ -213,7 +213,7 @@ const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImag
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/userverificationcomplete", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
@@ -228,6 +228,7 @@ const UserFilterPage = ({ searchQuery, onSearchChange, profilePic, onProfileImag
         showDesktopIcons = {true}
         showMenuIcon = {true}
         isMenuOpen={true}
+        showProfilePic = {true}
         enableTabletHeader = {true}
       />{" "}
 

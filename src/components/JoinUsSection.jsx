@@ -37,7 +37,7 @@ export default function JoinUsSection() {
         <div className="flex flex-col gap-5 ">
           <Link to="/isvsignup">
             <div
-              className={`group flex items-center space-x-2 h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white md:w-[400px]  ${
+              className={`group flex items-center space-x-6 h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white md:w-[400px]  ${
                 selectedOptions.includes("user")
                   ? "!bg-blue-100 border border-black"
                   : ""
@@ -60,7 +60,7 @@ export default function JoinUsSection() {
 
           <Link to="/businesssignup">
             <div
-              className={`group flex items-center space-x-2 h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white md:w-[400px] ${
+              className={`group flex items-center space-x-6 h-[90px] p-4 cursor-pointer rounded-lg shadow-lg bg-white md:w-[400px] ${
                 selectedOptions.includes("service")
                   ? "!bg-blue-100 border border-black"
                   : ""

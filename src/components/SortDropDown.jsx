@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const SortDropdown = () => {
-  const [selected, setSelected] = useState("Categories");
+  const [selected, setSelected] = useState(null); // Initially unselected
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -17,9 +17,9 @@ const SortDropdown = () => {
     <div className="relative inline-block text-left">
       <button
         onClick={handleToggle}
-        className=" text-white bg-black px-4 py-2 rounded-lg font-semibold inline-flex items-center"
+        className="text-white bg-black px-4 py-2 rounded-lg font-semibold inline-flex items-center"
       >
-        Sort by: {selected}{" "}
+        Sort by: {selected || "Categories"}
         <svg
           className={`ml-1 w-5 h-5 transform transition-transform duration-200 ${
             isOpen ? "rotate-180" : "rotate-0"
@@ -44,9 +44,14 @@ const SortDropdown = () => {
                 className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 cursor-pointer"
                 onClick={() => handleOptionClick(option)}
               >
-                {/* Icon with dot inside */}
-                <div className="flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 mr-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gray-700"></div>
+                <div
+                  className={`flex items-center justify-center w-4 h-4 rounded-full border border-gray-400 mr-2 ${
+                    selected === option ? "bg-gray-700" : ""
+                  }`}
+                >
+                  {selected === option && (
+                    <div className="w-2 h-2 rounded-full bg-white"></div>
+                  )}
                 </div>
                 {option}
               </div>

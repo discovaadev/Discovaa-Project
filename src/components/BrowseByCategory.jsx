@@ -12,7 +12,7 @@ export default function BrowseByCategory({
   return (
     <section
     className={`py-8 px-6 md:px-24 font-inter md:block ${
-      showOnMobile ? "block" : "hidden sm:block" // Apply responsive classes to the section tag
+      showOnMobile ? "block" : "hidden sm:block" 
     }`}
   >
     <div className="flex items-center justify-between mb-8">

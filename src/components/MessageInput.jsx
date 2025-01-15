@@ -9,21 +9,30 @@ const MessageInput = ({ onSend }) => {
       setInputText("");
     }
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      handleSend();
+    }
+  };
+
   return (
-    <div className="flex items-center bg-gray-500 p-4 border-t border-gray-200">
-      <button className="bg-black p-2 rounded-full w-10 h-10 text-white hover:bg-gray-800 mr-2">
+    <div className="flex items-center bg-white p-4 border-t border-gray-200 shadow-lg">
+      <button className="bg-black p-2 rounded-full w-10 h-10 text-white hover:bg-teal-600 mr-2">
         +
       </button>
-      <input
-        type="text"
+      <textarea
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
         placeholder="Type a message..."
-        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm sm:text-base"
+        rows="2" 
+        className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-black text-sm sm:text-base resize-none" 
+        onKeyDown={handleKeyDown}
       />
       <button
         onClick={handleSend}
-        className="bg-black p-3 rounded-full text-white hover:bg-gray-800 ml-2"
+        className="bg-black p-3 rounded-full text-white hover:bg-teal-600 ml-2"
       >
         ➤
       </button>

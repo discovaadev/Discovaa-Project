@@ -124,13 +124,17 @@ export default function FormSection({
                 onChange={handleInputChange}
                 className="w-full p-2 border-2 border-gray-300 rounded-md placeholder:text-xs focus:outline-none focus:border-blue-500"
               />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-4 text-sm font-light text-blue-500"
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-2 top-4 text-sm"
+                >
+                  {showPassword ? (
+                    <i className="fas fa-eye-slash"></i>
+                  ) : (
+                    <i className="fas fa-eye"></i>
+                  )}
+                </button>
             </div>
             {errors.password && (
               <p className="text-red-500 text-[9px]">{errors.password}</p>

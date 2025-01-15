@@ -44,6 +44,7 @@ const BookingInterface = ({ onClose }) => {
 
   const handleClose = () => {
     setIsConfirmed(false);
+    onClose(); 
   };
 
   const formatDate = (isoDate) => {
@@ -60,114 +61,120 @@ const BookingInterface = ({ onClose }) => {
     availability[selectedDate.toISOString().split("T")[0]] || [];
 
   return (
-    <div
-      className={`${
-        window.innerWidth <= 768 ? "absolute" : "fixed"
-      } inset-0 -translate-y-[900px] flex justify-center items-center bg-black bg-opacity-50 z-50 md:-translate-y-0 lg:-translate-y-0 p-4`}
-    >
-      <div className=" relative bg-white shadow-lg rounded-lg p-6 w-full lg:max-w-4xl ">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-white hover:text-white text-2xl rounded-full bg-black w-8 h-8"
+    <>
+      {!isConfirmed && (
+        <div
+          className={`${
+            window.innerWidth <= 768 ? "absolute" : "fixed"
+          } inset-0 -translate-y-[900px] flex justify-center items-center bg-black bg-opacity-50 z-50 md:-translate-y-0 lg:-translate-y-0 p-4`}
         >
-          &times;
-        </button>
+          <div className="relative bg-white shadow-lg rounded-lg p-6 w-full lg:max-w-4xl">
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-white hover:text-white text-2xl rounded-full bg-black w-8 h-8"
+            >
+              &times;
+            </button>
 
-        <h2 className="text-xl font-semibold mb-2">Select date and time</h2>
-        <p className="text-sm text-gray-500 mb-8">
-          In your local time zone (Europe, Estonia)
-        </p>
+            <h2 className="text-xl font-semibold mb-2">Select date and time</h2>
+            <p className="text-sm text-gray-500 mb-8">
+              In your local time zone (Europe, Estonia)
+            </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="m-auto">
-            <div className="border rounded-lg p-4 ">
-              <div className="text-center text-gray-700 font-semibold mb-2">
-                Choose a Date
-              </div >
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-                inline
-                calendarClassName="custom-calendar "
-               
-              />
-            </div>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="m-auto">
+                <div className="border rounded-lg p-4 ">
+                  <div className="text-center text-gray-700 font-semibold mb-2">
+                    Choose a Date
+                  </div>
+                  <DatePicker
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    inline
+                    calendarClassName="custom-calendar"
+                  />
+                </div>
+              </div>
 
-          <div>
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-4">Available dates</h3>
-              <p className="text-xs text-gray-500 mb-3">
-                Plum Plumbing Services’ available date slots...
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                {filteredAvailableDates.map(({ day, date }, index) => (
-                  <button
-                    key={index}
-                    className={`border rounded-lg px-4 py-2 text-sm font-medium ${
-                      selectedDate.toISOString().split("T")[0] === date
-                        ? "bg-black text-white"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }`}
-                    onClick={() => setSelectedDate(new Date(date))}
-                  >
-                    <div>{day}</div>
-                    <div>{formatDate(date)}</div>
-                  </button>
-                ))}
+              <div>
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold mb-4">
+                    Available dates
+                  </h3>
+                  <p className="text-xs text-gray-500 mb-3">
+                    Plum Plumbing Services’ available date slots...
+                  </p>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    {filteredAvailableDates.map(({ day, date }, index) => (
+                      <button
+                        key={index}
+                        className={`border rounded-lg px-4 py-2 text-sm font-medium ${
+                          selectedDate.toISOString().split("T")[0] === date
+                            ? "bg-black text-white"
+                            : "text-gray-600 hover:bg-gray-100"
+                        }`}
+                        onClick={() => setSelectedDate(new Date(date))}
+                      >
+                        <div>{day}</div>
+                        <div>{formatDate(date)}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold mb-4">
+                    Available time slots
+                  </h3>
+                  <p className="text-xs text-gray-500 mb-3">
+                    Plum Plumbing Services’ available time slots...
+                  </p>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
+                    {filteredTimeSlots.map((time, index) => (
+                      <button
+                        key={index}
+                        className={`border px-4 py-2 rounded-lg text-sm font-medium ${
+                          selectedTime === time
+                            ? "bg-black text-white"
+                            : "text-gray-600 hover:bg-gray-100"
+                        }`}
+                        onClick={() => setSelectedTime(time)}
+                      >
+                        {time}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <button
+                      className="bg-black text-white py-3 px-6 rounded hover:bg-gray-800 flex-grow"
+                      onClick={handleConfirmOrder}
+                    >
+                      Confirm Booking
+                    </button>
+                    <button
+                      onClick={onClose}
+                      className="bg-gray-200 text-gray-700 py-3 px-6 rounded hover:bg-gray-300 flex-grow"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-4">
-                Available time slots
-              </h3>
-              <p className="text-xs text-gray-500 mb-3">
-                Plum Plumbing Services’ available time slots...
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-8">
-                {filteredTimeSlots.map((time, index) => (
-                  <button
-                    key={index}
-                    className={`border px-4 py-2 rounded-lg text-sm font-medium ${
-                      selectedTime === time
-                        ? "bg-black text-white"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }`}
-                    onClick={() => setSelectedTime(time)}
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
-              <div className="flex flex-col gap-4">
-                <button
-                  className="bg-black text-white py-3 px-6 rounded hover:bg-gray-800 flex-grow"
-                  onClick={handleConfirmOrder}
-                >
-                  Confirm Booking
-                </button>
-                <button
-                  onClick={onClose}
-                  className="bg-gray-200 text-gray-700 py-3 px-6 rounded hover:bg-gray-300 flex-grow"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
+            <LoadingModal isVisible={isLoading} />
           </div>
         </div>
+      )}
 
-        <LoadingModal isVisible={isLoading} />
-        {isConfirmed && (
-          <BookingConfirmedModal
-            onClose={handleClose}
-            selectedDate={selectedDate}
-            selectedTime={selectedTime}
-          />
-        )}
-      </div>
-    </div>
+      {isConfirmed && (
+        <BookingConfirmedModal
+          onClose={handleClose}
+          selectedDate={selectedDate}
+          selectedTime={selectedTime}
+        />
+      )}
+    </>
   );
 };
 

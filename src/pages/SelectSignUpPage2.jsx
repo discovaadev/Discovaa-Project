@@ -36,7 +36,7 @@ export default function SelectSignUpPage2() {
         logoSrc={BlackLogo}
         hideNavLinks={true}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/pricing", label: "Pricing" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
@@ -46,7 +46,9 @@ export default function SelectSignUpPage2() {
         bgColor=""
         showSearch={false}
         showIcons={false}
-        showAvaterNlogo={true}
+        showAvaterNlogo={false}
+        showMobileLogo = {true}
+        showMenuIcon = {true}
       />
       <div className="flex flex-col h-screen lg:flex-row justify-evenly">
         <div className="w-[250px] m-auto md:w-[420px]">
@@ -98,7 +100,7 @@ export default function SelectSignUpPage2() {
         </div>
       <div className="flex sm:hidden items-center justify-center mt-8 text-sm">
         <span className="text-[#8692A6]">Already have an account? </span>
-        <Link to="/signin" className="text-blue-500 ml-1">
+        <Link to="/login" className="text-blue-500 ml-1">
           Sign in
         </Link>
       </div>

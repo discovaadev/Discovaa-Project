@@ -12,7 +12,7 @@ const UserVerificationCompletePage = ({searchQuery, onSearchChange, onProfileIma
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/pricing", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },

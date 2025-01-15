@@ -18,7 +18,7 @@ const BuisnessSerViceProviderPage = ({
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/pricing", label: "Pricing" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
@@ -26,6 +26,7 @@ const BuisnessSerViceProviderPage = ({
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic}
         onToggleChat={onToggleChat}
+        showProfilePic = {true}
       />
       <UserDashboard />
       <Footer />

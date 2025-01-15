@@ -116,7 +116,7 @@ const LoginForm = () => {
         showProfile={false}
         showSignInText={false}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/pricing", label: "Pricing" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
@@ -160,19 +160,22 @@ const LoginForm = () => {
             </Slider>
           </div>
         </div>
-        <div className="mt-0 -translate-y-16 pl-3 md:flex flex-col max-w-sm mt-12 md:translate-y-0 md:pl-0 m-auto mt-24 lg:ml-6">
+        <div className="mt-0 -translate-y-16 p-4 md:flex flex-col max-w-sm mt-12 md:translate-y-0 md:pl-0 m-auto mt-24 lg:ml-6">
           <div className="hidden md:block ">
             <h2 className="text-2xl font-semibold">Welcome</h2>
             <p className="text-gray-600 mb-4">Login to continue</p>
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="mb-6 ">
+            <div className="mb-6">
               <label htmlFor="email" className="block text-sm mb-2">
                 Email
               </label>
               <div className="relative">
-                <span className="material-symbols-outlined text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2 text-lg">
+                <span
+                  className="material-symbols-outlined text-gray-500 absolute left-3 top-4 text-lg pointer-events-none"
+                  style={{ lineHeight: "1" }}
+                >
                   mail
                 </span>
                 <input
@@ -182,11 +185,14 @@ const LoginForm = () => {
                   placeholder="Your email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-[330px] m-auto md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full max-w-md m-auto md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 lg:w-full"
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-xs">{errors.email}</p>
-                )}
+
+                <div className="h-4">
+                  {errors.email && (
+                    <p className="text-red-500 text-xs">{errors.email}</p>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -195,7 +201,10 @@ const LoginForm = () => {
                 Password
               </label>
               <div className="relative">
-                <span className="material-symbols-outlined text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2 text-lg">
+                <span
+                  className="material-symbols-outlined text-gray-500 absolute left-3 top-4 text-lg pointer-events-none"
+                  style={{ lineHeight: "1" }}
+                >
                   lock
                 </span>
                 <input
@@ -205,16 +214,13 @@ const LoginForm = () => {
                   placeholder="Your password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full  md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full md:w-[400px] pl-12 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 lg:w-full"
                 />
-                {errors.password && (
-                  <p className="text-red-500 text-xs">{errors.password}</p>
-                )}
 
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm"
+                  className="absolute right-2 top-4 text-sm"
                 >
                   {showPassword ? (
                     <i className="fas fa-eye-slash"></i>
@@ -222,10 +228,16 @@ const LoginForm = () => {
                     <i className="fas fa-eye"></i>
                   )}
                 </button>
+
+                <div className="h-4">
+                  {errors.password && (
+                    <p className="text-red-500 text-xs">{errors.password}</p>
+                  )}
+                </div>
               </div>
             </div>
 
-            <div className="flex justify-between items-center mb-6 text-xs ">
+            <div className="flex justify-between items-center -translate-y-6 text-xs ">
               <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
@@ -248,8 +260,11 @@ const LoginForm = () => {
                 Login
               </button>
             </Link>
-
-            <div className="text-center text-xs my-4">Or continue with</div>
+            <div className="flex items-center gap-4 mb-4">
+              <p className="border-t border-gray-500 border-1 w-[120px]"></p>
+              <p className="text-center text-sm ">Or continue with</p>
+              <p className="border-t border-gray-500 border-1 w-[120px]"></p>
+            </div>
             <button className="flex items-center justify-center w-full py-2 bg-white border border-gray-300 rounded-md shadow-sm gap-3 hover:bg-gray-100">
               <img src={GoogleImg} alt="google-img" className="w-4 h-4" />
               Google

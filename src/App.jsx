@@ -166,17 +166,19 @@ function App() {
     }
   }, [location.pathname]);
   const notifications =
-  activePage === "UserFilterPage"
-    ? userNotifications
-    : activePage === "IspProfilePage" || activePage === "IspProfilePageEdit"
-    ? ispNotifications
-    : activePage === "BspProfilePage"
-    ? bspNotifications
-    : activePage === "UserProfilePersonalinfoPage"
-    ? userProfileNotifications
-    : [];
-console.log("Notifications for", activePage, ":", notifications);
+    activePage === "UserFilterPage"
+      ? userNotifications
+      : activePage === "IspProfilePage" || activePage === "IspProfilePageEdit"
+      ? ispNotifications
+      : activePage === "BspProfilePage"
+      ? bspNotifications
+      : activePage === "UserProfilePersonalinfoPage"
+      ? userProfileNotifications
+      : activePage === "UserDashboard"
+      ? userNotifications
+      : [];
 
+  console.log("Notifications for", activePage, ":", notifications);
 
   const headerName =
     activePage === "UserFilterPage"
@@ -372,6 +374,7 @@ console.log("Notifications for", activePage, ":", notifications);
                 searchQuery={searchQuery}
                 onSearchChange={handleSearchChange}
                 onToggleChat={handleToggleChat}
+                onToggleNotification={handleToggleNotification}
               />
             }
           />
@@ -401,6 +404,8 @@ console.log("Notifications for", activePage, ":", notifications);
               <ErrorPage
                 searchQuery={searchQuery}
                 onSearchChange={handleSearchChange}
+                profilePic={profilePic}
+                onProfileImageChange={handleProfileImageChange}
               />
             }
           />

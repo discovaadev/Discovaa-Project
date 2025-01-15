@@ -12,7 +12,7 @@ const SubscribePage = ({ searchQuery, onSearchChange, onProfileImageChange, prof
         showProfile={false}
         showIcons={false}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/pricing", label: "Pricing" },
           { href: "/error", label: "About Us" },
           { href: "/contact", label: "Contact" },

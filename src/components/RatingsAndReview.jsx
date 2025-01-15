@@ -60,10 +60,10 @@ function RatingsAndReviews() {
 
   return (
     <section className="w-full">
-        <div className="flex justify-between  mt-12">
+        <div className="flex justify-between  mt-12 pl-2">
           <h2 className="text-2xl p-3 font-semibold mb-2 lg:pl-[50px]">Ratings and Reviews</h2>
-          <div className="flex items-center text-gray-600 mb-6 lg:pr-[165px] ml-20">
-            <span className="text-xl">★ 4.5</span>
+          <div className="flex items-center text-gray-600 mb-6 lg:pr-[165px] -space-x-3 ">
+            <span className="text-[17px] ">★ 4.5</span>
             <span className="ml-2">10 Reviews</span>
           </div>
         </div>

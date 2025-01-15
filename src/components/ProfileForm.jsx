@@ -199,7 +199,7 @@ const ProfileForm = ({
                 Save and Continue
               </button>
             </Link>
-            <div className="security flex items-center ml-36  text-[13px] text-[#8692A6]">
+            <div className="security flex items-center justify-center text-[13px] text-[#8692A6]">
               <span className="material-symbols-outlined text-[15px]">
                 lock
               </span>

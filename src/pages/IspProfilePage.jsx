@@ -36,8 +36,8 @@ const IspProfilePage = ({
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
-          { href: "/userdashboard", label: "Dashboard" },
+          { href: "/homepage", label: "Home" },
+          { href: "/isvdashboard", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
@@ -53,6 +53,7 @@ const IspProfilePage = ({
         showMenuIcon = {true}
         tabletMenuEnabled={true}
         isMenuOpen={true}
+        showProfilePic = {true}
         enableTabletHeader = {true}
       />
       <div className="relative flex-grow">

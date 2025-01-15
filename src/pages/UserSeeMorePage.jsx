@@ -48,7 +48,7 @@ const UserSeeMorePage = ({
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/userverificationcomplete", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
@@ -64,6 +64,7 @@ const UserSeeMorePage = ({
         showMenuIcon = {true}
         tabletMenuEnabled={true}
         isMenuOpen={true}
+        showProfilePic = {true}
         enableTabletHeader ={false}
       />
       <main>

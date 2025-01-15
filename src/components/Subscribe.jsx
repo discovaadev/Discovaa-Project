@@ -48,7 +48,7 @@ export default function Subscribe() {
           />
         </div>
 
-        <div className="mt-6 md:mt-4 lg:bg-cover bg-no-repeat w-full md:max-w-lg md:m-auto  h-[610px] rounded-lg bg-[url('./assets/ContactCard.png')] p-6">
+        <div className="mt-6 max-w-[350px] m-auto  md:mt-4 lg:bg-cover bg-no-repeat w-full md:max-w-lg md:m-auto  h-[610px] rounded-lg bg-[url('./assets/ContactCard.png')] p-6">
           <div className="space-y-16">
             <div>
               <h2 className="text-xl font-semibold">Contact Information</h2>

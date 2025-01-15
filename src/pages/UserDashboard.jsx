@@ -8,6 +8,7 @@ const UserDashboard = ({
   profilePic,
   onProfileImageChange,
   onToggleChat,
+  onToggleNotification
 }) => {
   return (
     <div>
@@ -19,8 +20,8 @@ const UserDashboard = ({
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
-          { href: "/pricing", label: "Pricing" },
+          { href: "/homepage", label: "Home" },
+          { href: "/dashboard", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
@@ -34,6 +35,8 @@ const UserDashboard = ({
         tabletMenuEnabled={true}
         isMenuOpen={true}
         enableTabletHeader = {true}
+        showProfilePic = {true}
+        onToggleNotification={onToggleNotification}
       />
       <main>
         <Dashboard

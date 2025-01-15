@@ -12,7 +12,7 @@ const IsvVerificationCompletePage = ({searchQuery, onSearchChange, onProfileImag
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/pricing", label: "Pricing" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },

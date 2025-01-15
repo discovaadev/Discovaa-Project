@@ -18,7 +18,7 @@ const IspProfilePersonalinfo = ({
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "/homepage", label: "Home" },
           { href: "/userdashboard", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
@@ -26,6 +26,7 @@ const IspProfilePersonalinfo = ({
         onProfileImageChange={onProfileImageChange}
         profilePic={profilePic }
         onToggleChat={onToggleChat}
+        showProfilePic = {true}
       />
       <main>
         <PersonalInfo

@@ -36,8 +36,8 @@ const BspProfilePage = ({
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
-          { href: "/userdashboard", label: "Dashboard" },
+          { href: "/homepage", label: "Home" },
+          { href: "/bspdashboard", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
@@ -54,6 +54,7 @@ const BspProfilePage = ({
         tabletMenuEnabled={true}
         isMenuOpen={true}
         enableTabletHeader = {true}
+        showProfilePic = {true} 
       />
       <div className="relative flex-grow">
         <div className="z-0">

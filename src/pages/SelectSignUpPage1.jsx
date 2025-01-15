@@ -9,7 +9,7 @@ const SelectSignUpPage1 = () => {
       <Header
         logoSrc={BlackLogo}
         customLinks={[
-          { href: "/", label: "Home" },
+          { href: "//homepage", label: "Home" },
           { href: "/pricing", label: "Pricing" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
@@ -20,15 +20,17 @@ const SelectSignUpPage1 = () => {
         bgColor=""
         showSearch={false}
         showIcons={false}
-        showAvaterNlogo={true}
+        showAvaterNlogo={false}
         hideNavLinks={true}
+        showMobileLogo = {true}
+        showMenuIcon = {true}
       />
       <main className="">
         <JoinUsSection />
       </main>
       <div className="flex sm:hidden items-center justify-center mt-8 text-sm">
         <span className="text-[#8692A6]">Already have an account? </span>
-        <Link to="/signin" className="text-blue-500 ml-1">
+        <Link to="/isplogin" className="text-blue-500 ml-1">
           Sign in
         </Link>
       </div>

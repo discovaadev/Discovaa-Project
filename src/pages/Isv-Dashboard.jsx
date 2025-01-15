@@ -13,8 +13,8 @@ const IsvDashboard = ({ searchQuery, onSearchChange, profilePic, onProfileImageC
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
-          { href: "/pricing", label: "Pricing" },
+          { href: "/homepage", label: "Home" },
+          { href: "/dashboard", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}
@@ -27,6 +27,7 @@ const IsvDashboard = ({ searchQuery, onSearchChange, profilePic, onProfileImageC
         showMenuIcon = {true}
         tabletMenuEnabled={true}
         isMenuOpen={true}
+        showProfilePic = {true}
         enableTabletHeader = {true}
       />
       <main>

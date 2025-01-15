@@ -39,7 +39,7 @@ export default function Header({
   showMenuIcon = false,
   showDesktopIcons = false,
   showSearchButton = false,
-  // tabletMenuEnabled = false,
+  showProfilePic = false,
   enableTabletHeader = false,
 }) {
   const validLinkColor = linkColor ? `!${linkColor}` : "!text-black";
@@ -103,6 +103,7 @@ export default function Header({
   const isForgotPasswordPage = location.pathname === "/forgotpassword";
   const isOtpVerificationPage = location.pathname === "/otpverification";
   const isResetPasswordPage = location.pathname === "/resetpassword";
+  const ispLoginPage = location.pathname === "/isplogin";
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSearchActive, setSearchActive] = useState(false);
@@ -126,25 +127,24 @@ export default function Header({
             <img src={WhiteLogo} alt="Logo" className="w-24 h-auto ml-3" />
           )}
 
-          <div className="flex items-center justify-center space-x-2">
+          <div className="flex items-center justify-center ">
             {showSearchButton && (
-              <div className="relative flex flex-col items-center space-x-2 translate-x-8 -translate-y-1">
+              <div className="relative flex flex-col items-center space-x-2 translate-x-8 translate-y-1">
                 <button
                   onClick={() => setSearchActive(!isSearchActive)}
                   className="text-white text-xl focus:outline-none"
                   aria-label="Toggle search"
                 >
-                  <span className="material-icons">search</span>
+                  <span className="material-icons   bg-gray-800 p-0 rounded-full text-white border border-gray-600 shadow-md hover:bg-gray-700 hover:shadow-lg transition duration-300 ease-in-out">
+                    search
+                  </span>
                 </button>
-                <span className="absolute top-4 text-xs text-white">
-                  Search
-                </span>
               </div>
             )}
 
             {showDesktopIcons && (
-              <div className="translate-x-8">
-                <div className="flex space-x-1 translate-x-12">
+              <div className="translate-x-6">
+                <div className="flex space-x-1 translate-x-12 mt-2">
                   <div className="">
                     {["notifications", "message"].map((icon, index) => (
                       <a
@@ -227,11 +227,17 @@ export default function Header({
             className="flex flex-col items-center text-white rounded-b-lg mt-2 p-4 space-y-4"
             onClick={() => setMenuOpen(false)}
           >
-            <Link to={getProfileRoute()}>
-              <div className="w-8">
-                <img src={profilePic} alt="Profile" className="rounded-full" />
-              </div>
-            </Link>
+            {showProfilePic && (
+              <Link to={getProfileRoute()}>
+                <div className="w-8">
+                  <img
+                    src={profilePic}
+                    alt="Profile"
+                    className="rounded-full"
+                  />
+                </div>
+              </Link>
+            )}
             {customLinks.map((link, index) => (
               <Link
                 key={index}
@@ -327,6 +333,8 @@ export default function Header({
                   ? "ml-2"
                   : isBsvSignUpPage
                   ? "text-white -translate-x-8"
+                  : ispLoginPage
+                  ? "text-white ml-14 "
                   : "text-white"
               }`}
             >
@@ -334,6 +342,11 @@ export default function Header({
             </div>
             {isLoginPage && (
               <div className="text-[11px] text-gray-600 font-semibold ml-[65px] -mt-3">
+                Login to continue
+              </div>
+            )}
+            {ispLoginPage && (
+              <div className="text-[11px] text-gray-600 font-semibold ml-[62px] -mt-3">
                 Login to continue
               </div>
             )}
@@ -455,7 +468,7 @@ export default function Header({
             {showBackButton && <BackButton />}
             <Logo src={logoSrc} width="112px" height="auto" />
             <nav
-              className={`lg:flex space-x-6 items-center ml-6 ${
+              className={`lg:flex space-x-6 items-center ml-6 mt-1 ${
                 hideNavLinks ? "" : linkColor
               }`}
             >

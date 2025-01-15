@@ -12,8 +12,8 @@ const BuisnessDashboardPage = ({searchQuery, onSearchChange, profilePic, onProfi
         showSearch={true}
         showProfile={true}
         customLinks={[
-          { href: "/", label: "Home" },
-          { href: "/pricing", label: "Pricing" },
+          { href: "/homepage", label: "Home" },
+          { href: "/bspdashboard", label: "Dashboard" },
           { href: "/about", label: "About Us" },
           { href: "/contact", label: "Contact" },
         ]}

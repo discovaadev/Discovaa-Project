@@ -16,7 +16,7 @@ const BookingConfirmedModal = ({ onClose, selectedDate, selectedTime }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-3">
       <div className="bg-white rounded-lg p-8 w-full max-w-md shadow-lg relative">
         <button
           onClick={onClose}
